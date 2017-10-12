@@ -1,26 +1,13 @@
 <aside id="__tm_banners_grid_widget-16" class="widget woocommerce __tm_banners_grid_widget">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-      <div class="tm_banners_grid_widget_banner tm_banners_grid_widget_banner_height_1">
-        <a class="tm_banners_grid_widget_banner_link" href="https://ld-wp.template-help.com/woocommerce_58679/shop/">
-          <img width="870" height="585" src="./Willard – Enhanced E-store_files/home_banner_1.jpg" class="attachment-original size-original" alt="" srcset="https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/home_banner_1.jpg 870w, https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/home_banner_1-300x202.jpg 300w, https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/home_banner_1-768x516.jpg 768w" sizes="(max-width: 870px) 100vw, 870px">
-          <div class="tm_banners_grid_widget_banner_text">
-            <div class="tm_banners_grid_widget_banner_text_inner">
-              <h4 class="tm_banners_grid_widget_banner_title">,</h4>
-              <div class="tm_banners_grid_widget_banner_content">
-                ,
-              </div>
-            </div>
-          </div>
-        </a>
+    <% @catalogs.each do |catalog| %>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="tm_banners_grid_widget_banner tm_banners_grid_widget_banner_height_1">
+          <a class="tm_banners_grid_widget_banner_link" href="#">
+            <%= image_tag catalog.url%>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-      <div class="tm_banners_grid_widget_banner tm_banners_grid_widget_banner_height_1">
-        <a class="tm_banners_grid_widget_banner_link" href="https://ld-wp.template-help.com/woocommerce_58679/shop/">
-        <img width="870" height="585" src="./Willard – Enhanced E-store_files/home_banner_2.jpg" class="attachment-original size-original" alt="" srcset="https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/home_banner_2.jpg 870w, https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/home_banner_2-300x202.jpg 300w, https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/home_banner_2-768x516.jpg 768w" sizes="(max-width: 870px) 100vw, 870px">
-        </a>
-      </div>
-    </div>
+    <% end %>
   </div>
 </aside>

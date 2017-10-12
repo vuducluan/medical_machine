@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 20171018061612) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "slider_catalogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.string "url"
+    t.text "desc"
+    t.text "caption"
+    t.text "alt"
+    t.string "image_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "subcribers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email"
     t.datetime "created_at", null: false

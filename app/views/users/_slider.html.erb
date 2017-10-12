@@ -1,0 +1,504 @@
+<div class="tm_pb_widget_area cherry-sidebars-4 tm_pb_widget_area_left clearfix tm_pb_module tm_pb_bg_layout_light  tm_pb_sidebar_0">
+  <aside id="mpslwidget-4" class="widget widget_mpslwidget">
+    <div class="motoslider_wrapper  ng-scope ms_loaded" id="motoslider_wrapper59dc857496667">
+      <div data-scope="" ms-slider="" id="2" class="ms_wrapper ng-scope ms_to_right turnApply applySlides" ng-class="[&#39;ms_to_right&#39;, &#39;turnApply&#39;, &#39;applySlides&#39;, data.settings.customClass]" data-ng-init="initSlider()" ms-swipe="" data-motoslider="" style="height: 1149.74px; max-height: 760px; opacity: 1;">
+        <!-- ngRepeat: slide in data.slides track by $index -->
+        <div ms-slide-repeater="" ng-repeat="slide in data.slides track by $index" ng-show="isCurrentIndex($index)" data-current-index="0" class="ms_slide ms_repeater ms_optimize ng-scope mpsl-animated ng-animate ng-hide-animate ng-hide msSlideFade mpsl-easeOutCirc" id="" ng-class="[isCurrentIndexFirst($index) &amp;&amp; &#39;ms_current_slide ms_show&#39;, isCurrentIndexFirst($index) &amp;&amp; data.defaults.animatedClass, slide.general.classes]" data-ng-animate="2" style="transition-property: opacity; transition-duration: 2000ms;">
+          <!-- ngIf: slide.general.link.length -->
+          <div class="ms_slide_wrapper" ms-slide="" enter-animation="msSlideFade" leave-animation="msSlideFade" duration="2000" easing="easeOutCirc">
+            <!-- ngIf: isSlideBgType('color') -->
+            <div class="ms_color ng-scope" ng-if="isSlideBgType(&#39;color&#39;)" ms-slide-color="" ng-style="getStyles()" style="background-color: rgb(255, 255, 255); min-height: 100%; background-size: cover;"></div>
+            <!-- end ngIf: isSlideBgType('color') -->
+            <!-- ngIf: isSlideBgType('gradient') -->
+            <!-- ngIf: isSlideBgType('image') -->
+            <div class="ms_image ng-scope" ng-if="isSlideBgType(&#39;image&#39;)" ms-slide-image="" ng-style="getStyles()" style="min-height: 100%; background-image: url(&quot;https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/slider-1.jpg&quot;); background-repeat: no-repeat; background-position: center center; background-size: cover;"></div>
+            <!-- end ngIf: isSlideBgType('image') -->
+            <!-- ngIf: isSlideBgType('video') && !detectMobile -->
+            <!--            <div class="ms_video_background" ng-if="isSlideBgType('video')">
+              <video ms-slide-video ng-if="slide.backgrounds.video.showVideo" ng-style="getStyles()" preload>
+                  <source ng-repeat="s in slide.backgrounds.video.sources" ng-src="{{ getSrc(s)}}" type="{{ getType(s)}}" ></source>
+              </video>
+              </div>-->
+            <!--<iframe class="ms_youtube" ms-slide-youtube ng-style="getStyles()" frameborder="0" allowscriptaccess="always"></iframe>-->
+            <!--<div class="ms_parallax_wrapper" ng-if="isSlideParallax(slide)" >-->
+            <!--<div ms-slide-parallax class="ms_parallax"  ng-if="isSlideParallax(slide)" data-jkit="[parallax:strength=1;axis=both;detect=mousemove;scope=local;]"  ng-style="getStyles()">-->
+            <!--<div  data-ng-repeat="p in slide.parallaxSettings.parallaxLayers"  ng-bind-html="p.content | parallaxValidate" class="ms_parallax" data-ng-class="{ {{p.class}} : true }" ms-size="{{p.size}}" ms-resize-parallax-element ></div>-->
+            <!--</div>-->
+            <!--</div>-->
+          </div>
+          <div class="ms_layers_wrapper" style="max-width: 1170px; width: 100%;">
+            <!-- ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;100&#39;}" ng-show="isHideWidth(layer)" style="z-index: 100;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-1 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-hide" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 98px; left: 9px; bottom: auto; right: auto; animation-delay: 10ms; animation-duration: 1000ms; opacity: 1; font-size: 18px; line-height: 30px; text-align: left; padding: 5px 9px; border-width: 0px; margin: 0px; letter-spacing: 1.44px;">
+                <p style="font-size: 18px; line-height: 30px; text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px;"><span style="color: rgb(255, 215, 26); font-size: 18px; line-height: 30px; text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px;">only this week!</span></p>
+              </div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;101&#39;}" ng-show="isHideWidth(layer)" style="z-index: 101;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-2 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-hide" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 137px; left: 9px; bottom: auto; right: auto; animation-delay: 10ms; animation-duration: 1000ms; opacity: 1; text-align: center; padding: 0px 25px; border-width: 0px; margin: 0px; letter-spacing: 4.44px; font-size: 78px; line-height: normal; width: 444px;"><span style="color: rgb(34, 34, 34); text-align: center; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 4.44px; font-size: 78px; line-height: normal;">Save 20%</span></div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;102&#39;}" ng-show="isHideWidth(layer)" style="z-index: 102;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-3 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-hide" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 271px; left: 7px; bottom: auto; right: auto; animation-delay: 10ms; animation-duration: 1000ms; opacity: 1; text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px; font-size: 30px; line-height: 41px; width: 584px;">
+                <p style="text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px; font-size: 30px; line-height: 41px;">DEWALT DCK955X 18-Volt XRP Cordless</p>
+              </div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;103&#39;}" ng-show="isHideWidth(layer)" style="z-index: 103;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-4 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-hide" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 340px; left: 4px; bottom: auto; right: auto; animation-delay: 10ms; animation-duration: 1000ms; opacity: 1; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.12px; font-size: 88px; line-height: normal; text-align: left;">$</div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;104&#39;}" ng-show="isHideWidth(layer)" style="z-index: 104;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-5 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-hide" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 269.5px; left: 54.5px; bottom: auto; right: auto; animation-delay: 10ms; animation-duration: 1000ms; opacity: 1; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.12px; font-size: 200px; line-height: normal; text-align: left;">187</div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;105&#39;}" ng-show="isHideWidth(layer)" style="z-index: 105;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-6 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-hide" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 330.5px; left: 345.5px; bottom: auto; right: auto; animation-delay: 10ms; animation-duration: 1000ms; opacity: 1; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.12px; font-size: 80px; line-height: normal; text-align: left;">.99</div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;106&#39;}" ng-show="isHideWidth(layer)" style="z-index: 106;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') --><a ng-if="isLayerType(&#39;button&#39;)" class="ms_layer ms_button_layer ng-scope mpsl-layer mpsl-private-preset-7 ms_visible mpsl-animated mpsl-linear mpsl-layer-hide" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-button-layer="" ms-layer="" target="_blank" href="https://ld-wp.template-help.com/woocommerce_58679/shop/" style="top: 562.5px; left: 9.5px; bottom: auto; right: auto; animation-delay: 10ms; animation-duration: 1000ms; opacity: 1; padding: 0px 40px; border-width: 0px; margin: 0px; letter-spacing: 1.44px; font-size: 14px; line-height: 59px; text-align: left;">Shop now!</a>
+              <!-- end ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+          </div>
+        </div>
+        <!-- end ngRepeat: slide in data.slides track by $index -->
+        <div ms-slide-repeater="" ng-repeat="slide in data.slides track by $index" ng-show="isCurrentIndex($index)" data-current-index="1" class="ms_slide ms_repeater ms_optimize ng-scope false ng-animate ng-hide-animate ms_active ms_current_slide mpsl-animated msSlideFade mpsl-easeOutCirc" id="" ng-class="[isCurrentIndexFirst($index) &amp;&amp; &#39;ms_current_slide ms_show&#39;, isCurrentIndexFirst($index) &amp;&amp; data.defaults.animatedClass, slide.general.classes]" data-ng-animate="2" style="transition-property: opacity; transition-duration: 2000ms;">
+          <!-- ngIf: slide.general.link.length -->
+          <div class="ms_slide_wrapper" ms-slide="" enter-animation="msSlideFade" leave-animation="msSlideFade" duration="2000" easing="easeOutCirc">
+            <!-- ngIf: isSlideBgType('color') -->
+            <div class="ms_color ng-scope" ng-if="isSlideBgType(&#39;color&#39;)" ms-slide-color="" ng-style="getStyles()" style="background-color: rgb(255, 255, 255); min-height: 100%; background-size: cover;"></div>
+            <!-- end ngIf: isSlideBgType('color') -->
+            <!-- ngIf: isSlideBgType('gradient') -->
+            <!-- ngIf: isSlideBgType('image') -->
+            <div class="ms_image ng-scope ms_optimize" ng-if="isSlideBgType(&#39;image&#39;)" ms-slide-image="" ng-style="getStyles()" style="min-height: 100%; background-image: url(&quot;https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/slide-2-1.jpg&quot;); background-repeat: no-repeat; background-position: center center; background-size: cover;"></div>
+            <!-- end ngIf: isSlideBgType('image') -->
+            <!-- ngIf: isSlideBgType('video') && !detectMobile -->
+            <!--            <div class="ms_video_background" ng-if="isSlideBgType('video')">
+              <video ms-slide-video ng-if="slide.backgrounds.video.showVideo" ng-style="getStyles()" preload>
+                  <source ng-repeat="s in slide.backgrounds.video.sources" ng-src="{{ getSrc(s)}}" type="{{ getType(s)}}" ></source>
+              </video>
+              </div>-->
+            <!--<iframe class="ms_youtube" ms-slide-youtube ng-style="getStyles()" frameborder="0" allowscriptaccess="always"></iframe>-->
+            <!--<div class="ms_parallax_wrapper" ng-if="isSlideParallax(slide)" >-->
+            <!--<div ms-slide-parallax class="ms_parallax"  ng-if="isSlideParallax(slide)" data-jkit="[parallax:strength=1;axis=both;detect=mousemove;scope=local;]"  ng-style="getStyles()">-->
+            <!--<div  data-ng-repeat="p in slide.parallaxSettings.parallaxLayers"  ng-bind-html="p.content | parallaxValidate" class="ms_parallax" data-ng-class="{ {{p.class}} : true }" ms-size="{{p.size}}" ms-resize-parallax-element ></div>-->
+            <!--</div>-->
+            <!--</div>-->
+          </div>
+          <div class="ms_layers_wrapper" style="max-width: 1170px; width: 100%;">
+            <!-- ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;100&#39;}" ng-show="isHideWidth(layer)" style="z-index: 100;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-15 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-show" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 98px; left: 9px; bottom: auto; right: auto; animation-duration: 1000ms; animation-delay: 1000ms; opacity: 0; font-size: 18px; line-height: 30px; text-align: left; padding: 5px 9px; border-width: 0px; margin: 0px; letter-spacing: 1.44px;">
+                <p style="font-size: 18px; line-height: 30px; text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px;"><span style="color: rgb(255, 215, 26); font-size: 18px; line-height: 30px; text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px;">only this week!</span></p>
+              </div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;101&#39;}" ng-show="isHideWidth(layer)" style="z-index: 101;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-16 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-show" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 138px; left: 7px; bottom: auto; right: auto; animation-duration: 1000ms; animation-delay: 1000ms; opacity: 0; text-align: center; padding: 0px 25px; border-width: 0px; margin: 0px; letter-spacing: 4.44px; font-size: 78px; line-height: normal; width: 444px;"><span style="color: rgb(34, 34, 34); text-align: center; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 4.44px; font-size: 78px; line-height: normal;">Save 20%</span></div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;102&#39;}" ng-show="isHideWidth(layer)" style="z-index: 102;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-17 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-show" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 272px; left: 10.5px; bottom: auto; right: auto; animation-duration: 1000ms; animation-delay: 1000ms; opacity: 0; text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px; font-size: 30px; line-height: 41px; width: 941px;">
+                <p style="text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px; font-size: 30px; line-height: 41px;">Launches New 20 Volt MAX* Lithium Ion 4 1/2-Inch Cut-Off Tool DCG412L2</p>
+              </div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;103&#39;}" ng-show="isHideWidth(layer)" style="z-index: 103;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-18 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-show" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 340px; left: 4px; bottom: auto; right: auto; animation-duration: 1000ms; animation-delay: 1000ms; opacity: 0; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.12px; font-size: 88px; line-height: normal; text-align: left;">$</div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;104&#39;}" ng-show="isHideWidth(layer)" style="z-index: 104;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-19 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-show" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 269.5px; left: 40.5px; bottom: auto; right: auto; animation-duration: 1000ms; animation-delay: 1000ms; opacity: 0; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.12px; font-size: 200px; line-height: normal; text-align: left;">287</div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;105&#39;}" ng-show="isHideWidth(layer)" style="z-index: 105;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-20 mpsl-white-space-normal mpsl-animated mpsl-linear mpsl-layer-show" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 330.5px; left: 345.5px; bottom: auto; right: auto; animation-duration: 1000ms; animation-delay: 1000ms; opacity: 0; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.12px; font-size: 80px; line-height: normal; text-align: left;">.99</div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;106&#39;}" ng-show="isHideWidth(layer)" style="z-index: 106;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') --><a ng-if="isLayerType(&#39;button&#39;)" class="ms_layer ms_button_layer ng-scope mpsl-layer mpsl-private-preset-21 ms_visible mpsl-animated mpsl-linear mpsl-layer-show" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-button-layer="" ms-layer="" target="_blank" href="https://ld-wp.template-help.com/woocommerce_58679/shop/" style="top: 562.5px; left: 9.5px; bottom: auto; right: auto; animation-duration: 1000ms; animation-delay: 1000ms; opacity: 0; padding: 0px 40px; border-width: 0px; margin: 0px; letter-spacing: 1.44px; font-size: 14px; line-height: 59px; text-align: left;">Shop now!</a>
+              <!-- end ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+          </div>
+        </div>
+        <!-- end ngRepeat: slide in data.slides track by $index -->
+        <div ms-slide-repeater="" ng-repeat="slide in data.slides track by $index" ng-show="isCurrentIndex($index)" data-current-index="2" class="ms_slide ms_repeater ms_optimize ng-scope ng-hide false" id="" ng-class="[isCurrentIndexFirst($index) &amp;&amp; &#39;ms_current_slide ms_show&#39;, isCurrentIndexFirst($index) &amp;&amp; data.defaults.animatedClass, slide.general.classes]">
+          <!-- ngIf: slide.general.link.length -->
+          <div class="ms_slide_wrapper" ms-slide="" enter-animation="msSlideFade" leave-animation="msSlideFade" duration="2000" easing="easeOutCirc">
+            <!-- ngIf: isSlideBgType('color') -->
+            <div class="ms_color ng-scope" ng-if="isSlideBgType(&#39;color&#39;)" ms-slide-color="" ng-style="getStyles()" style="background-color: rgb(255, 255, 255); min-height: 100%; background-size: cover;"></div>
+            <!-- end ngIf: isSlideBgType('color') -->
+            <!-- ngIf: isSlideBgType('gradient') -->
+            <!-- ngIf: isSlideBgType('image') -->
+            <div class="ms_image ng-scope" ng-if="isSlideBgType(&#39;image&#39;)" ms-slide-image="" ng-style="getStyles()" style="min-height: 100%; background-image: url(&quot;https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/slider-3.jpg&quot;); background-repeat: no-repeat; background-position: center center; background-size: cover;"></div>
+            <!-- end ngIf: isSlideBgType('image') -->
+            <!-- ngIf: isSlideBgType('video') && !detectMobile -->
+            <!--            <div class="ms_video_background" ng-if="isSlideBgType('video')">
+              <video ms-slide-video ng-if="slide.backgrounds.video.showVideo" ng-style="getStyles()" preload>
+                  <source ng-repeat="s in slide.backgrounds.video.sources" ng-src="{{ getSrc(s)}}" type="{{ getType(s)}}" ></source>
+              </video>
+              </div>-->
+            <!--<iframe class="ms_youtube" ms-slide-youtube ng-style="getStyles()" frameborder="0" allowscriptaccess="always"></iframe>-->
+            <!--<div class="ms_parallax_wrapper" ng-if="isSlideParallax(slide)" >-->
+            <!--<div ms-slide-parallax class="ms_parallax"  ng-if="isSlideParallax(slide)" data-jkit="[parallax:strength=1;axis=both;detect=mousemove;scope=local;]"  ng-style="getStyles()">-->
+            <!--<div  data-ng-repeat="p in slide.parallaxSettings.parallaxLayers"  ng-bind-html="p.content | parallaxValidate" class="ms_parallax" data-ng-class="{ {{p.class}} : true }" ms-size="{{p.size}}" ms-resize-parallax-element ></div>-->
+            <!--</div>-->
+            <!--</div>-->
+          </div>
+          <div class="ms_layers_wrapper" style="max-width: 1170px; width: 100%;">
+            <!-- ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;100&#39;}" ng-show="isHideWidth(layer)" style="z-index: 100;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-22 mpsl-white-space-normal mpsl-linear" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 98px; left: 9px; bottom: auto; right: auto; animation-duration: 1000ms; font-size: 18px; line-height: 30px; text-align: left; padding: 5px 9px; border-width: 0px; margin: 0px; letter-spacing: 1.44px;">
+                <p style="font-size: 18px; line-height: 30px; text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px;"><span style="color: rgb(255, 215, 26); font-size: 18px; line-height: 30px; text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px;">only this week!</span></p>
+              </div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;101&#39;}" ng-show="isHideWidth(layer)" style="z-index: 101;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-23 mpsl-white-space-normal mpsl-linear" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 138px; left: 7px; bottom: auto; right: auto; animation-duration: 1000ms; text-align: center; padding: 0px 25px; border-width: 0px; margin: 0px; letter-spacing: 4.44px; font-size: 78px; line-height: normal; width: 444px;"><span style="color: rgb(34, 34, 34); text-align: center; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 4.44px; font-size: 78px; line-height: normal;">Save 20%</span></div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;102&#39;}" ng-show="isHideWidth(layer)" style="z-index: 102;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-24 mpsl-white-space-normal mpsl-linear" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 297.5px; left: 10px; bottom: auto; right: auto; animation-duration: 1000ms; text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px; font-size: 30px; line-height: 41px; width: 584px;">
+                <p style="text-align: left; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.44px; font-size: 30px; line-height: 41px;">DeWalt Heavy Duty 1/2" VSR Drill</p>
+              </div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;103&#39;}" ng-show="isHideWidth(layer)" style="z-index: 103;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-25 mpsl-white-space-normal mpsl-linear" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 340px; left: 4px; bottom: auto; right: auto; animation-duration: 1000ms; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.12px; font-size: 88px; line-height: normal; text-align: left;">$</div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;104&#39;}" ng-show="isHideWidth(layer)" style="z-index: 104;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-26 mpsl-white-space-normal mpsl-linear" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 269.5px; left: 38.5px; bottom: auto; right: auto; animation-duration: 1000ms; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.12px; font-size: 200px; line-height: normal; text-align: left;">457</div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;105&#39;}" ng-show="isHideWidth(layer)" style="z-index: 105;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <div ng-if="isLayerType(&#39;html&#39;)" class="ms_layer ms_html_layer ng-binding ng-scope  mpsl-layer mpsl-private-preset-27 mpsl-white-space-normal mpsl-linear" data-ng-bind-html="trustedHtml" ms-html-layer="" ms-layer="" style="top: 330.5px; left: 345.5px; bottom: auto; right: auto; animation-duration: 1000ms; padding: 0px; border-width: 0px; margin: 0px; letter-spacing: 1.12px; font-size: 80px; line-height: normal; text-align: left;">.99</div>
+              <!-- end ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+            <div class="layers ng-scope" ng-repeat="(layerKey, layer) in slide.layers  track by $id(layer)" ng-style="{&#39;z-index&#39; : &#39;106&#39;}" ng-show="isHideWidth(layer)" style="z-index: 106;">
+              <!--<div class="layers" ng-repeat="layer in slide.layers" >-->
+              <!-- ngIf: isLayerType('image') && (layer.link || data.settings.editMode) -->
+              <!-- ngIf: isLayerType('image') && !layer.link && !data.settings.editMode -->
+              <!-- ngIf: isLayerType('button') --><a ng-if="isLayerType(&#39;button&#39;)" class="ms_layer ms_button_layer ng-scope mpsl-layer mpsl-private-preset-28 ms_visible mpsl-linear" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-button-layer="" ms-layer="" target="_blank" href="https://ld-wp.template-help.com/woocommerce_58679/shop/" style="top: 562.5px; left: 9.5px; bottom: auto; right: auto; animation-duration: 1000ms; padding: 0px 40px; border-width: 0px; margin: 0px; letter-spacing: 1.44px; font-size: 14px; line-height: 59px; text-align: left;">Shop now!</a>
+              <!-- end ngIf: isLayerType('button') -->
+              <!-- ngIf: isLayerType('video') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('youtube') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('vimeo') && disableMobileCheck(layer.disableMobile) -->
+              <!-- ngIf: isLayerType('html') -->
+              <!--<div ng-if="isLayerType('html')" class="ms_layer ms_html_layer" data-ng-bind-html="layer.content" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ms-html-layer ms-layer></div>-->
+            </div>
+            <!-- end ngRepeat: (layerKey, layer) in slide.layers  track by $id(layer) -->
+          </div>
+        </div>
+        <!-- end ngRepeat: slide in data.slides track by $index -->
+        <div class="ms_counter mpsl-controls-show-hide ng-hide" ng-show="isCounter()  &amp;&amp; sliderMouseEnter">
+          <span ms-counter="">2/3</span>
+        </div>
+        <div class="ms_pagination mpsl-controls-show-hide ng-hide" ng-show="showPagination() &amp;&amp; sliderMouseEnter">
+          <div class="ms_bullet_wrapper">
+            <!-- ngRepeat: slide in data.slides -->
+            <a ng-repeat="slide in data.slides" href="javascript:void(0)" class="ms_bullet  ng-scope" ng-class="{ ms_active : isCurrentIndex($index) }" ng-click="changeSlideManualy($index)" index="0" pagination-control="" style="">
+              <div ng-class="{ms_thumbnail : data.settings.thumbnails}">
+                <div></div>
+              </div>
+            </a>
+            <!-- end ngRepeat: slide in data.slides -->
+            <a ng-repeat="slide in data.slides" href="javascript:void(0)" class="ms_bullet  ng-scope ms_active" ng-class="{ ms_active : isCurrentIndex($index) }" ng-click="changeSlideManualy($index)" index="1" pagination-control="" style="">
+              <div ng-class="{ms_thumbnail : data.settings.thumbnails}">
+                <div></div>
+              </div>
+            </a>
+            <!-- end ngRepeat: slide in data.slides -->
+            <a ng-repeat="slide in data.slides" href="javascript:void(0)" class="ms_bullet  ng-scope" ng-class="{ ms_active : isCurrentIndex($index) }" ng-click="changeSlideManualy($index)" index="2" pagination-control="">
+              <div ng-class="{ms_thumbnail : data.settings.thumbnails}">
+                <div></div>
+              </div>
+            </a>
+            <!-- end ngRepeat: slide in data.slides -->
+          </div>
+        </div>
+        <div class="ms_arrows">
+          <a href="javascript:void(0)" class="ms_prev mpsl-controls-show-hide ng-hide" ng-show="data.settings.arrowsShow &amp;&amp; sliderMouseEnter" navigation-control="prev"></a>
+          <a href="javascript:void(0)" class="ms_next mpsl-controls-show-hide ng-hide" ng-show="data.settings.arrowsShow &amp;&amp; sliderMouseEnter" navigation-control="next"></a>
+          <a href="javascript:void(0)" class="ms_start_pause mpsl-controls-show-hide ms_pause ng-hide" ng-show="!data.settings.hoverTimer &amp;&amp; data.settings.slideshowPPBShow &amp;&amp; disableMobileCheck(true) &amp;&amp; sliderMouseEnter" ms-start-pause=""></a>
+          <!-- <div id="ms_timer_container"></div> -->
+          <div class="ms_banner_timer" ng-show="::data.settings.slideshowTimerShow" style="display: block;">
+            <div class="ms_banner_inner" style="width: 22.6491%;"></div>
+          </div>
+        </div>
+        <div class="ms_preload_wrapper"></div>
+      </div>
+      <div class="motoslider">
+        <div id="settings" data-full-window-width="false" data-full-height="false" data-full-height-offset="px" data-full-height-offset-container="" data-full-size-grid="false" data-timer="true" data-timer-delay="7000" data-hover-timer="false" data-counter="false" data-slider-layout="auto" data-timer-reverse="false" data-arrows-show="false" data-thumbnails-show="false" data-slideshow-timer-show="true" data-slideshow-ppb-show="false" data-controls-hide-on-leave="false" data-swipe="false" data-delay-init="0" data-scroll-init="false" data-start-slide="1" data-visible-from="" data-visible-till="" data-layout-desktop-width="1170" data-layout-desktop-height="760" data-layout-notebook-width="1024" data-layout-notebook-height="768" data-layout-tablet-width="778" data-layout-tablet-height="960" data-layout-mobile-width="480" data-layout-mobile-height="720" data-layout="true;false;false;false" data-custom-class="">
+        </div>
+        <div id="slides">
+          <div class="slide" data-class="" data-id="" data-animation="msSlideFade" data-fade-animation="msSlideFade" data-duration="2000" data-easing="easeOutCirc">
+            <div class="slide_bg">
+              <div data-type="color" data-color="rgb(255, 255, 255)"></div>
+              <div data-src="https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/slider-1.jpg" data-type="image" data-fit="cover" data-position="center center" data-repeat="no-repeat"></div>
+            </div>
+            <div class="layers">
+              <div class="layer" data-type="html" data-align-horizontal="left;left;left;left" data-align-vertical="top;top;top;top" data-offset-x="9;9;9;9" data-offset-y="98;98;98;98" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size="18;18;18;18" data-line-height="30;30;30;30" data-text-align="left;left;left;left" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-1">
+                <p><span style="color: #ffd71a;">only this week!</span></p>
+              </div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-354;-354;-354;-354" data-offset-y="-180;-180;-180;-180" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align="center;center;center;center" data-width="444;444;444;444" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-2"><span style="color: #222222;">Save 20%</span></div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-286;-286;-286;-286" data-offset-y="-68;-68;-68;-68" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align="left;left;left;left" data-width="584;584;584;584" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-3">
+                <p>DEWALT DCK955X 18-Volt XRP Cordless</p>
+              </div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-558;-558;-558;-558" data-offset-y="31;31;31;31" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-4">$</div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-392;-392;-392;-392" data-offset-y="51;51;51;51" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-5">187</div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-187;-187;-187;-187" data-offset-y="15;15;15;15" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-6">.99</div>
+              <div class="layer" data-link="shop\" data-target="_blank" data-type="button" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-492;-492;-492;-492" data-offset-y="212;212;212;212" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-class="mpsl-layer mpsl-private-preset-7">Shop now!</div>
+            </div>
+          </div>
+          <div class="slide" data-class="" data-id="" data-animation="msSlideFade" data-fade-animation="msSlideFade" data-duration="2000" data-easing="easeOutCirc">
+            <div class="slide_bg">
+              <div data-type="color" data-color="rgb(255, 255, 255)"></div>
+              <div data-src="https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/slide-2-1.jpg" data-type="image" data-fit="cover" data-position="center center" data-repeat="no-repeat"></div>
+            </div>
+            <div class="layers">
+              <div class="layer" data-type="html" data-align-horizontal="left;left;left;left" data-align-vertical="top;top;top;top" data-offset-x="9;9;9;9" data-offset-y="98;98;98;98" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size="18;18;18;18" data-line-height="30;30;30;30" data-text-align="left;left;left;left" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-15">
+                <p><span style="color: #ffd71a;">only this week!</span></p>
+              </div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-356;-356;-356;-356" data-offset-y="-179;-179;-179;-179" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align="center;center;center;center" data-width="444;444;444;444" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-16"><span style="color: #222222;">Save 20%</span></div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-104;-104;-104;-104" data-offset-y="-67;-67;-67;-67" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align="left;left;left;left" data-width="941;941;941;941" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-17">
+                <p>Launches New 20 Volt MAX* Lithium Ion 4 1/2-Inch Cut-Off Tool DCG412L2</p>
+              </div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-558;-558;-558;-558" data-offset-y="31;31;31;31" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-18">$</div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-392;-392;-392;-392" data-offset-y="51;51;51;51" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-19">287</div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-187;-187;-187;-187" data-offset-y="15;15;15;15" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-20">.99</div>
+              <div class="layer" data-link="shop\" data-target="_blank" data-type="button" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-492;-492;-492;-492" data-offset-y="212;212;212;212" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-class="mpsl-layer mpsl-private-preset-21">Shop now!</div>
+            </div>
+          </div>
+          <div class="slide" data-class="" data-id="" data-animation="msSlideFade" data-fade-animation="msSlideFade" data-duration="2000" data-easing="easeOutCirc">
+            <div class="slide_bg">
+              <div data-type="color" data-color="rgb(255, 255, 255)"></div>
+              <div data-src="https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/02/slider-3.jpg" data-type="image" data-fit="cover" data-position="center center" data-repeat="no-repeat"></div>
+            </div>
+            <div class="layers">
+              <div class="layer" data-type="html" data-align-horizontal="left;left;left;left" data-align-vertical="top;top;top;top" data-offset-x="9;9;9;9" data-offset-y="98;98;98;98" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size="18;18;18;18" data-line-height="30;30;30;30" data-text-align="left;left;left;left" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-22">
+                <p><span style="color: #ffd71a;">only this week!</span></p>
+              </div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-356;-356;-356;-356" data-offset-y="-179;-179;-179;-179" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align="center;center;center;center" data-width="444;444;444;444" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-23"><span style="color: #222222;">Save 20%</span></div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-283;-283;-283;-283" data-offset-y="-62;-62;-62;-62" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align="left;left;left;left" data-width="584;584;584;584" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-24">
+                <p>DeWalt Heavy Duty 1/2" VSR Drill</p>
+              </div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-558;-558;-558;-558" data-offset-y="31;31;31;31" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-25">$</div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-392;-392;-392;-392" data-offset-y="51;51;51;51" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-26">457</div>
+              <div class="layer" data-type="html" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-187;-187;-187;-187" data-offset-y="15;15;15;15" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-width=";;;" data-white-space="normal;normal;normal;normal" data-class="mpsl-layer mpsl-private-preset-27">.99</div>
+              <div class="layer" data-link="shop\" data-target="_blank" data-type="button" data-align-horizontal="center;center;center;center" data-align-vertical="middle;middle;middle;middle" data-offset-x="-492;-492;-492;-492" data-offset-y="212;212;212;212" data-animation="fadeIn" data-timing-function="linear" data-duration="1000" data-leave-animation="auto" data-leave-timing-function="linear" data-leave-duration="1000" data-delay="1000" data-resizable="1" data-dont-change-position="" data-hide-width="" data-font-size=";;;" data-line-height=";;;" data-text-align=";;;" data-class="mpsl-layer mpsl-private-preset-28">Shop now!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="motopress-hide-script mpsl-hide-script">
+      <script type="text/javascript" id="mpsl-fix-height-motoslider_wrapper59dc857496667">
+        var aspect = 0.64957264957265;
+        var sliderWrapper = document.getElementById('motoslider_wrapper59dc857496667');
+        var outerWidth = sliderWrapper.offsetWidth;
+        var curHeight = outerWidth * aspect;
+        sliderWrapper.querySelector('[data-motoslider]').height = curHeight + 'px';
+      </script>
+    </p>
+  </aside>
+</div>

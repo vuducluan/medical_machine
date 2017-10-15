@@ -1,0 +1,8 @@
+category:
+  highest_level: 0
+blog_category:
+  news: 1
+limit:
+  blog_home_page: 4
+format:
+  created_at: "%d/%m/%Y"

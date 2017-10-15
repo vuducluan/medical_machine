@@ -1,0 +1,17 @@
+<div id="" class="tm_pb_icon_box_module__wrapper  tm_pb_icon_box_module_0 tm_pb_bg_layout_light">
+  <div class="row tm_pb_icon_box_module__boxes">
+    <% @top_categories.each do |category| %>
+      <div class="tm_pb_column col-xl-2 col-lg-4 col-md-6 col-sm-12">
+        <div class="tm_pb_icon_box_module__item__wrapper">
+          <a href="https://ld-wp.template-help.com/woocommerce_58679/product-category/power-tools/" 
+          title="<%= category.name %>" class="tm_pb_icon_box_module__item  tm_pb_icon_box_module__item_0">
+          <span class="tm-pb-icon tm-waypoint tm_pb_animation_off tm_pb_icon_align_center">
+            <%= image_tag category.feature_image %>
+          </span> 
+          <span class="tm_pb_icon_box_module__item__title"><%= category.name %></span>
+          <span class="tm_pb_icon_box_module__item__description"></span> </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

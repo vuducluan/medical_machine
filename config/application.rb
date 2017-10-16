@@ -20,5 +20,8 @@ module MedicalMachine
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.paths << Rails.root.join('/app/assets/fonts')
+
+    #don't auto generate test file
+    config.generators.test_framework false
   end
 end

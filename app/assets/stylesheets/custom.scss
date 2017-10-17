@@ -6604,3 +6604,11 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 .woo-social-buttons .smsb_vkontakte a {
     height: auto !important;
 }
+
+.site-header .social-list .menu-item>a {
+    width: 34px;
+    height: 34px;
+    -webkit-border-radius: 620px;
+    border-radius: 620px;
+    color: #3e3b3b;
+}

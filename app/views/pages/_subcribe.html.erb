@@ -1,24 +1,24 @@
 <section id="after-content-full-width-area" class="after-content-full-width-area widget-area">
-    <aside id="tm_willard_widget_subscribe_follow-2" class="widget widget-subscribe">
-      <div class="subscribe-follow__wrap">
-        <div class="subscribe-block">
-          <h5 class="widget-title">newsletter</h5>
-          <div class="subscribe-block__message">Our DIY tips and special promo offers are a bargain!</div>
-          <form method="POST" action="https://ld-wp.template-help.com/woocommerce_58679/#" class="subscribe-block__form">
-            <input type="hidden" name="nonce" value="1c91b03c75">
-            <div class="subscribe-block__input-group">
-              <div class="subscribe-block__input-wrap">
-                <i class="linearicon linearicon-envelope-open"></i>
-                <input class="subscribe-block__input" type="email" name="subscribe-mail" value="" placeholder="Enter your email"> 
-              </div>
-              <a href="https://ld-wp.template-help.com/woocommerce_58679/#" class="subscribe-block__submit btn btn-primary">Subscribe!</a> 
+  <aside id="tm_willard_widget_subscribe_follow-2" class="widget widget-subscribe">
+    <div class="subscribe-follow__wrap">
+      <div class="subscribe-block">
+        <h5 class="widget-title">Tin tức</h5>
+        <div class="subscribe-block__message">Đăng kí nhận thông tin sản phẩm, khuyến mại</div>
+        <%= form_for(@subcriber, html: {class: "subscribe-block__form"}) do |f| %>
+          <input type="hidden" name="nonce" value="1c91b03c75">
+          <div class="subscribe-block__input-group">
+            <div class="subscribe-block__input-wrap">
+              <i class="linearicon linearicon-envelope-open"></i>
+            <input class="subscribe-block__input" type="email" name="email" value="" placeholder="Email của bạn">
             </div>
-            <div class="subscribe-block__messages">
-              <div class="subscribe-block__success hidden">You successfully subscribed</div>
-              <div class="subscribe-block__error hidden"></div>
-            </div>
-          </form>
-        </div>
+            <%= f.submit "Theo dõi", class: "subscribe-block__submit btn btn-primary" %>
+          </div>
+          <div class="subscribe-block__messages">
+            <div class="subscribe-block__success hidden">Bạn đã đăng kí theo dõi chúng tôi!</div>
+            <div class="subscribe-block__error hidden"></div>
+          </div>
+        <% end %>
       </div>
-    </aside>
-  </section>
+    </div>
+  </aside>
+</section>

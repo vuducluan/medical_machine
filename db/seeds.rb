@@ -1,7 +1,7 @@
 puts "Create 6 top categories"
 ["Thiết bị thí nghiệm", "Thiết bị đo lường", "Thiết bị y tế", 
   "Thiết bị công nghiệp", "Dụng cụ, vật tư", "Phụ kiện thay thế"].each_with_index do |c, i|
-  Category.create! name: c, level: 0, order: i.next
+  Category.create! name: c, level: 0, category_order: i.next
 end
 puts "Status: OK"
 
@@ -30,3 +30,10 @@ Blog.all.limit(10).each_with_index do |b, i|
   new_img.save!
 end
 puts "blog images OK"
+
+Company.create! about: Faker::Lorem.paragraph,
+  phone: "0987.657.234", work_time:"7AM-9PM", email:"vattuthinghiem@gmail.com",
+  facebook: "http://facebook.com", instagram:"http://instagram.com",
+  contact_info:"Nguyen Thanh Tu", address:"Nhà N02F, KĐT Mễ Trì Thượng, Phường Mễ Trì, Quận Nam Từ Liêm - Hà Nội",
+  website:"http://thiendiahoi.com"
+puts "Create Company information OK"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018061612) do
+ActiveRecord::Schema.define(version: 20171018164206) do
 
   create_table "blog_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -61,6 +61,24 @@ ActiveRecord::Schema.define(version: 20171018061612) do
     t.string "contact_info"
     t.text "address"
     t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "name"
+    t.text "model"
+    t.integer "brand_id"
+    t.string "location"
+    t.integer "price"
+    t.integer "discount_price"
+    t.integer "product_category_id"
+    t.string "product_type"
+    t.text "description"
+    t.integer "product_field_id"
+    t.string "label"
+    t.integer "label_order"
+    t.integer "category_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

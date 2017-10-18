@@ -68,3 +68,18 @@ catalog_imgs = Dir.glob "public/catalog/*"
   img.save!
 end
 puts "catalog images OK"
+
+puts "create product"
+300.times do |i|
+  a = 97 + i%25
+  Product.create name: "#{a.chr}#{Faker::Lorem.sentence}", model: Faker::Lorem.sentence, location: Faker::Lorem.sentence,
+    price: 10000, discount_price: 9000, description: Faker::Lorem.paragraph, label: "Sale", label_order: i, category_order: i + 2
+end
+puts "product OK"
+
+puts "create Category level 2"
+300.times do |i|
+  a = 97 + i%25
+  Category.create! name: "#{a.chr}#{Faker::Lorem.sentence}", level: 2
+end
+puts "Category level 2 OK"

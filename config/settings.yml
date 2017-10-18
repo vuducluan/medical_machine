@@ -1,5 +1,6 @@
 category:
   highest_level: 0
+  lowest_level: 2
 blog_category:
   news: 1
 limit:

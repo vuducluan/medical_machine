@@ -1,5 +1,5 @@
 puts "Create 6 top categories"
-["Thiết bị thí nghiệm", "Thiết bị đo lường", "Thiết bị y tế", 
+["Thiết bị thí nghiệm", "Thiết bị đo lường", "Thiết bị y tế",
   "Thiết bị công nghiệp", "Dụng cụ, vật tư", "Phụ kiện thay thế"].each_with_index do |c, i|
   Category.create! name: c, level: 0, category_order: i.next
 end
@@ -14,7 +14,7 @@ nt = Template.create! name: "news", content: Faker::Lorem.paragraph
 puts "Create 10 news articles"
 10.times do |i|
   Blog.create! title: Faker::Lorem.sentence, template: nt,
-    blog_category: bc, content: Faker::Lorem.paragraph    
+    blog_category: bc, content: Faker::Lorem.paragraph
 end
 puts "Create articles OK"
 
@@ -42,3 +42,29 @@ puts "Create Company information OK"
   Tag.create! name: Faker::Lorem.word, tag_url: "http://thiendiahoi.com"
 end
 puts "Create Tags OK"
+
+puts "create slider images"
+slider_imgs = Dir.glob "public/jssor/*"
+3.times do |i|
+  img = SliderCatalog.create title: Faker::Lorem.sentence,
+    desc: Faker::Lorem.paragraph, caption: Faker::Lorem.sentence,
+    alt: Faker::Lorem.sentence, image_type: "slider"
+  File.open(slider_imgs[i]) do |f|
+    img.url = f
+  end
+  img.save!
+end
+puts "slider images OK"
+
+puts "create catalog images"
+catalog_imgs = Dir.glob "public/catalog/*"
+2.times do |i|
+  img = SliderCatalog.create title: Faker::Lorem.sentence,
+    desc: Faker::Lorem.paragraph, caption: Faker::Lorem.sentence,
+    alt: Faker::Lorem.sentence, image_type: "catalog"
+  File.open(catalog_imgs[i]) do |f|
+    img.url = f
+  end
+  img.save!
+end
+puts "catalog images OK"

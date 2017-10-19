@@ -83,3 +83,9 @@ puts "create Category level 2"
   Category.create! name: "#{a.chr}#{Faker::Lorem.sentence}", level: 2
 end
 puts "Category level 2 OK"
+
+puts "create Field"
+6.times do |i|
+  Field.create! name: Faker::Lorem.sentence
+end
+puts "Field OK"

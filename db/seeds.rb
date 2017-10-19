@@ -89,3 +89,9 @@ puts "create Field"
   Field.create! name: Faker::Lorem.sentence
 end
 puts "Field OK"
+
+puts "create Brand"
+50.times do |i|
+  Brand.create! name: Faker::Lorem.sentence[0..10], location: Faker::Lorem.sentence[0..10]
+end
+puts "Brand OK"

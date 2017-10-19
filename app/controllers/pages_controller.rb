@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @sliders = SliderCatalog.where(image_type: "slider")
     @catalogs = SliderCatalog.where(image_type: "catalog").limit 2
     get_products_anphabet
+    @fields = Field.all.limit 10
   end
 
   private

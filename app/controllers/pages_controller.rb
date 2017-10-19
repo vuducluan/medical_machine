@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @catalogs = SliderCatalog.where(image_type: "catalog").limit 2
     get_products_anphabet
     @fields = Field.all.limit 10
+    get_brands
   end
 
   private
@@ -19,5 +20,11 @@ class PagesController < ApplicationController
         @product_array << product.each_slice(slice_size).to_a
       end
     end
+  end
+
+  def get_brands
+    brands = Brand.all
+    slice_size = (brands.size/4.0).ceil
+    @brand_array = brands.each_slice(slice_size).to_a
   end
 end

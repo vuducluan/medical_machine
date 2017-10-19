@@ -23455,6 +23455,9 @@ nav.main-navigation>.tm-mega-menu i.mega-menu-arrow {
     nav.main-navigation>.tm-mega-menu>li>.tm-mega-menu-sub.mega-sub {
         min-width: 1040px
     }
+    nav.main-navigation>.tm-mega-menu>li>.tm-mega-menu-sub.mega-sub.mega-sub-big {
+        min-width: 1500px
+    }
 }
 
 nav.main-navigation>.tm-mega-menu>li.tm-mega-menu-has-children>a {

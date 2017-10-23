@@ -1,0 +1,48 @@
+<div class="related products">
+  <h5>Sản phẩm liên quan</h5>
+  <div class="swiper-carousel-container">
+    <div id="swiper-carousel-59e9bc5f37e5e" class="tm-willard-carousel swiper-container swiper-container-horizontal" data-uniq-id="swiper-carousel-59e9bc5f37e5e" data-slides-per-view="4" data-slides-per-view-xs="1" data-slides-per-view-sm="2" data-slides-per-view-md="3" data-slides-per-view-lg="3" data-slides-per-group="1" data-slides-per-column="1" data-space-between-slides="50" data-duration-speed="500" data-swiper-loop="false" data-free-mode="false" data-grab-cursor="true" data-mouse-wheel="false" style="cursor: -webkit-grab;">
+      <div class="swiper-wrapper">
+        <% @related_products.each do |product| %>
+          <div class="post-264 product type-product status-publish has-post-thumbnail hentry product_shipping_class-class-2 has-thumb swiper-slide swiper-slide-next" style="width: 292.5px; margin-right: 50px;">
+            <div class="block_product_inner">
+              <div class="block_product_thumbnail">
+                <span class="onsale"><%= product.label.short_title %></span>
+                <a href="" class="woocommerce-LoopProduct-link">
+                  <div class="tm-thumbs-wrap effect-fade">
+                    <div class="tm-thumbs-wrap__inner">
+                      <%= image_tag product.product_images.first.url, size: '340'%>
+                      <%= image_tag product.product_images.second.url, size: '340'%>
+                    </div>
+                  </div>
+                </a>
+                <div class="wishlist_compare_button_block">
+                  <div class="tm-quick-view">
+                    <a href="" class="tm-quick-view-btn" data-action="quick-view-button" data-product="264">Quick View</a>
+                  </div>
+                </div>
+              </div>
+              <div class="block_product_content">
+                <ul class="product-categories">
+                  <li><a href="" rel="tag">Broaching machine</a></li>
+                  <li><a href="" rel="tag">Chisels</a></li>
+                  <li><a href="" rel="tag">Cutters</a></li>
+                  <li><a href="" rel="tag">Drill press</a></li>
+                </ul>
+                <h3><a href=""><%= product.name %></a></h3>
+                <div class="price-add-to-cart-wrap">
+                  <span class="price"><span class="woocs_price_code" data-product-id="264"><del><span class="woocommerce-Price-amount amount"><%= product.price %><span class="woocommerce-Price-currencySymbol">$</span></span></del> <ins><span class="woocommerce-Price-amount amount"><%= product.discount_price %><span class="woocommerce-Price-currencySymbol">$</span></span></ins></span></span>
+                  <a rel="nofollow" href="https://ld-wp.template-help.com/woocommerce_58679/product/black-decker-ldx220sbfc-lithium-ion-drill-driver/?add-to-cart=264" data-quantity="1" data-product_id="264" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Đặt hàng</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+
+      </div>
+    </div>
+    <div id="swiper-carousel-59e9bc5f37e5e-next" class="swiper-button-next button-next swiper-button-disabled" style="display: block;"></div>
+    <div id="swiper-carousel-59e9bc5f37e5e-prev" class="swiper-button-prev button-prev swiper-button-disabled" style="display: block;"></div>
+  </div>
+</div>

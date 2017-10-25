@@ -10664,7 +10664,6 @@ h6 a {
     position: relative;
     min-width: 30px;
     border: none;
-    background: 0 0;
     line-height: 27px
 }
 
@@ -28784,7 +28783,6 @@ body.wcvendors.wcvendors_vendor .entry-content>h2:nth-child(2):before {
 .products .product .add_to_cart_button.product_type_variable,
 .products .product .ajax_add_to_cart.product_type_variable {
     padding: 16px 28px;
-    line-height: 11px
 }
 
 .products .product .add_to_cart_button.added,
@@ -29273,9 +29271,9 @@ body.wcvendors.wcvendors_vendor .entry-content>h2:nth-child(2):before {
     padding-top: 53px
 }
 
-#woo-main .product {
+/*#woo-main .product {
     margin-top: 0
-}
+}*/
 
 @media (min-width:544px) {
     .tm-wc-ajax-products-wrapper .products .product .block_product_content {

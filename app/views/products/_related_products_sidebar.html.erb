@@ -8,11 +8,12 @@
             <div class="block_product_inner">
               <div class="block_product_thumbnail">
                 <span class="onsale"><%= product.label.short_title %></span>
+                <!-- <span class="featured">Featured</span> -->
                 <a href="" class="woocommerce-LoopProduct-link">
                   <div class="tm-thumbs-wrap effect-fade">
                     <div class="tm-thumbs-wrap__inner">
-                      <%= image_tag product.product_images.first.url, size: '340'%>
-                      <%= image_tag product.product_images.second.url, size: '340'%>
+                      <%= image_tag product.product_images.first.url, size: '340' if product.product_images.first.url%>
+                      <%= image_tag product.product_images.second.url, size: '340' if product.product_images.second.url%>
                     </div>
                   </div>
                 </a>
@@ -31,9 +32,34 @@
                 </ul>
                 <h3><a href=""><%= product.name %></a></h3>
                 <div class="price-add-to-cart-wrap">
-                  <span class="price"><span class="woocs_price_code" data-product-id="264"><del><span class="woocommerce-Price-amount amount"><%= product.price %><span class="woocommerce-Price-currencySymbol">$</span></span></del> <ins><span class="woocommerce-Price-amount amount"><%= product.discount_price %><span class="woocommerce-Price-currencySymbol">$</span></span></ins></span></span>
+                  <span class="price">
+                    <span class="woocs_price_code" data-product-id="264">
+                      <del>
+                        <span class="woocommerce-Price-amount amount"><%= product.price %>
+                          <span class="woocommerce-Price-currencySymbol">$</span>
+                        </span>
+                      </del>
+                      <ins>
+                        <span class="woocommerce-Price-amount amount"><%= product.discount_price %>
+                          <span class="woocommerce-Price-currencySymbol">$</span>
+                        </span>
+                      </ins>
+                    </span>
+                  </span>
                   <a rel="nofollow" href="https://ld-wp.template-help.com/woocommerce_58679/product/black-decker-ldx220sbfc-lithium-ion-drill-driver/?add-to-cart=264" data-quantity="1" data-product_id="264" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Đặt hàng</a>
                 </div>
+
+                <!-- <span class="price">
+                  <span class="woocs_price_code" data-product-id="215">
+                    <span class="woocommerce-Price-amount amount">154.00
+                      <span class="woocommerce-Price-currencySymbol">$</span>
+                    </span>
+                     –
+                    <span class="woocommerce-Price-amount amount">198.00
+                      <span class="woocommerce-Price-currencySymbol">$</span>
+                    </span>
+                  </span>
+                </span> -->
               </div>
             </div>
           </div>

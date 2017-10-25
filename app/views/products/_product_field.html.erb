@@ -1,0 +1,45 @@
+<div class="post-215 type-product status-publish has-post-thumbnail hentry product_cat-broaching-machine product_cat-cleaning-cloths product_cat-cutters product_cat-drill-press product_cat-drills product_cat-gardenign-tools product_cat-gear-shaper product_cat-glass-tumblers product_cat-grinders product_cat-hand-tools product_cat-heat-guns product_cat-hobbing-machine product_cat-hone product_cat-houseware-tools product_cat-lubrication-tools product_cat-machining-tools product_cat-molds product_cat-paper-cups product_cat-plastic-cups product_cat-plumbing-tools product_cat-power-saws product_cat-power-tools product_cat-sockets product_cat-wrenches product_tag-cutter product_tag-hammer product_tag-household product_tag-power product_tag-power-tools product_tag-sprayer product_tag-tools product_shipping_class-class-2 has-thumb col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 col-xxl-4 product">
+  <div class="block_product_inner">
+    <div class="block_product_thumbnail">
+      <span class="featured"><%= product.label.short_title %></span>
+      <a href="">
+        <div class="tm-thumbs-wrap effect-fade">
+          <div class="tm-thumbs-wrap__inner">
+            <%= image_tag product.product_images.first.url, size: '340' if product.product_images.first.url%>
+            <%= image_tag product.product_images.second.url, size: '340' if product.product_images.second.url%>
+          </div>
+        </div>
+      </a>
+      <div class="wishlist_compare_button_block">
+        <div class="tm-quick-view">
+          <a href="#" class="tm-quick-view-btn" data-action="quick-view-button" data-product="215">Quick View</a>
+        </div>
+      </div>
+    </div>
+    <div class="block_product_content">
+      <ul class="product-categories">
+        <li><a href="" rel="tag">Broaching machine</a></li>
+        <li><a href="" rel="tag">Chisels</a></li>
+        <li><a href="" rel="tag">Cutters</a></li>
+        <li><a href="" rel="tag">Drill press</a></li>
+      </ul>
+
+      <h3><a href="" class="woocommerce-LoopProduct-link"><%= product.name %></a></h3>
+
+      <div class="price-add-to-cart-wrap">
+        <span class="price">
+          <span class="woocs_price_code" data-product-id="215">
+            <span class="woocommerce-Price-amount amount"><%= product.price %>
+              <span class="woocommerce-Price-currencySymbol">$</span>
+            </span>
+             <!-- –
+            <span class="woocommerce-Price-amount amount">198.00
+              <span class="woocommerce-Price-currencySymbol">$</span>
+            </span> -->
+          </span>
+        </span>
+        <a rel="nofollow" href="http://ld-wp.template-help.com/woocommerce_58679/product/black-decker-ldx220sbfc-lithium-ion-drill-driver/" data-quantity="1" data-product_id="215" data-product_sku="" class="button product_type_variable add_to_cart_button">Đặt</a>
+      </div>
+    </div>
+  </div>
+</div>

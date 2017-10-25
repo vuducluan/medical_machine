@@ -92,7 +92,7 @@ puts "product OK"
 
 puts "create images for products"
 p_imgs = Dir.glob "public/product/*"
-Product.all.limit(30).each_with_index do |b, i|
+Product.all.each_with_index do |b, i|
   5.times do |j|
     new_img = b.product_images.build title: Faker::Lorem.sentence, url: Faker::Lorem.sentence,
       desc: Faker::Lorem.paragraph, caption: Faker::Lorem.sentence,
@@ -113,7 +113,7 @@ end
 puts "Category level 2 OK"
 
 puts "create Field"
-6.times do |i|
+10.times do |i|
   Field.create! name: Faker::Lorem.sentence
 end
 puts "Field OK"
@@ -123,3 +123,9 @@ Product.all.each_with_index do |p, i|
   ProductCategory.create product_id: i%30, category_id: rand(10)
 end
 puts "product_categoies OK"
+
+puts "create product_fields"
+Product.all.each_with_index do |p, i|
+  ProductField.create product_id: i%30, field_id: rand(10)
+end
+puts "product_fields OK"

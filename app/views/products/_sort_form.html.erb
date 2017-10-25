@@ -1,0 +1,18 @@
+<% if @products_from_menu.blank? %>
+  <p class="woocommerce-result-count">
+    Sản phẩm đang được cập nhật
+  </p>
+<% else %>
+  <p class="woocommerce-result-count">
+    Hiển thị <%= @from %> <%= "-#{@to}" if @to > @from %> trong <%= @products_from_menu.total_count %> sản phẩm
+  </p>
+  <form class="woocommerce-ordering" method="get">
+    <select class="orderby woocommerce-orderby">
+      <option value="<%= request.fullpath + '&sort_by=defaul' %>" <%= 'selected' if params[:sort_by] == 'defaul' %>">Sắp xếp</option>
+      <option value="<%= request.fullpath + '&sort_by=byname' %>" <%= 'selected' if params[:sort_by] == 'byname' %>>Sắp xếp theo tên</option>
+      <option value="<%= request.fullpath + '&sort_by=bydate' %>" <%= 'selected' if params[:sort_by] == 'bydate' %>>Sắp xếp từ mới đến cũ</option>
+      <option value="<%= request.fullpath + '&sort_by=pricea' %>" <%= 'selected' if params[:sort_by] == 'pricea' %>>Sắp xếp theo giá từ thấp đến cao</option>
+      <option value="<%= request.fullpath + '&sort_by=priced' %>" <%= 'selected' if params[:sort_by] == 'priced' %>>Sắp xếp theo giá từ cao đến thấp</option>
+    </select>
+  </form>
+<% end %>

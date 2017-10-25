@@ -5,5 +5,10 @@ blog_category:
   news: 1
 limit:
   blog_home_page: 4
+  product_field: 10
+  related_products: 4
+  menu_block:
+    a_to_z: 3.0
+    brand: 4.0
 format:
   created_at: "%d/%m/%Y"

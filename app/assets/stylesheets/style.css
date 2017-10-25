@@ -36941,7 +36941,6 @@ body.wcvendors.wcvendors_vendor .entry-content>h2:nth-child(2):before {
     vertical-align: top;
     white-space: nowrap;
     text-overflow: ellipsis;
-    border: 1px solid;
     -webkit-box-shadow: none;
     box-shadow: none;
     -webkit-transition: .3s;

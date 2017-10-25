@@ -14,11 +14,14 @@
   <meta name="msapplication-TileImage" content="https://ld-wp.template-help.com/woocommerce_58679/wp-content/uploads/2017/01/cropped-FAV-300x300.png">
 </head>
 
-<body class="home page-template-default page page-id-48 custom-background use-tm-pb-builder header-layout-fullwidth content-layout-boxed footer-layout-fullwidth blog-default position-fullwidth sidebar-1-4 header-default footer-default tm_pb_builder currency-usd">
+<body class="home page-template-default page page-id-48 custom-background use-tm-pb-builder header-layout-fullwidth content-layout-boxed footer-layout-fullwidth blog-default position-fullwidth sidebar-1-4 header-default footer-default tm_pb_builder currency-usd woocommerce <%= 'single-product' if params[:controller] == 'products'%>">
   <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="https://ld-wp.template-help.com/woocommerce_58679/#content">Skip to content</a>
     <%= render "layouts/header" %>
     <div id="content" class="site-content container">
+      <% if params[:controller] == 'products' %>
+        <%= render 'layouts/breadcrumbs' %>
+      <% end %>
       <%= yield %>
     </div>
     <%= render "layouts/footer" %>

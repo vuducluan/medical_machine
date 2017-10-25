@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019084404) do
+ActiveRecord::Schema.define(version: 20171024073532) do
 
   create_table "blog_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -79,22 +79,52 @@ ActiveRecord::Schema.define(version: 20171019084404) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "labels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.string "short_title"
+    t.integer "block_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "product_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_product_categories_on_category_id"
+    t.index ["product_id"], name: "index_product_categories_on_product_id"
+  end
+
+  create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "product_id"
+    t.string "title"
+    t.string "url"
+    t.text "desc"
+    t.string "caption"
+    t.string "alt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_images_on_product_id"
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "brand_id"
+    t.bigint "label_id"
     t.string "name"
-    t.text "model"
-    t.integer "brand_id"
+    t.string "model"
     t.string "location"
     t.integer "price"
     t.integer "discount_price"
-    t.integer "product_category_id"
     t.string "product_type"
     t.text "description"
-    t.integer "product_field_id"
-    t.string "label"
+    t.string "short_description"
     t.integer "label_order"
     t.integer "category_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["label_id"], name: "index_products_on_label_id"
   end
 
   create_table "slider_catalogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -129,4 +159,9 @@ ActiveRecord::Schema.define(version: 20171019084404) do
   end
 
   add_foreign_key "blog_images", "blogs"
+  add_foreign_key "product_categories", "categories"
+  add_foreign_key "product_categories", "products"
+  add_foreign_key "product_images", "products"
+  add_foreign_key "products", "brands"
+  add_foreign_key "products", "labels"
 end

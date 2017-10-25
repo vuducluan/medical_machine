@@ -1,0 +1,33 @@
+<div class="images">
+  <div class="easyzoom is-ready easyzoom--overlay easyzoom--with-thumbnails">
+    <a href="" class="woocommerce-main-image">
+      <%= image_tag @product.product_images.first.url, size: '400', 'data-zoom-image': @product.product_images.first.url, id: 'zoom' %>
+    </a>
+  </div>
+
+  <div class="swiper-carousel-container">
+    <div id="swiper-carousel-59e9bc5f03f8c" class="tm-willard-carousel swiper-container swiper-container-horizontal" data-uniq-id="swiper-carousel-59e9bc5f03f8c" data-slides-per-view="4" data-slides-per-view-xs="2" data-slides-per-view-sm="3" data-slides-per-view-md="4" data-slides-per-view-lg="4" data-slides-per-group="1" data-slides-per-column="1" data-space-between-slides="20" data-duration-speed="500" data-swiper-loop="false" data-free-mode="false" data-grab-cursor="true" data-mouse-wheel="false" style="cursor: -webkit-grab;">
+      <div class="swiper-wrapper" id="gallery_01">
+        <% @product.product_images.each do |image| %>
+          <a href="#" data-image="<%= image.url %>" data-zoom-image="<%= image.url %>">
+            <%= image_tag image.url %>
+          </a>
+        <% end %>
+      </div>
+
+      <script>
+        //initiate the plugin and pass the id of the div containing gallery images
+        $("#zoom").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif', scrollZoom: true, tintOpacity: 0.5});
+
+        //pass the images to Fancybox
+        $("#zoom").bind("click", function(e) {
+          var ez =   $('#zoom').data('elevateZoom');
+          $.fancybox(ez.getGalleryList());
+          return false;
+        });
+      </script>
+    </div>
+  </div>
+
+</div>
+<span class="featured"><%= @product.label.short_title %></span>

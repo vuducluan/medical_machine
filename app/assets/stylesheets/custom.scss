@@ -6659,3 +6659,29 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 #menu-item-389 .tm-mega-menu-sub-item {
     padding-top: 0;
 }
+
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+    background: #ffd71a;
+    border-color: #ffd71a;
+    color: #222222
+}
+
+.zoomWindow {
+    width: 600px !important;
+    height: 549px !important;
+}
+
+#sizzle1508490365017 {
+    .tabs li.active a, .tabs li:hover a {
+        color: #ffd71a;
+    }
+}
+
+.add_to_cart_button {
+    border-radius: 0 !important;
+}
+
+.p-parameter {
+    margin-left: 10px !important;
+}

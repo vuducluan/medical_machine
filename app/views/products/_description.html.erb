@@ -1,0 +1,49 @@
+<div class="woocommerce-tabs wc-tabs-wrapper" id="sizzle1508490365017">
+  <ul class="tabs wc-tabs" role="tablist">
+    <li class="description_tab active" id="tab-title-description" role="tab" aria-controls="tab-description">
+      <a href="#tab-description" aria-controls="home" role="tab" data-toggle="tab">Mô tả</a>
+    </li>
+    <li class="description_tab" id="tab-title-parameter" role="tab" aria-controls="tab-parameter">
+      <a href="#tab-parameter" aria-controls="home" role="tab" data-toggle="tab">Thông số</a>
+    </li>
+    <li class="description_tab" id="tab-title-document" role="tab" aria-controls="tab-document">
+      <a href="#tab-document" aria-controls="home" role="tab" data-toggle="tab">Tài liệu</a>
+    </li>
+    <li class="description_tab" id="tab-title-video" role="tab" aria-controls="tab-video">
+      <a href="#tab-video" aria-controls="home" role="tab" data-toggle="tab">Video</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab tab-pane active" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
+      <h2></h2>
+      <p><%= @product.description %></p>
+    </div>
+
+    <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional_information panel entry-content wc-tab tab-pane" id="tab-parameter" role="tabpanel" aria-labelledby="tab-title-parameter">
+      <h2></h2>
+      <table class="shop_attributes">
+        <tbody>
+          <% 10.times do |i| %>
+            <tr>
+              <th>Brand</th>
+              <td>
+                <p class="p-parameter">Bosch</p>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab tab-pane" id="tab-document" role="tabpanel" aria-labelledby="tab-title-document">
+      <h2>Document</h2>
+      <p>This drill is powerful enough for all kinds of small repairs and renovation works at home or at office. Enhanced with a complementary combo kit. It’s also worth noticing, that this tool kit from the store of Bizinto does prove to come as useful in a situation when you have to drill a hole in the wall at home or carry out a minor repairing job just about anywhere. The drill is one truly smart and efficient replacement for a whole bunch of your small hand tools. A prominent aspect of this toolkit is that it has a durable, long-lasting construction.</p>
+    </div>
+
+    <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab tab-pane" id="tab-video" role="tabpanel" aria-labelledby="tab-title-video">
+      <h2>Video</h2>
+      <p>This drill is powerful enough for all kinds of small repairs and renovation works at home or at office. Enhanced with a complementary combo kit. It’s also worth noticing, that this tool kit from the store of Bizinto does prove to come as useful in a situation when you have to drill a hole in the wall at home or carry out a minor repairing job just about anywhere. The drill is one truly smart and efficient replacement for a whole bunch of your small hand tools. A prominent aspect of this toolkit is that it has a durable, long-lasting construction.</p>
+    </div>
+  </div>
+</div>

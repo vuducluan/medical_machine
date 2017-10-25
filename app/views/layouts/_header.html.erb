@@ -11,15 +11,18 @@
         <span class="search-form__toggle"></span>
 
         <!-- Search form -->
-        <form role="search" method="get" class="search-form woocommerce-product-search" action="">
+        <%= form_tag search_product_path, method: "get", class: "search-form woocommerce-product-search" do %>
           <div class="search-form__input-wrap">
             <label class="screen-reader-text" for="woocommerce-product-search-field">Search for:</label>
             <i class="linearicon linearicon-magnifier"></i>
-            <input type="search" id="woocommerce-product-search-field" class="search-form__field" placeholder="Tìm kiếm sản phẩm…" value="" name="s" title="Search for:">
+            <%= search_field_tag :query, params[:query], 
+              id: "woocommerce-product-search-field",
+              class: "search-form__field", placeholder: "Tìm kiếm sản phẩm…", 
+              title: "Search for:" %>
           </div>
           <button type="submit" class="search-form__submit btn-secondary">Tìm kiếm`</button>
           <input type="hidden" name="post_type" value="product">
-        </form>
+        <% end %>
         <span class="search-form__close"></span>
       </div>
 
@@ -72,15 +75,18 @@
 
         <!-- Search form -->
         <div class="header-search">
-          <form role="search" method="get" class="search-form woocommerce-product-search" action="">
+         <%= form_tag search_product_path, method: "get", class: "search-form woocommerce-product-search" do %>
             <div class="search-form__input-wrap">
               <label class="screen-reader-text" for="woocommerce-product-search-field">Search for:</label>
               <i class="linearicon linearicon-magnifier"></i>
-              <input type="search" id="woocommerce-product-search-field" class="search-form__field" placeholder="Tìm kiếm sản phẩm…" value="" name="s" title="Search for:">
+              <%= search_field_tag :query, params[:query], 
+                id: "woocommerce-product-search-field",
+                class: "search-form__field", placeholder: "Tìm kiếm sản phẩm…", 
+                title: "Search for:" %>
             </div>
             <button type="submit" class="search-form__submit btn-secondary">Tìm kiếm</button>
             <input type="hidden" name="post_type" value="product">
-          </form>
+          <% end %>
         </div>
         <!-- End Search form -->
       </div>

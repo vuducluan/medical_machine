@@ -13,23 +13,23 @@
                 <!-- Nav tabs -->
                 <div class="menu-tab-header">
                   <ul class="nav nav-tabs" role="tablist">
-                    <% @product_array.each_with_index do |products, index| %>
-                      <li role="presentation" class="nav-tab-item <%= 'active' if index == 0 %>"><a href="#tab-<%= products.first.first.name[0] %>" aria-controls="home" role="tab" data-toggle="tab"><%= products.first.first.name[0] %></a></li>
+                    <% @category_array.each_with_index do |categories, index| %>
+                      <li role="presentation" class="nav-tab-item <%= 'active' if index == 0 %>"><a href="#tab-<%= categories.first.first.name[0] %>" aria-controls="home" role="tab" data-toggle="tab"><%= categories.first.first.name[0] %></a></li>
                     <% end %>
                   </ul>
                 </div>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                  <% @product_array.each_with_index do |products, index| %>
-                    <ul role="tabpanel" class="tab-pane <%= 'active' if index == 0 %>" id="tab-<%= products.first.first.name[0] %>">
+                  <% @category_array.each_with_index do |categories, index| %>
+                    <ul role="tabpanel" class="tab-pane <%= 'active' if index == 0 %>" id="tab-<%= categories.first.first.name[0] %>">
                       <% 3.times do |i|%>
-                        <% if products[i].present? %>
+                        <% if categories[i].present? %>
                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat tm-mega-menu-sub-item tm-mega-menu-has-children item-nested-sub item-nested-sub-1 sub-column-title menu-columns-4">
                             <ul class="tm-mega-menu-sub sub-menu level-1 effect-slide-top simple-sub">
-                              <% products[i].each do |product| %>
+                              <% categories[i].each do |category| %>
                                 <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat tm-mega-menu-sub-item item-nested-sub item-nested-sub-2 sub-column-item">
-                                  <%= link_to product.name, "", class: "product-item" %>
+                                  <%= link_to category.name, products_path(category_id: category.id), class: "product-item" %>
                                 </li>
                               <% end %>
                             </ul>
@@ -51,7 +51,7 @@
           <ul class="tm-mega-menu-sub sub-menu level-0 effect-slide-top simple-sub">
             <% @fields.each do |field| %>
               <li class="menu-item menu-item-type-custom menu-item-object-custom tm-mega-menu-sub-item item-nested-sub item-nested-sub-1">
-                <%= link_to field.name, ""%>
+                <%= link_to field.name, products_path(field_id: field.id) %>
               </li>
             <% end %>
           </ul>
@@ -66,7 +66,7 @@
                 <ul class="tm-mega-menu-sub sub-menu level-1 effect-slide-top simple-sub">
                   <% brands.each do |brand| %>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom tm-mega-menu-sub-item item-nested-sub item-nested-sub-1">
-                      <%= link_to brand.name, "" %>
+                      <%= link_to brand.name, products_path(brand_id: brand.id) %>
                     </li>
                   <% end %>
                 </ul>

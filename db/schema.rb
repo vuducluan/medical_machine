@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024073532) do
+ActiveRecord::Schema.define(version: 20171025024927) do
 
   create_table "blog_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -96,6 +96,15 @@ ActiveRecord::Schema.define(version: 20171024073532) do
     t.index ["product_id"], name: "index_product_categories_on_product_id"
   end
 
+  create_table "product_fields", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "product_id"
+    t.bigint "field_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["field_id"], name: "index_product_fields_on_field_id"
+    t.index ["product_id"], name: "index_product_fields_on_product_id"
+  end
+
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "product_id"
     t.string "title"
@@ -161,6 +170,8 @@ ActiveRecord::Schema.define(version: 20171024073532) do
   add_foreign_key "blog_images", "blogs"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
+  add_foreign_key "product_fields", "fields"
+  add_foreign_key "product_fields", "products"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "labels"

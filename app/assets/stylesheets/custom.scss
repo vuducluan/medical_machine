@@ -6685,3 +6685,16 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 .p-parameter {
     margin-left: 10px !important;
 }
+
+.tm-wc-ajax-products-wrapper .products.row {
+    padding-top: 0 !important;
+}
+
+.pagination {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.woocommerce .product h3+.price-add-to-cart-wrap {
+    margin-top: 10px !important;
+}

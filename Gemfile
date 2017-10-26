@@ -15,6 +15,8 @@ gem "turbolinks", "~> 5"
 gem "mini_magick"
 gem "carrierwave", "~> 1.0"
 gem "config"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
 
 group :development, :test do
   gem "pry-rails"

@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  views:
+    pagination:
+      first: "ĐẦU"
+      last: "CUỐI"
+      previous: "QUAY LẠI"
+      next: "TIẾP THEO"
+      truncate: "…"

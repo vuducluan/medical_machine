@@ -4,15 +4,22 @@
   </p>
 <% else %>
   <p class="woocommerce-result-count">
-    Hiển thị <%= @from %> <%= "-#{@to}" if @to > @from %> trong <%= @products_from_menu.total_count %> sản phẩm
+    Hiển thị <%= @from %> <%= "- #{@to}" if @to > @from %> trong <%= @products_from_menu.total_count %> sản phẩm
   </p>
-  <form class="woocommerce-ordering" method="get">
+<% end %>
+<span id="sort-field">
+  <form class="woocommerce-ordering">
     <select class="orderby woocommerce-orderby">
-      <option value="<%= request.fullpath + '&sort_by=defaul' %>" <%= 'selected' if params[:sort_by] == 'defaul' %>">Sắp xếp</option>
-      <option value="<%= request.fullpath + '&sort_by=byname' %>" <%= 'selected' if params[:sort_by] == 'byname' %>>Sắp xếp theo tên</option>
-      <option value="<%= request.fullpath + '&sort_by=bydate' %>" <%= 'selected' if params[:sort_by] == 'bydate' %>>Sắp xếp từ mới đến cũ</option>
-      <option value="<%= request.fullpath + '&sort_by=pricea' %>" <%= 'selected' if params[:sort_by] == 'pricea' %>>Sắp xếp theo giá từ thấp đến cao</option>
-      <option value="<%= request.fullpath + '&sort_by=priced' %>" <%= 'selected' if params[:sort_by] == 'priced' %>>Sắp xếp theo giá từ cao đến thấp</option>
+      <option value="default">Sắp xếp theo</option>
+      <option value="name" <%= 'selected' if params[:sort_by] == 'name' %>>Tên</option>
+      <option value="date" <%= 'selected' if params[:sort_by] == 'date' %>>Mới đến cũ</option>
+      <option value="price" <%= 'selected' if params[:sort_by] == 'price' %>>Giá thấp đến cao</option>
+      <option value="price_desc" <%= 'selected' if params[:sort_by] == 'price_desc' %>>Giá cao đến thấp</option>
     </select>
   </form>
-<% end %>
+</span>
+<span id="price-field">
+  <input type="text" id="min_price" name="min_price" value="1" data-min="1" placeholder="Giá từ">
+  <input type="text" id="max_price" name="max_price" value="100" data-max="500" placeholder="Giá đến"> triệu VNĐ
+  <div class="clear"></div>
+</span>

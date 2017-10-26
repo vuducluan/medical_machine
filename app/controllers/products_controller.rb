@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :load_data_show, only: :show
   before_action :load_data_index, only: :index
+  before_action :load_left_menu_data, only: :index
 
   def index
   end
@@ -9,6 +10,21 @@ class ProductsController < ApplicationController
   end
 
   private
+  def load_left_menu_data
+    mang_ong = []
+    ongs = Category.where(level: Settings.category.highest_level)
+    ongs.each do |ong|
+      bos = ong.childrens
+      mang_bo = []
+      bos.each do |bo|
+        mang_con = bo.childrens
+        mang_bo << [bo, mang_con]
+      end
+      mang_ong << [ong, mang_bo]
+    end
+    @categories = mang_ong
+  end
+
   def load_data_show
     @product = Product.find_by id: params[:id]
     @related_products = Product.where(id: @product.categories.first
@@ -39,6 +55,7 @@ class ProductsController < ApplicationController
         .page(params[:page]).per(Settings.limit.paginate.products)
       get_number_show_product if @products_from_menu.present?
     end
+    get_new_product
   end
 
   def get_number_show_product
@@ -54,15 +71,33 @@ class ProductsController < ApplicationController
   def get_products menu_item
     products = menu_item.respond_to?(:size) ? menu_item : menu_item.products
     if params[:sort_by] == Product::SORT_FIELDS[:name]
-      products.order(name: :desc)
+      sort_by_price products.order(name: :asc)
     elsif params[:sort_by] == Product::SORT_FIELDS[:date]
-      products.order(created_at: :desc)
+      sort_by_price products.order(created_at: :desc)
     elsif params[:sort_by] == Product::SORT_FIELDS[:price]
-      products.order(price: :asc)
+      sort_by_price products.order(price: :asc)
     elsif params[:sort_by] == Product::SORT_FIELDS[:price_desc]
-      products.order(price: :desc)
+      sort_by_price products.order(price: :desc)
+    else
+      sort_by_price products
+    end
+  end
+
+  def sort_by_price products
+    if params[:min_price] && params[:max_price]
+      products.sort_in_range [params[:min_price].to_i, params[:max_price].to_i]
+    elsif params[:min_price]
+      products.sort_from_price params[:min_price].to_i
+    elsif params[:max_price]
+      products.sort_to_price params[:max_price].to_i
     else
       products
     end
+  end
+
+  def get_new_product
+    label_id = Label.where(short_title: "hot").first.id
+    @new_products = Product.where(label_id: label_id)
+      .limit(Settings.limit.new_products)
   end
 end

@@ -1,15 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :get_menu_data
+  before_action :get_top_menu_data
 
-  def get_menu_data
+  private
+  def get_top_menu_data
     get_categories_anphabet
     @fields = Field.all.limit Settings.limit.product_field
     get_brands
   end
 
-  private
   def get_categories_anphabet
     @category_array = []
     (97..122).each do |anphabet|

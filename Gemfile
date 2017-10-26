@@ -29,6 +29,8 @@ gem "carrierwave", "~> 1.0"
 gem "config"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
+gem "pry-rails"
+gem "pry-byebug"
 
 # Elasticsearch
 gem "searchkick", "~> 2.3", ">= 2.3.2"

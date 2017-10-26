@@ -1,0 +1,40 @@
+<div id="sidebar" class="col-xs-12 col-lg-3 col-lg-pull-9 sidebar widget-area sidebar" role="complementary">
+  <h5 class="widget-title">Danh mục</h5>
+  <nav id="left-navigation" class="nav" role="navigation">
+    <ul class="nav__list">
+      <% @categories.each do |category| %>
+        <li>
+          <% if category.second.blank? %>
+            <%= link_to category.first.name, products_path(category_id: category.first.id),
+              class: "category-item-select #{'item-active' if params[:category_id].to_i == category.first.id}", id: "category-id-#{category.first.id}" %>
+          <% else %>
+            <input id="group-<%= category.first.id %>" type="checkbox" hidden />
+            <label for="group-<%= category.first.id %>"><span class="fa fa-angle-right"></span><%= category.first.name %></label>
+            <ul class="group-list">
+              <% category.second.each_with_index do |sub_category, j| %>
+                <input type="hidden" id="parent-<%= sub_category.first.id %>" value="<%= category.first.id %>">
+                <% if sub_category.second.blank? %>
+                  <li><%= link_to sub_category.first.name, products_path(category_id: sub_category.first.id),
+                    class: "category-item-select #{'item-active' if params[:category_id].to_i == sub_category.first.id}", id: "category-id-#{sub_category.first.id}" %></li>
+                <% else %>
+                  <li>
+                    <input id="sub-group-<%= sub_category.first.id %>" type="checkbox" hidden />
+                    <label for="sub-group-<%= sub_category.first.id %>"><span class="fa fa-angle-right"></span><%= sub_category.first.name %></label>
+                    <ul class="sub-group-list">
+                      <% sub_category.second.each do |sub_sub_category| %>
+                        <li><%= link_to sub_sub_category.name, products_path(category_id: sub_sub_category.id),
+                          class: "category-item-select #{'item-active' if params[:category_id].to_i == sub_sub_category.id}", id: "category-id-#{sub_sub_category.id}" %></li>
+                        <input type="hidden" id="parent-<%= sub_sub_category.id %>" value="<%= sub_category.first.id %>">
+                      <% end %>
+                    </ul>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+  <%= render "left_new_product"%>
+</div>

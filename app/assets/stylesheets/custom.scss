@@ -6696,5 +6696,31 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 }
 
 .woocommerce .product h3+.price-add-to-cart-wrap {
-    margin-top: 10px !important;
+  margin-top: 10px !important;
+}
+#media-table {
+  table {
+    width: 90%;
+  }
+  
+  .doccument-type {
+    width: 120px;
+    height: 120px;    
+  }
+
+  .image-doc-type{
+    width: 150px;
+    height: 150px; 
+  }
+  .video-td {
+    width: 415px;
+    height: 315px;
+  }
+  .content-video {
+    margin-left: 10px;
+    margin-top: -150px;
+  }
+  .paginate-medias {
+    text-align: center;
+  }
 }

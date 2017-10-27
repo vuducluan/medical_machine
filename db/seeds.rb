@@ -70,8 +70,8 @@ end
 puts "catalog images OK"
 
 puts "create label"
-["Sale", "Hot", "Weekly", "Trend", "Feature"].each_with_index do |c, i|
-  Label.create! title: c, block_order: i + 1, short_title: c
+[{sale: "Sản phẩm khuyến mại"}, {hot: "Sản phẩm HOT"}, {weekly: "Sản phẩm nổi bật tuần"}, trend: "Sản phẩm trending", {feature: "Sản phẩm nổi bật"}].each_with_index do |c, i|
+  Label.create! title: c.values.first, block_order: i + 1, short_title: c.keys.first.to_s
 end
 puts "create label OK"
 

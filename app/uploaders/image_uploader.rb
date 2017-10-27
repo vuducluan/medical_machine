@@ -34,6 +34,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [290, 230]
   end
 
+  version :product_thumb, if: :is_product_img? do
+    process resize_to_fit: [210, 210]
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_whitelist
@@ -48,5 +52,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   private
   def is_blog_img? _pic
     model.is_a? BlogImage
+  end
+
+  def is_product_img? _pic
+    model.is_a? ProductImage
   end
 end

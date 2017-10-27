@@ -9,6 +9,8 @@ limit:
   related_products: 4
   paginate:
     products: 12
+    documents: 10
+    videos: 10
   menu_block:
     a_to_z: 3.0
     brand: 4.0

@@ -129,3 +129,22 @@ Product.all.each_with_index do |p, i|
   ProductField.create product_id: i%30, field_id: rand(10)
 end
 puts "product_fields OK"
+
+puts "Create media..."
+Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "/uploads/media/admin_export_candidate.xlsx", media_type: 0, field_id: 0
+Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "/uploads/media/report_3.doc", media_type: 0, field_id: 0
+Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "/uploads/media/resume_search.doc", media_type: 0, field_id: 1
+Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "/uploads/media/Rails_4_in_Action_v11_MEAP.pdf", media_type: 0, field_id: 0
+Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "/uploads/media/Pro React.pdf", media_type: 0, field_id: 0
+Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "/uploads/media/admin_export_candidate.xlsx", media_type: 0, field_id: 1
+Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "/uploads/media/report_3.doc", media_type: 0, field_id: 0
+Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "/uploads/media/resume_search.doc", media_type: 0, field_id: 1
+Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "/uploads/media/Rails_4_in_Action_v11_MEAP.pdf", media_type: 0, field_id: 1
+Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "/uploads/media/Pro React.pdf", media_type: 0, field_id: 0
+
+10.times do |i|
+  field = i < 5 ? 0 : 1
+  Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "https://www.youtube.com/embed/ptLFrU_zrEQ", media_type: 1, field_id: field
+end
+
+puts "Create media: doc & pdf OK"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025024927) do
+ActiveRecord::Schema.define(version: 20171026064528) do
 
   create_table "blog_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -83,6 +83,16 @@ ActiveRecord::Schema.define(version: 20171025024927) do
     t.string "title"
     t.string "short_title"
     t.integer "block_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.text "description"
+    t.string "url"
+    t.integer "media_type"
+    t.integer "field_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

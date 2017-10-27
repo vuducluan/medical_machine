@@ -38,3 +38,12 @@ en:
       previous: "QUAY LẠI"
       next: "TIẾP THEO"
       truncate: "…"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Không tìm thấy %{entry_name} nào"
+          one: "Hiển thị <b>1</b> %{entry_name}"
+          other: "Hiển thị <b>tất cả %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Hiển thị <b>%{first}&nbsp;-&nbsp;%{last}</b>&nbsp;%{entry_name} trong tổng số <b>%{total}</b>"

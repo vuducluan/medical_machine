@@ -1,0 +1,22 @@
+<% @medias.each do |video| %>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td class="video-td">
+          <iframe width="374" height="284" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
+        </td>
+        <td>
+          <div class="content-video">
+            <strong><%= video.title %></strong><br/>
+            <%= video.description %><br/>
+            <p>Ngày tạo : <%= video.created_at %></p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+<div class="paginate-medias">
+  <%= paginate @medias %>
+  <%= page_entries_info @medias, entry_name: "video" %>
+</div>

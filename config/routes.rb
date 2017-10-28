@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resource :subcribers
   resources :products, only: [:show, :index]
   resources :medias, only: [:index]
+  get "/products" => "products#index", as: :search_product
 end

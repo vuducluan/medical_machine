@@ -32,6 +32,13 @@ class ProductsController < ApplicationController
         get_number_show_product
       end
     end
+
+    if (q = params[:query]).present?
+      found_products = Product.search(body: {query: {match: {_all: q}}})
+      @products_from_menu = get_products(Product.by_ids(found_products.map(&:id)))
+        .page(params[:page]).per(Settings.limit.paginate.products)
+      get_number_show_product if @products_from_menu.present?
+    end
   end
 
   def get_number_show_product
@@ -45,16 +52,17 @@ class ProductsController < ApplicationController
   end
 
   def get_products menu_item
+    products = menu_item.respond_to?(:size) ? menu_item : menu_item.products
     if params[:sort_by] == Product::SORT_FIELDS[:name]
-      menu_item.products.order(name: :desc)
+      products.order(name: :desc)
     elsif params[:sort_by] == Product::SORT_FIELDS[:date]
-      menu_item.products.order(created_at: :desc)
+      products.order(created_at: :desc)
     elsif params[:sort_by] == Product::SORT_FIELDS[:price]
-      menu_item.products.order(price: :asc)
+      products.order(price: :asc)
     elsif params[:sort_by] == Product::SORT_FIELDS[:price_desc]
-      menu_item.products.order(price: :desc)
+      products.order(price: :desc)
     else
-      menu_item.products
+      products
     end
   end
 end

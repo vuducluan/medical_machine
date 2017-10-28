@@ -14,5 +14,6 @@ limit:
   menu_block:
     a_to_z: 3.0
     brand: 4.0
+  label_block: 10
 format:
   created_at: "%d/%m/%Y"

@@ -5,5 +5,7 @@ class PagesController < ApplicationController
     @subcriber = Subcriber.new
     @sliders = SliderCatalog.where(image_type: "slider")
     @catalogs = SliderCatalog.where(image_type: "catalog").limit 2
+    @product_labels = Label.all.order(:block_order)
+      .includes(products: [:product_images, :categories]).limit Settings.limit.label_block
   end
 end

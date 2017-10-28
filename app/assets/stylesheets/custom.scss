@@ -6724,3 +6724,54 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
     text-align: center;
   }
 }
+
+.nav-tabs {
+  &.mema-tabs {
+    border-bottom: none;
+    li {
+      a, a:hover, a:focus {
+      	border: none;
+      	margin-bottom: 25px;
+      	font-style: normal;
+	    font-weight: 600;
+	    font-size: 16px;
+	    line-height: 1.66;
+	    letter-spacing: 0.08em;
+	    color: #222222;
+	    padding-top: 3px;
+	    padding-bottom: 0;
+	    word-wrap: break-word;
+        box-sizing: border-box;
+        position: relative;
+        padding-left: 20px;
+        padding-right: 10px;
+        text-transform: uppercase;
+        margin: 0 5px 18px;
+      }
+      a {
+      	position: relative;
+      	&:before {
+      	  content: '';
+		  display: block!important;
+		  position: absolute;
+		  background: #ffd71a;
+		  top: 11px;
+		  left: 4px;
+		  width: 10px;
+		  height: 10px;
+      	}
+      }
+    }
+    li.active {
+      a {
+      	background: #ffd71a;
+      	&:before {
+      	  background: #fff;
+      	}
+      }
+    }
+  }
+}
+.product-tab-column {
+  float: left !important;
+}

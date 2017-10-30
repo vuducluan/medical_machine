@@ -37,10 +37,22 @@ class Product < ApplicationRecord
   has_many :product_fields, dependent: :destroy
   has_many :fields, through: :product_fields
 
+  scope :sort_from_price, -> min_price do
+    where "price >= ?", min_price
+  end
+
+  scope :sort_to_price, -> max_price do
+    where "price <= ?", max_price
+  end
+
+  scope :sort_in_range, -> range do
+    where "price BETWEEN ? AND ?", range[0], range[1]
+  end
+
   SORT_FIELDS = {
-    name: "byname",
-    date: "bydate",
-    price: "pricea",
-    price_desc: "priced"
+    name: "name",
+    date: "date",
+    price: "price",
+    price_desc: "price_desc"
   }
 end

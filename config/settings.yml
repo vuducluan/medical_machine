@@ -1,12 +1,14 @@
 category:
-  highest_level: 0
-  lowest_level: 2
+  highest_level: 1
+  middle_level: 2
+  lowest_level: 3
 blog_category:
   news: 1
 limit:
   blog_home_page: 4
   product_field: 10
   related_products: 4
+  new_products: 3
   paginate:
     products: 12
     documents: 10

@@ -6702,15 +6702,15 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
   table {
     width: 90%;
   }
-  
+
   .doccument-type {
     width: 120px;
-    height: 120px;    
+    height: 120px;
   }
 
   .image-doc-type{
     width: 150px;
-    height: 150px; 
+    height: 150px;
   }
   .video-td {
     width: 415px;
@@ -6774,4 +6774,22 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 }
 .product-tab-column {
   float: left !important;
+}
+
+.item-active {
+    color: #ffd71a !important;
+}
+
+#left-navigation {
+    padding-bottom: 30px;
+}
+
+#price-field {
+    #min_price, #max_price {
+        width: 25%;
+    }
+}
+
+#sort-field {
+    padding-right: 30px
 }

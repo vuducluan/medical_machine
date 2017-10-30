@@ -1,7 +1,7 @@
 puts "Create 6 top categories"
 ["Thiết bị thí nghiệm", "Thiết bị đo lường", "Thiết bị y tế",
   "Thiết bị công nghiệp", "Dụng cụ, vật tư", "Phụ kiện thay thế"].each_with_index do |c, i|
-  Category.create! name: c, level: 0, category_order: i.next
+  Category.create! name: c, level: Settings.category.highest_level, category_order: i.next
 end
 puts "Status: OK"
 
@@ -70,7 +70,7 @@ end
 puts "catalog images OK"
 
 puts "create label"
-[{sale: "Sản phẩm khuyến mại"}, {hot: "Sản phẩm HOT"}, {weekly: "Sản phẩm nổi bật tuần"}, trend: "Sản phẩm trending", {feature: "Sản phẩm nổi bật"}].each_with_index do |c, i|
+[{sale: "Sản phẩm khuyến mại"}, {hot: "Sản phẩm HOT"}, {weekly: "Sản phẩm nổi bật tuần"}, {trend: "Sản phẩm trending"}, {feature: "Sản phẩm nổi bật"}].each_with_index do |c, i|
   Label.create! title: c.values.first, block_order: i + 1, short_title: c.keys.first.to_s
 end
 puts "create label OK"
@@ -105,12 +105,20 @@ Product.all.each_with_index do |b, i|
 end
 puts "product images OK"
 
-puts "create Category level 2"
-300.times do |i|
-  a = 97 + i%25
-  Category.create! name: "#{a.chr}#{Faker::Lorem.sentence}", level: 2
+puts "create Category relation 1,2"
+Category.where(level: Settings.category.highest_level).each do |category_level_1|
+  rand_level_2 = rand(15) + 1
+  rand_level_2.times do |r|
+    category_level_2 = Category.create! name: "#{Faker::Lorem.sentence}", level: Settings.category.middle_level
+    CategoryRelation.create! parent_id: category_level_1.id, children_id: category_level_2.id
+    rand_level_3 = rand(5) + 1
+    rand_level_3.times do |r|
+      category_level_3 = Category.create! name: "#{Faker::Lorem.sentence}", level: Settings.category.lowest_level
+      CategoryRelation.create! parent_id: category_level_2.id, children_id: category_level_3.id
+    end
+  end
 end
-puts "Category level 2 OK"
+puts "Category relation 1,2 OK"
 
 puts "create Field"
 10.times do |i|
@@ -119,14 +127,20 @@ end
 puts "Field OK"
 
 puts "create product_categoies"
-Product.all.each_with_index do |p, i|
-  ProductCategory.create product_id: i%30, category_id: rand(10)
+Category.where(level: Settings.category.lowest_level).each do |category|
+  rand_p = rand(10)
+  rand_p.times do |r|
+    ProductCategory.create product_id: rand(Product.count), category_id: category.id
+  end
 end
 puts "product_categoies OK"
 
 puts "create product_fields"
-Product.all.each_with_index do |p, i|
-  ProductField.create product_id: i%30, field_id: rand(10)
+Field.all.each do |field|
+  rand_p = rand(30)
+  rand_p.times do |r|
+    ProductField.create product_id: rand(Product.count), field_id: field.id
+  end
 end
 puts "product_fields OK"
 

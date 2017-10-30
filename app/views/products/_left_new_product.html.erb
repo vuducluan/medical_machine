@@ -1,0 +1,28 @@
+<div data-sidebar="shop-sidebar">
+  <aside id="tm_willard_products-4" class="widget woocommerce tm_willard_widget_products">
+    <h5 class="widget-title">Sản phẩm mới</h5>
+    <ul class="product_list_widget">
+      <% @new_products.each do |product| %>
+        <li>
+          <a href="" title="">
+            <%= image_tag product.product_images.first.url, size: '210' %>
+          </a>
+          <div class="product-widget-categories">
+            <a href="" rel="tag">Cutters</a>,
+            <a href="" rel="tag">Drills</a>,
+            <a href="" rel="tag">Gardenign Tools</a>
+          </div>
+          <span class="product-title"><%= product.name %></span>
+          <span class="woocs_price_code" data-product-id="274">
+            <span class="woocommerce-Price-amount amount"><%= product.price %>
+              <span class="woocommerce-Price-currencySymbol">$</span>
+            </span>
+          </span>
+          <div class="add_to_cart_button-wrap">
+            <a rel="nofollow" href="" data-quantity="1" data-product_id="274" data-product_sku="" class="button product_type_variable add_to_cart_button">Đặt hàng</a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+</div>

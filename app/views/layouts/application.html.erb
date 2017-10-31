@@ -19,9 +19,6 @@
     <a class="skip-link screen-reader-text" href="https://ld-wp.template-help.com/woocommerce_58679/#content">Skip to content</a>
     <%= render "layouts/header" %>
     <div id="content" class="site-content container">
-      <% if params[:controller] == 'products' %>
-        <%= render 'layouts/breadcrumbs' %>
-      <% end %>
       <%= yield %>
     </div>
     <%= render "layouts/footer" %>

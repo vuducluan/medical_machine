@@ -6886,5 +6886,53 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 }
 
 .title-font-em {
-  font-size: 1.5em;
+  font-size: 1.4em;
+}
+
+.table-bordered, .table-bordered>tbody>tr>td, .table>tbody>tr>td {
+    border: 0 !important;
+}
+
+.breadcrumbs__item {
+    a {
+        color: #999999;
+    }
+    a:hover {
+        color: #ffd71a;
+    }
+}
+
+.margin-left-75 {
+    margin-left: 75px;
+}
+
+.custom-cart-button {
+    padding-top: 20px;
+}
+
+.woocommerce a.button.product_type_variable {
+    background: #ffd71a !important;
+    border-color: #ffd71a !important;
+    color: #222222 !important;
+}
+
+
+.woocommerce a.button.product_type_variable:hover {
+    background: #222222 !important;
+    border-color: #222222 !important;
+    color: #ffd71a !important;
+}
+
+.product-title-custom {
+    padding-top: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+#tm_builder_outer_content .tm_pb_module.tm_pb_posts .tm-posts_title:before {
+    top: 3px !important;
 }

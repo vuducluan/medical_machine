@@ -29,7 +29,7 @@
                         <%= link_to "#{category.name} ", products_path(category_id: category.id), rel: "tag" %>
                       <% end %>
                     </div>
-                    <span class="product-title"><%= product.name %></span>
+                    <span class="product-title"><%= link_to product.name, product_path(product) %></span>
                     <span class="woocs_price_code" data-product-id="<%= product.id %>">
                       <del>
                         <span class="woocommerce-Price-amount amount"><%= product.price %>
@@ -43,7 +43,7 @@
                       </ins>
                     </span>
                     <div class="add_to_cart_button-wrap">
-                      <%= link_to "ĐẶT", order_product_path(product), remote: true, rel: "nofollow",
+                      <%= link_to "MUA", order_product_path(product), remote: true, rel: "nofollow",
                         "data-product-id": product.id, class: "button product_type_variable add_to_cart_button" %>
                     </div>
                   </li>
@@ -83,7 +83,7 @@
                       </ins>
                     </span>
                     <div class="add_to_cart_button-wrap">
-                      <%= link_to "ĐẶT", order_product_path(product), remote: true, rel: "nofollow",
+                      <%= link_to "MUA", order_product_path(product), remote: true, rel: "nofollow",
                         "data-product-id": product.id, class: "button product_type_variable add_to_cart_button" %>
                     </div>
                   </li>
@@ -124,7 +124,7 @@
                       </ins>
                     </span>
                     <div class="add_to_cart_button-wrap">
-                      <%= link_to "ĐẶT", order_product_path(product), remote: true, rel: "nofollow",
+                      <%= link_to "MUA", order_product_path(product), remote: true, rel: "nofollow",
                         "data-product-id": product.id, class: "button product_type_variable add_to_cart_button" %>
                     </div>
                   </li>

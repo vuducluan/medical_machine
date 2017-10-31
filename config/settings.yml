@@ -20,3 +20,6 @@ limit:
   label_block: 10
 format:
   created_at: "%d/%m/%Y"
+media_type:
+  document: 0
+  video: 1

@@ -11,6 +11,7 @@ limit:
   new_products: 3
   paginate:
     products: 12
+    blogs: 5
     documents: 10
     videos: 10
   menu_block:

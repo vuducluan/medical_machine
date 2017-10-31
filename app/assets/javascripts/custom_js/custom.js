@@ -33,6 +33,10 @@ $(document).on('turbolinks:load', function(){
     location.href = url;
   });
 
+  $("#archives-dropdown-4").on("change", function() {
+    location.href = $(this).val();
+  });
+
   function sortByPrice() {
     var url = removeParam("min_price", removeParam("max_price", location.href));
     var minPriceParam = $("#min_price").val() ? ("&min_price=" + $("#min_price").val()) : "";

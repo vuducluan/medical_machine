@@ -2,25 +2,26 @@
   <div class=" row tm_pb_row tm_pb_row_3">
     <div class="tm_pb_column tm_pb_column_4_4  tm_pb_column_5 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tm_pb_vertical_alligment_start">
       <hr class="tm_pb_module tm_pb_space tm_pb_divider_2">
-      <div class="tm_pb_posts tm_pb_posts_0 tm_pb_module" data-atts="{&quot;terms_type&quot;:&quot;categories&quot;,&quot;categories&quot;:&quot;94,93,95,1&quot;,&quot;post_tag&quot;:&quot;&quot;,&quot;post_format&quot;:&quot;&quot;,&quot;post_id&quot;:&quot;&quot;,&quot;posts_per_page&quot;:&quot;4&quot;,&quot;post_offset&quot;:&quot;0&quot;,&quot;super_title&quot;:&quot;&quot;,&quot;title&quot;:&quot;from the blog&quot;,&quot;subtitle&quot;:&quot;&quot;,&quot;title_delimiter&quot;:&quot;off&quot;,&quot;more&quot;:&quot;off&quot;,&quot;more_text&quot;:&quot;dasfdasfdsfsf xdsdsf&quot;,&quot;ajax_more&quot;:&quot;on&quot;,&quot;more_url&quot;:&quot;&quot;,&quot;meta_data&quot;:&quot;on&quot;,&quot;post_layout&quot;:&quot;layout-1&quot;,&quot;excerpt&quot;:&quot;0&quot;,&quot;columns&quot;:&quot;4&quot;,&quot;columns_laptop&quot;:&quot;4&quot;,&quot;columns_tablet&quot;:&quot;2&quot;,&quot;columns_phone&quot;:&quot;1&quot;,&quot;image_size&quot;:&quot;post-thumbnail&quot;,&quot;use_space&quot;:&quot;on&quot;,&quot;use_rows_space&quot;:&quot;on&quot;,&quot;button_icon&quot;:&quot;f18e&quot;,&quot;custom_button&quot;:&quot;off&quot;}" data-page="1" data-pages="4">
+      <div class="tm_pb_posts tm_pb_posts_0 tm_pb_module" data-atts="" data-page="1" data-pages="4">
         <div class="tm-posts_title_group">
-          <h5 class="tm-posts_title">Tin Tức</h5>
+          <h5 class="tm-posts_title">
+            <%= link_to "Tin Tức", blogs_path() %>
+          </h5>
         </div>
         <div class="tm-posts_listing">
           <div class="row tm-posts_layout-1">
-            <% @blogs.each do |blog| %>              
+            <% @blogs.each do |blog| %>
               <div class="tm_pb_column col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div class="tm-posts_item">
                   <div class="tm-posts_item_content_wrap">
                     <a href="#" class="tm-posts_img">
-                      <%= image_tag blog.feature_image_thumb_url, alt: blog.feature_image_alt, title: blog.feature_image_title %>
+                      <%= link_to "#{image_tag(blog.feature_image_thumb_url, alt: blog.feature_image_alt, title: blog.feature_image_title)}".html_safe, blog_path(blog) %>
                     </a>
-                    <h5 class="tm-posts_item_title"><a href="#" title="<%= blog.title %>" rel="bookmark"><%= blog.title %></a></h5>
+                    <h5 class="tm-posts_item_title">
+                      <%= link_to blog.title, blog_path(blog) %>
+                    </h5>
                     <div class="tm-posts_item_meta entry-meta">
-                      <a href="#" class="post__date">
-                      <time datetime="<%= blog.created_at %>" title="<%= blog.created_at %>"><%= blog.created_at.strftime(Settings.format.created_at) %></time>
-                      </a><span class="post__comments"><a href="#" class="post__comments-link"><span class="linearicon linearicon-bubble"></span> <span class="text">0</span></a>
-                      </span>
+                      <%= link_to blog.created_at.strftime(Settings.format.created_at), blogs_path(time: blog.time_param[:value]), class: "post__date" %>
                     </div>
                   </div>
                   <div class="posts_item_content_footer">

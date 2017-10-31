@@ -1,0 +1,114 @@
+<div class="site-content_wrap container">
+  <div class="row">
+    <div id="primary" class="col-xs-12 col-lg-9 col-lg-push-3">
+      <main id="main" class="site-main" role="main">
+        <article id="post-73" class="post-73 post type-post status-publish format-standard has-post-thumbnail hentry category-accessories category-diy-home category-tips tag-drill tag-hammer tag-hand-tools tag-power-tools has-thumb">
+          <header class="entry-header">
+            <span class="post-cats">
+              <% @blog.blog_categories.uniq.each do |category| %>
+                <%= link_to category.name, blogs_path(blog_category_id: category.id) %>
+              <% end %>
+            </span>
+            <h2 class="entry-title"><%= @blog.title %></h2>
+            <div class="entry-meta">
+              <span class="post__date">
+                <a href="" class="post__date-link">
+                  <time datetime="2017-02-01T17:07:27+00:00"><%= @blog.created_at.strftime(Settings.format.created_at) %></time>
+                </a></span>
+            </div>
+          </header>
+
+          <figure class="post-thumbnail">
+            <%= image_tag @blog.blog_images.first.url, alt: @blog.feature_image_alt, title: @blog.feature_image_title, class: "post-thumbnail__img wp-post-image" %>
+          </figure>
+          <!-- .post-thumbnail -->
+          <div class="entry-content">
+            <h3><%= @blog.title %></h3>
+            <p>
+              <%= @blog.content %>
+            </p>
+            <p>
+              <%= image_tag @blog.blog_images.second.url, alt: @blog.feature_image_alt, title: @blog.feature_image_title, class: "post-thumbnail__img" %>
+            </p>
+            <% if @blog_relate_1 %>
+              <article class="inner-article hzol-clear story">
+                <figure class="cover image-cover">
+                  <%= link_to "#{image_tag(@blog_relate_1.blog_images.first.url, width: '145')}".html_safe, blog_path(@blog_relate_1) %>
+                </figure>
+                <header>
+                  <h2 class="title">
+                    <%= link_to @blog_relate_1.title, blog_path(@blog_relate_1) %>
+                  </h2>
+                  <div class="summary">
+                    <%= @blog_relate_1.content[0..99] %>
+                  </div>
+                </header>
+              </article>
+            <% end %>
+            <p>
+              <%= @blog.content %>
+            </p>
+            <blockquote>
+              <p><strong>“<%= @blog.title %>”</strong></p>
+            </blockquote>
+
+            <p>
+              <%= @blog.content %>
+            </p>
+            <p>
+              <%= image_tag @blog.blog_images.third.url, alt: @blog.feature_image_alt, title: @blog.feature_image_title, class: "post-thumbnail__img" %>
+            </p>
+            <% if @blog_relate_2 %>
+              <article class="inner-article hzol-clear story">
+                <figure class="cover image-cover">
+                  <%= link_to "#{image_tag(@blog_relate_2.blog_images.first.url, width: '145')}".html_safe, blog_path(@blog_relate_2) %>
+                </figure>
+                <header>
+                  <h2 class="title">
+                    <%= link_to @blog_relate_2.title, blog_path(@blog_relate_2) %>
+                  </h2>
+                  <div class="summary">
+                    <%= @blog_relate_2.content[0..99] %>
+                  </div>
+                </header>
+              </article>
+            <% end %>
+            <p>
+              <%= @blog.content %>
+            </p>
+          </div>
+          <!-- .entry-content -->
+          <footer class="entry-footer">
+            <div class="entry-meta entry-meta-right">
+              <span class="post__tags">
+                <% @blog.tags.uniq.each do |tag|%>
+                  <%= link_to tag.name, blogs_path(tag_id: tag.id) %>
+                  <% unless tag == @blog.tags.last %>
+                    ,
+                  <% end %>
+                <% end %>
+            </div>
+          </footer>
+          <!-- .entry-footer -->
+        </article>
+        <nav class="navigation post-navigation" role="navigation">
+          <h2 class="screen-reader-text">Post navigation</h2>
+          <div class="nav-links">
+            <% if @prev.present? %>
+              <div class="nav-previous">
+                <%= link_to @prev.title, blog_path(@prev) %>
+              </div>
+            <% end %>
+            <% if @next.present? %>
+              <div class="nav-next">
+                <%= link_to @next.title, blog_path(@next) %>
+              </div>
+            <% end %>
+          </div>
+        </nav>
+      </main>
+      <!-- #main -->
+    </div>
+    <%= render "left_sidebar"%>
+  </div>
+</div>

@@ -6,14 +6,15 @@
           <div id="woo-main" class="site-main" role="main">
             <div id="media-table">
               <% if params[:media_type] == "0" %>
-                <%= render "doccument" %>
+                <%= render partial: "doccument", object: @medias %>
               <% else %>
-                <%= render "video" %>
+                <%= render partial: "video", object: @medias %>
               <% end %>
             </div>
           </div>
         </div>
       </main>
     </div>
+    <%= render "left_navigator" %>
   </div>
 </div>

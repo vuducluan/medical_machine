@@ -1,0 +1,85 @@
+<div class="site-content_wrap container">
+  <div class="row">
+    <div id="primary" class="col-xs-12">
+      <main id="main" class="site-main" role="main">
+        <div id="woo-primary" class="content-area willard">
+          <div id="woo-main" class="site-main" role="main">
+            <div id="media-table">
+              <h1 style="text-align: center;">LIÊN HỆ</h1>
+              <div class="row" style="margin-top: 50px;">
+                <div class="col-md-5 col-md-offset-1" style="margin-top: 50px;">
+                <h2 style="color: blue; font-size: 150%">
+                  STECH INTERNATIONAL ., LTD<br>
+                </h2>
+                <h3>
+                  Văn phòng: <%= Company.first.address %><br>
+                </h3>
+                <h3>
+                  Điện thoại: <%= Company.first.phone %> - Hotline: 096.840.6636 Mr.Tú<br>
+                </h3>
+                <h3 class="text-align-none">
+                  EMAIL: <%= Company.first.email %><br>
+                </h3>
+                <h3 class="text-align-none">
+                  WEBSITE: <%= Company.first.website %><br>
+                </h3>
+                <h2 style="color: red;">Rất vui lòng được phục vụ quý khách !!!</h2>
+                </div>
+                <div class="col-md-5">
+                  <div id="map" style="height: 500px; width: 100%"></div>
+                  <script>
+                    function initMap() {
+                      var uluru = {lat: -25.363, lng: 131.044};
+                      var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 4,
+                        center: uluru
+                      });
+                      var marker = new google.maps.Marker({
+                        position: uluru,
+                        map: map
+                      });
+                    }
+                  </script>
+                  <script async defer
+                  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbEWIklaDSw8BsgQhkabXXYnM3DcKFNyQ&callback=initMap">
+                  </script>
+                </div>
+              </div>
+              <h1 style="text-align: center; margin-top: 50px;">GỬI LIÊN HỆ</h1>
+              <h2 style="text-align: center;">Nếu bạn có bất cứ thắc mắc hay câu hỏi gì? Hãy liên hệ với Chúng tôi ngay</h2>
+              <%= form_for @contact, url: contacts_path, html: {class: "width-100"} do |f| %>
+                <div class="row">
+                  <div class="col-md-6 margin-40">
+                    Họ tên của bạn: <br><br>
+                    <%= f.text_field :full_name, class: "width-100" %><br />
+                  </div>
+                  <div class="col-md-6 margin-40">
+                    Tiêu đề liên hệ:<br><br>
+                     <%= f.text_field :title, class: "width-100" %><br />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 margin-40">
+                    Điện thoại của bạn:<br><br>
+                     <%= f.text_field :phone, class: "width-100" %><br /><br /><br />
+                    Email của bạn:<br><br>
+                    <%= f.text_field :email, class: "width-100" %><br />
+                  </div>
+                  <div class="col-md-6 margin-40">
+                    Nội dung liên hệ:<br><br>
+                     <%= f.text_area :content, class: "width-100 text-area-contact" %><br />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-offset-5">
+                    <%= f.submit "GỬI LIÊN HỆ", class: "submit-contact btn btn-primary" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

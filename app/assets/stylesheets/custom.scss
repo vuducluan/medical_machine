@@ -6793,3 +6793,70 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 #sort-field {
     padding-right: 30px
 }
+
+.entry-meta-right {
+    float: right;
+}
+
+.inner-article {
+    width: 380px;
+    border: 1px solid #ddd;
+    background: #eee;
+    padding: 12px 10px 10px 15px;
+    float: left;
+    margin-right: 20px;
+}
+
+.post-thumbnail__img, .post-thumbnail--fullwidth {
+    width: 100%;
+}
+
+.image-cover {
+    width: 145px;
+    height: 80px;
+}
+
+.story header .title {
+    font-size: 1rem;
+}
+
+.tag-active {
+    color: #ffd71a !important;
+    background: #222222 !important;
+    border-color: #222222 !important;
+}
+
+.non-blog {
+    text-align: center !important;
+}
+
+.calendar-heading {
+    font-family: Hind Siliguri, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.66;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    background: #222222;
+    padding: 33px 55px 29px;
+    word-wrap: initial;
+    font-size: 18px;
+    font-size: 1.125rem;
+    text-align: center;
+    a {
+        font-size: 10px;
+    }
+}
+
+.table-striped th {
+    text-align: center;
+}
+
+.today {
+    color: #ffd71a !important;
+    background: #222222;
+}
+
+.prev-month, .next-month {
+    color:  #E0E0E0 !important;
+}

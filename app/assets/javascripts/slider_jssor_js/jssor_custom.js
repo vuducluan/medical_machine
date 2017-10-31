@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function(){
   jssor_1_slider_init = function() {
     var jssor_1_options = {
       $AutoPlay: 1,

@@ -5,29 +5,47 @@ puts "Create 6 top categories"
 end
 puts "Status: OK"
 
-puts "Create news blog category"
-bc = BlogCategory.create! id: 1, name: "news"
-
-puts "Create news template"
-nt = Template.create! name: "news", content: Faker::Lorem.paragraph
+puts "Create template category"
+5.times do |i|
+  Template.create! name: Faker::Lorem.sentence[0..8], content: Faker::Lorem.paragraph
+end
 
 puts "Create 10 news articles"
-10.times do |i|
-  Blog.create! title: Faker::Lorem.sentence, template: nt,
-    blog_category: bc, content: Faker::Lorem.paragraph
+20.times do |i|
+  Blog.create! title: Faker::Lorem.sentence, template: Template.find(5 - rand(4)),
+    content: Faker::Lorem.paragraph(30, true), is_important: [true, false].sample,
+    relation_blog_id_1: rand(20) + 1, relation_blog_id_2: rand(20) + 1
 end
 puts "Create articles OK"
 
-puts "create images for news blogs"
-img_files = Dir.glob "public/girl/*"
-Blog.all.limit(10).each_with_index do |b, i|
-  new_img = b.blog_images.build title: Faker::Lorem.sentence,
-    description: Faker::Lorem.paragraph, caption: Faker::Lorem.sentence,
-    alt: Faker::Lorem.sentence, is_feature: true
-  File.open(img_files[i]) do |f|
-    new_img.url = f
+puts "Create news blog category and relation"
+5.times do |i|
+  bc = BlogCategory.create! id: i + 1, name: Faker::Lorem.sentence[0..8]
+  10.times do |j|
+    BlogCategoryRelation.create! blog_id: rand(20) + 1, blog_category_id: bc.id
   end
-  new_img.save!
+end
+
+puts "Create blog tag and relation"
+10.times do |i|
+  bc = Tag.create! id: i + 1, name: Faker::Lorem.sentence[0..8]
+  10.times do |j|
+    BlogTagRelation.create! blog_id: rand(20) + 1, tag_id: bc.id
+  end
+end
+
+puts "create images for news blogs"
+img_files = Dir.glob "public/blog/*"
+Blog.all.each_with_index do |b, i|
+  3.times do |j|
+    new_img = b.blog_images.build title: Faker::Lorem.sentence,
+      description: Faker::Lorem.paragraph, caption: Faker::Lorem.sentence,
+      alt: Faker::Lorem.sentence, is_feature: true
+    File.open(img_files[(j+10)%7]) do |f|
+      new_img.url = f
+    end
+    new_img.save!
+  end
 end
 puts "blog images OK"
 
@@ -109,11 +127,11 @@ puts "create Category relation 1,2"
 Category.where(level: Settings.category.highest_level).each do |category_level_1|
   rand_level_2 = rand(15) + 1
   rand_level_2.times do |r|
-    category_level_2 = Category.create! name: "#{Faker::Lorem.sentence}", level: Settings.category.middle_level
+    category_level_2 = Category.create! name: Faker::Company.buzzword, level: Settings.category.middle_level
     CategoryRelation.create! parent_id: category_level_1.id, children_id: category_level_2.id
     rand_level_3 = rand(5) + 1
     rand_level_3.times do |r|
-      category_level_3 = Category.create! name: "#{Faker::Lorem.sentence}", level: Settings.category.lowest_level
+      category_level_3 = Category.create! name: Faker::Company.buzzword, level: Settings.category.lowest_level
       CategoryRelation.create! parent_id: category_level_2.id, children_id: category_level_3.id
     end
   end

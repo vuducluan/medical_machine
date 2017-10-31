@@ -6,7 +6,7 @@ class SubcribersController < ApplicationController
     else
       flash[:danger] = "Đã có lỗi xảy ra"
     end
-    redirect_to :root
+    redirect_to request.referer
   end
 
   private

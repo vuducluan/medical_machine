@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026095902) do
+ActiveRecord::Schema.define(version: 20171031062418) do
 
   create_table "blog_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "blog_category_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "blog_id"
+    t.bigint "blog_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_category_id"], name: "index_blog_category_relations_on_blog_category_id"
+    t.index ["blog_id"], name: "index_blog_category_relations_on_blog_id"
   end
 
   create_table "blog_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -31,6 +40,15 @@ ActiveRecord::Schema.define(version: 20171026095902) do
     t.index ["blog_id"], name: "index_blog_images_on_blog_id"
   end
 
+  create_table "blog_tag_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "blog_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_blog_tag_relations_on_blog_id"
+    t.index ["tag_id"], name: "index_blog_tag_relations_on_tag_id"
+  end
+
   create_table "blogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.bigint "template_id"
@@ -39,6 +57,8 @@ ActiveRecord::Schema.define(version: 20171026095902) do
     t.bigint "blog_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "relation_blog_id_1"
+    t.integer "relation_blog_id_2"
     t.index ["blog_category_id"], name: "index_blogs_on_blog_category_id"
     t.index ["template_id"], name: "index_blogs_on_template_id"
   end
@@ -184,7 +204,11 @@ ActiveRecord::Schema.define(version: 20171026095902) do
     t.string "name"
   end
 
+  add_foreign_key "blog_category_relations", "blog_categories"
+  add_foreign_key "blog_category_relations", "blogs"
   add_foreign_key "blog_images", "blogs"
+  add_foreign_key "blog_tag_relations", "blogs"
+  add_foreign_key "blog_tag_relations", "tags"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
   add_foreign_key "product_fields", "fields"

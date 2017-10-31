@@ -20,6 +20,7 @@ gem "turbolinks", "~> 5"
 
 # Frontend
 gem "font-awesome-rails"
+gem "simple_calendar", "~> 2.0"
 
 # Upload file
 gem "mini_magick"

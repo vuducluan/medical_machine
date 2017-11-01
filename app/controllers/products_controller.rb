@@ -3,10 +3,32 @@ class ProductsController < ApplicationController
   before_action :load_data_index, only: :index
   before_action :load_left_menu_data, only: :index
 
+  ORDER_ATTRS = %i(username phone email received_address pay_address)
+
   def index
   end
 
   def show
+  end
+
+  def order
+    @product = Product.find params[:id]
+    respond_to do |format|
+      format.js{render layout: false}
+    end
+  end
+
+  def send_order
+    respond_to do |format|
+      @product = Product.find params[:id]
+      @data_valid = ORDER_ATTRS.all?{|type| params[type].present?}
+      user_info = params.as_json(only: ORDER_ATTRS).symbolize_keys
+      return unless @data_valid
+      ProductOrderMailer.order(user_info, @product).deliver_later
+      format.js do 
+        render layout: false
+      end
+    end
   end
 
   private

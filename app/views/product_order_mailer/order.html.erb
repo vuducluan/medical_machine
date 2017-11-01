@@ -1,0 +1,17 @@
+<h2>Thông tin khách hàng:</h2>
+<p><strong>Họ Tên: </strong><%= @user_info[:username] %></p>
+<p><strong>Số điện thoại: </strong><%= @user_info[:phone] %></p>
+<p><strong>Email: </strong><%= @user_info[:email] %></p>
+<p><strong>Địa chỉ giao hàng: </strong><%= @user_info[:received_address] %></p>
+<p><strong>Địa chỉ thanh toán: </strong><%= @user_info[:pay_address] %></p>
+
+<h2>Thông tin sản phẩm:</h2>
+<p><strong>Tên sản phẩm: </strong><%= @product.name %></p>
+<p><strong>Giá bán: </strong><%= @product.price %></p>
+<p><strong>Giá khuyến mãi: </strong><%= @product.discount_price %></p>
+<p><strong>Model: </strong><%= @product.model %></p>
+<p><strong>Loại sản phẩm: </strong><%= @product.categories.map(&:name).join(", ") %></p>
+<p><strong>Hãng sản xuất: </strong><%= @product.brand.try(:name) %></p>
+<p><strong>Xuất xứ: </strong><%= @product.location %></p>
+<p><strong>Lĩnh vực: </strong><%= @product.fields.map(&:name).join(", ") %></p>
+<p><strong>Xuất xứ: </strong><%= @product.location %></p>

@@ -38,7 +38,8 @@
             </span> -->
           </span>
         </span>
-        <a rel="nofollow" href="http://ld-wp.template-help.com/woocommerce_58679/product/black-decker-ldx220sbfc-lithium-ion-drill-driver/" data-quantity="1" data-product_id="215" data-product_sku="" class="button product_type_variable add_to_cart_button">Đặt</a>
+        <%= link_to "ĐẶT", order_product_path(product), remote: true, rel: "nofollow",
+          "data-product-id": product.id, class: "button product_type_variable add_to_cart_button" %>
       </div>
     </div>
   </div>

@@ -1,0 +1,65 @@
+<div class="modal fade" id="product-order-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <%= form_tag send_order_product_path(product), remote: true, class: "form-horizontal" do %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">ĐẶT HÀNG</h4>
+        </div>
+        <div class="modal-body">
+          <div class="product-info">
+            <h3><%= product.name %></h3>
+            <div class="product-images">
+              <% product.product_images.each do |img| %>
+                <%= image_tag img.url.product_thumb.url, size: "70x70" %>
+              <% end %>
+            </div>
+            <h4>GIÁ: <%= @product.discount_price || @product.price %></h4>
+          </div>
+
+          <div class="user-info">
+            <h4>* VUI LÒNG ĐIỀN ĐẦY ĐỦ THÔNG TIN BÊN DƯỚI<h4>
+            <div class="form-group row">
+              <label for="username" class="col-sm-3 control-label">HỌ VÀ TÊN (*)</label>
+              <div class="col-sm-8">
+                <%= text_field_tag :username, nil, class: "form-control", id: "username" %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="user-phone" class="col-sm-3 control-label">SỐ ĐIỆN THOẠI  (*)</label>
+              <div class="col-sm-8">
+                <%= number_field_tag :phone, nil, class: "form-control", id: "user-phone" %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="user-email" class="col-sm-3 control-label">ĐỊA CHỈ EMAIL  (*)</label>
+              <div class="col-sm-8">
+                <%= email_field_tag :email, nil, class: "form-control", id: "user-email" %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="received-address" class="col-sm-3 control-label">ĐỊA CHỈ GIAO HÀNG (*)</label>
+              <div class="col-sm-8">
+                <%= text_field_tag :received_address, nil, class: "form-control", id: "received-address" %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="pay-address" class="col-sm-3 control-label">ĐỊA CHỈ THANH TOÁN (*)</label>
+              <div class="col-sm-8">
+                <%= text_field_tag :pay_address, nil, class: "form-control", id: "pay-address" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">HỦY</button>
+          <%= button_tag "GỬI ĐƠN HÀNG", type: "submit", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

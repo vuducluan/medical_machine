@@ -1,0 +1,23 @@
+<div class="modal fade" id="order-result-modal" tabindex="-1" role="dialog" aria-labelledby="orderResultLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="orderResultLabel">
+            <% if data_valid %>
+              BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG
+            <% else %>
+              ĐẶT HÀNG KHÔNG THÀNH CÔNG
+            <% end %>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <% if data_valid %>
+            CHÚNG TÔI SẼ LIÊN LẠC VỚI BẠN ĐỂ XÁC NHẬN THÔNG TIN TRONG THỜI GIAN SỚM NHẤT
+          <% else %>
+            XIN VUI LÒNG NHẬP ĐẦY ĐỦ THÔNG TIN CÁC NHÂN TRƯỚC KHI GỬI ĐƠN HÀNG
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

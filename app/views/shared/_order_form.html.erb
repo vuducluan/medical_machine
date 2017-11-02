@@ -11,7 +11,7 @@
             <h3><%= product.name %></h3>
             <div class="product-images">
               <% product.product_images.each do |img| %>
-                <%= image_tag img.url.product_thumb.url, size: "70x70" %>
+                <%= image_tag img.url.product_thumb.url, size: 150 %>
               <% end %>
             </div>
             <h4>GIÁ: <%= @product.discount_price || @product.price %></h4>

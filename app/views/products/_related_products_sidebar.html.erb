@@ -12,8 +12,10 @@
                 <a href="" class="woocommerce-LoopProduct-link">
                   <div class="tm-thumbs-wrap effect-fade">
                     <div class="tm-thumbs-wrap__inner">
-                      <%= image_tag product.product_images.first.url, size: '340' if product.product_images.first.url%>
-                      <%= image_tag product.product_images.second.url, size: '340' if product.product_images.second.url%>
+                      <%= link_to product_path(product), title: product.name do %>
+                        <%= image_tag product.product_images.first.url, size: '340' if product.product_images.first.url%>
+                        <%= image_tag product.product_images.second.url, size: '340' if product.product_images.second.url%>
+                      <% end %>
                     </div>
                   </div>
                 </a>
@@ -25,12 +27,13 @@
               </div>
               <div class="block_product_content">
                 <ul class="product-categories">
-                  <li><a href="" rel="tag">Broaching machine</a></li>
-                  <li><a href="" rel="tag">Chisels</a></li>
-                  <li><a href="" rel="tag">Cutters</a></li>
-                  <li><a href="" rel="tag">Drill press</a></li>
+                  <li>
+                    <% product.categories.each do |category| %>
+                      <%= link_to "#{category.name} ", products_path(category_id: category.id), rel: "tag" %>
+                    <% end %>
+                  </li>
                 </ul>
-                <h3><a href=""><%= product.name %></a></h3>
+                <h3><a href=""><%= link_to product.name, product_path(product) %></a></h3>
                 <div class="price-add-to-cart-wrap">
                   <span class="price">
                     <span class="woocs_price_code" data-product-id="264">

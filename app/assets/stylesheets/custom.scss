@@ -6716,10 +6716,10 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
     width: 415px;
     height: 315px;
   }
-  .content-video {
-    margin-left: 10px;
-    margin-top: -150px;
-  }
+  // .content-video {
+  //   margin-left: 10px;
+  //   margin-top: -150px;
+  // }
   .paginate-medias {
     text-align: center;
   }
@@ -6933,6 +6933,13 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
     margin-bottom: 0;
 }
 
-#tm_builder_outer_content .tm_pb_module.tm_pb_posts .tm-posts_title:before {
+#tm_builder_outer_content .tm_pb_module.tm_pb_posts .tm-posts_title:before, .widget-title:before {
     top: 3px !important;
+}
+
+.video-td {
+    width: 40%;
+}
+.product-images {
+    text-align: center;
 }

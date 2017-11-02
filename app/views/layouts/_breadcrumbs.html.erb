@@ -5,23 +5,28 @@
       <div class="breadcrumbs__items">
         <div class="breadcrumbs__content">
           <div class="breadcrumbs__wrap">
-            <div class="breadcrumbs__item"><a href="https://ld-wp.template-help.com/woocommerce_58679/" class="breadcrumbs__item-link is-home" rel="home" title="Home">Home</a></div>
-            <div class="breadcrumbs__item">
-              <div class="breadcrumbs__item-sep">|</div>
-            </div>
-            <div class="breadcrumbs__item"><a href="https://ld-wp.template-help.com/woocommerce_58679/shop/" class="breadcrumbs__item-link" rel="tag" title="Shop">Shop</a></div>
-            <div class="breadcrumbs__item">
-              <div class="breadcrumbs__item-sep">|</div>
-            </div>
-            <div class="breadcrumbs__item"><a href="https://ld-wp.template-help.com/woocommerce_58679/product-category/houseware-tools/" class="breadcrumbs__item-link" rel="tag" title="Houseware Tools">Houseware Tools</a></div>
-            <div class="breadcrumbs__item">
-              <div class="breadcrumbs__item-sep">|</div>
-            </div>
-            <div class="breadcrumbs__item"><a href="https://ld-wp.template-help.com/woocommerce_58679/product-category/houseware-tools/paper-cups/" class="breadcrumbs__item-link" rel="tag" title="Paper cups">Paper cups</a></div>
-            <div class="breadcrumbs__item">
-              <div class="breadcrumbs__item-sep">|</div>
-            </div>
-            <div class="breadcrumbs__item"><span class="breadcrumbs__item-target">Black &amp; Decker LDX220SBFC Lithium-Ion Drill-Driver</span></div>
+            <% if @breads.present? %>
+              <div class="breadcrumbs__item">
+                <%= link_to "Trang chủ", root_url, class: "breadcrumbs__item-link is-home" %>
+              </div>
+              <div class="breadcrumbs__item">
+                <div class="breadcrumbs__item-sep">|</div>
+              </div>
+              <% @breads.each do |b|%>
+                <% unless b == @breads.last %>
+                  <div class="breadcrumbs__item">
+                    <%= link_to b[:title], b[:link] %>
+                  </div>
+                  <div class="breadcrumbs__item">
+                    <div class="breadcrumbs__item-sep">|</div>
+                  </div>
+                <% else %>
+                  <div class="breadcrumbs__item">
+                    <span class="breadcrumbs__item-target"><%= b[:title] %></span>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>

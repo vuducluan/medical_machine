@@ -21,7 +21,7 @@ class BlogsController < ApplicationController
       @blogs = Blog.all
     end
     @blogs = @blogs.page(params[:page]).per(Settings.limit.paginate.blogs)
-
+    @breads = [{title: "Blog", link: ""}]
   end
 
   def load_left_menu
@@ -36,6 +36,8 @@ class BlogsController < ApplicationController
     @prev = prev_blog
     @blog_relate_1 = Blog.find_by id: @blog.relation_blog_id_1
     @blog_relate_2 = Blog.find_by id: @blog.relation_blog_id_2
+    @breads = [{title: "Blog", link: blogs_path()}]
+    @breads << {title: @blog.title, link: ""}
   end
 
   def next_blog

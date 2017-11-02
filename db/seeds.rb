@@ -179,4 +179,9 @@ Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph,
   Medium.create!title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, url: "https://www.youtube.com/embed/ptLFrU_zrEQ", media_type: 1, field_id: field
 end
 
+5.times do |i|
+  Medium.find(i+1).update_attribute(:product_id, 2)
+  Medium.find(i+11).update_attribute(:product_id, 2)
+end
+
 puts "Create media: doc & pdf OK"

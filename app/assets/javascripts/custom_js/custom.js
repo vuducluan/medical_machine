@@ -28,7 +28,8 @@ $(document).on('turbolinks:load', function(){
   }
 
   $(".woocommerce-orderby").on("change", function() {
-    var sortParam = $(this).val() == "default" ? "" : ("&sort_by=" + $(this).val());
+    var sym = location.href.indexOf("?") != -1 ? "&" : "?";
+    var sortParam = $(this).val() == "default" ? "" : (sym + "sort_by=" + $(this).val());
     var url = removeParam("sort_by", location.href) + sortParam;
     location.href = url;
   });
@@ -38,9 +39,10 @@ $(document).on('turbolinks:load', function(){
   });
 
   function sortByPrice() {
+    var sym = location.href.indexOf("?") != -1 ? "&" : "?";
     var url = removeParam("min_price", removeParam("max_price", location.href));
-    var minPriceParam = $("#min_price").val() ? ("&min_price=" + $("#min_price").val()) : "";
-    var maxPriceParam = $("#max_price").val() ? ("&max_price=" + $("#max_price").val()) : "";
+    var minPriceParam = $("#min_price").val() ? (sym + "min_price=" + $("#min_price").val()) : "";
+    var maxPriceParam = $("#max_price").val() ? (sym + "max_price=" + $("#max_price").val()) : "";
     location.href  = url + minPriceParam + maxPriceParam;
   }
 

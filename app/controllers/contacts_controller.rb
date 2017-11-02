@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+  before_action :load_breadcrumb, only: :index
+
   def index
     @contact = Subcriber.new
   end
@@ -14,6 +16,10 @@ class ContactsController < ApplicationController
   end
 
   private
+  def load_breadcrumb
+    @breads = [{title: "Chỉ đường", link: ""}]
+  end
+
   def contact_params
     params.require(:subcriber).permit(:email, :full_name, :phone, :title, :content)
   end

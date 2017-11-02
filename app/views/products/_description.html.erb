@@ -38,9 +38,9 @@
 
     <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab tab-pane" id="tab-document" role="tabpanel" aria-labelledby="tab-title-document">
       <div id="media-table">
-        <% @documents.each do |doc| %>
-          <table class="table table-bordered">
-            <tbody>
+        <table class="table table-bordered">
+          <tbody>
+            <% @documents.each do |doc| %>
               <tr>
                 <td class="image-doc-type">
                   <% if doc.url.split(//).last(3).join("") == "pdf" %>
@@ -67,17 +67,17 @@
                   <p>Ngày tạo : <%=doc.created_at %></p>
                 </td>
               </tr>
-            </tbody>
-          </table>
-        <% end %>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
 
     <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab tab-pane" id="tab-video" role="tabpanel" aria-labelledby="tab-title-video">
       <div class="media-table">
-        <% @videos.each do |video| %>
-          <table class="table table-bordered">
-            <tbody>
+        <table class="table table-bordered">
+          <tbody>
+            <% @videos.each do |video| %>
               <tr>
                 <td class="video-td">
                   <iframe width="374" height="284" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
@@ -90,9 +90,9 @@
                   </div>
                 </td>
               </tr>
-            </tbody>
-          </table>
-        <% end %>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

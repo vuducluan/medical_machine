@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
       user_info = params.as_json(only: ORDER_ATTRS).symbolize_keys
       return unless @data_valid
       ProductOrderMailer.order(user_info, @product).deliver_later
-      format.js do 
+      format.js do
         render layout: false
       end
     end
@@ -135,7 +135,7 @@ class ProductsController < ApplicationController
 
   def get_products menu_item
     products = menu_item.respond_to?(:size) ? menu_item :
-      (menu_item.present? ? menu_item.products : Product.all)
+      (menu_item.present? ? get_products_for_menu_item(menu_item) : Product.all)
     if params[:sort_by] == Product::SORT_FIELDS[:name]
       sort_by_price products.order(name: :asc)
     elsif params[:sort_by] == Product::SORT_FIELDS[:date]
@@ -147,6 +147,22 @@ class ProductsController < ApplicationController
     else
       sort_by_price products
     end
+  end
+
+  def get_products_for_menu_item menu_item
+    return menu_item.products unless menu_item.class.name == Category.name
+    category = menu_item
+    list_categories = [category.id]
+    if c = category.childrens
+      list_categories << c.pluck(:id)
+      c.each do |children|
+        if sub_c = children.childrens
+          list_categories << sub_c.pluck(:id)
+        end
+      end
+    end
+    list_categories = list_categories.flatten
+    Product.by_categories list_categories
   end
 
   def sort_by_price products

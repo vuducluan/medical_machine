@@ -49,6 +49,12 @@ class Product < ApplicationRecord
     where "price BETWEEN ? AND ?", range[0], range[1]
   end
 
+  scope :by_categories, -> category_ids do
+    joins(:product_categories)
+      .where("product_categories.category_id IN (?)",
+        category_ids)
+  end
+
   SORT_FIELDS = {
     name: "name",
     date: "date",

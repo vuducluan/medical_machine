@@ -22,11 +22,8 @@
                   <div class="col-xl-7 col-md-12 col-sm-12 col-xs-12">
                     <div class="summary entry-summary">
                       <span class="posted_in">
-                        <% ["Broaching machine", "Cleaning cloths", "Cutters", "Drill press", "Drills", "Gardenign Tools",
-                          "Gear shaper", "Glass tumblers", "Grinders", "Hand Tools", "Heat Guns", "Hobbing machine",
-                          "Hone", "Houseware Tools", "Lubrication Tools", "Machining Tools", "Molds", "Paper cups",
-                          "Plastic cups", "Plumbing Tools", "Power Saws", "Power Tools", "Sockets", "Wrenches" ].each do |field| %>
-                          <%= link_to field, "" %>,
+                        <% @product.categories.each do |category| %>
+                          <%= link_to "#{category.name} ", products_path(category_id: category.id), rel: "tag" %>
                         <% end %>
                       </span>
 

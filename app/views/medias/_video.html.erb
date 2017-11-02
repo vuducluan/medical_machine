@@ -1,6 +1,6 @@
-<% @medias.each do |video| %>
-  <table class="table table-bordered">
-    <tbody>
+<table class="table table-bordered">
+  <tbody>
+    <% @medias.each do |video| %>
       <tr>
         <td class="video-td">
           <iframe width="374" height="284" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
@@ -13,9 +13,9 @@
           </div>
         </td>
       </tr>
-    </tbody>
-  </table>
-<% end %>
+    <% end %>
+  </tbody>
+</table>
 <div class="paginate-medias">
   <%= paginate @medias %>
   <%= page_entries_info @medias, entry_name: "video" %>

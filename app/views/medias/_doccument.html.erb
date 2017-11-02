@@ -1,6 +1,6 @@
-<% @medias.each do |doc| %>
-  <table class="table table-bordered">
-    <tbody>
+<table class="table table-bordered">
+  <tbody>
+    <% @medias.each do |doc| %>
       <tr>
         <td class="image-doc-type">
           <% if doc.url.split(//).last(3).join("") == "pdf" %>
@@ -9,7 +9,7 @@
             <%= image_tag "/word.png", title: "doc", class: "doccument-type" %>
           <% elsif doc.url.split(//).last(3).join("") == "xls" || doc.url.split(//).last(3).join("") == "lsx" %>
             <%= image_tag "/excell.png", title: "excel", class: "doccument-type" %>
-          <% end %>  
+          <% end %>
         </td>
         <td>
           <strong><%= doc.title %></strong><br/>
@@ -27,9 +27,9 @@
           <p>Ngày tạo : <%=doc.created_at %></p>
         </td>
       </tr>
-    </tbody>
-  </table>
-<% end %>
+    <% end %>
+  </tbody>
+</table>
 <div class="paginate-medias">
   <%= paginate @medias %>
   <%= page_entries_info @medias, entry_name: "document" %>

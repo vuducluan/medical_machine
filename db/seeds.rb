@@ -1,9 +1,179 @@
-puts "Create 6 top categories"
-["Thiết bị thí nghiệm", "Thiết bị đo lường", "Thiết bị y tế",
-  "Thiết bị công nghiệp", "Dụng cụ, vật tư", "Phụ kiện thay thế"].each_with_index do |c, i|
-  Category.create! name: c, level: Settings.category.highest_level, category_order: i.next
+puts "create label"
+[{sale: "Sản phẩm khuyến mại"}, {hot: "Sản phẩm HOT"}, {weekly: "Sản phẩm nổi bật tuần"}, {trend: "Sản phẩm trending"}, {feature: "Sản phẩm nổi bật"}].each_with_index do |c, i|
+  Label.create! title: c.values.first, block_order: i + 1, short_title: c.keys.first.to_s
 end
-puts "Status: OK"
+puts "create label OK"
+
+puts "create Brand"
+50.times do |i|
+  Brand.create! name: Faker::Lorem.sentence[0..10], location: Faker::Lorem.sentence[0..10]
+end
+puts "Brand OK"
+
+puts "create label"
+["Sale", "Hot", "Weekly", "Trend", "Feature"].each_with_index do |c, i|
+  Label.create! title: c, block_order: i + 1, short_title: c
+end
+puts "create label OK"
+
+puts "create Brand"
+50.times do |i|
+  Brand.create! name: Faker::Lorem.sentence[0..10], location: Faker::Lorem.sentence[0..10]
+end
+puts "Brand OK"
+
+puts "Create Category and Relation 1,2 real"
+category_array =
+[
+  ["Thiết bị thí nghiệm",
+    [
+      ["Kính hiển vi",  ["Kính hiển vi 1 mắt",
+                        "Kính hiển vi 2 mắt",
+                        "Kính hiển vi soi nổi",
+                        "Kính hiển vi kỹ thuật số",
+                        "Kính hiển vi phản pha",
+                        "Kính hiển vi soi ngược"]],
+      ["Máy ly tâm", ["Máy ly tâm nhỏ",
+                      "Máy ly tâm để bàn",
+                      "Máy ly tâm máu",
+                      "Máy ly tâm Microlife",
+                      "Máy ly tâm dung tích lớn"]],
+      ["Nồi hấp tiệt trùng", ["Nồi hấp để bàn",
+                              "Nồi hấp xách tay",
+                              "Nồi hấp đứng",
+                              "Nồi hấp dung tích lớn"]],
+      ["Tủ ấm - Tủ sấy", ["Tủ ấm",
+                          "Tủ ấm lạnh",
+                          "Tủ ấm lắc",
+                          "Tủ sấy",
+                          "Tủ sấy chân không",
+                          "Tủ sấy đông khô"]],
+      ["Tủ vi khí hậu", []],
+      ["Tủ hút", ["Tủ hút có đường ống",
+                  "Tủ hút khônng đường ống" ]],
+      ["Tủ cấy vi sinh", []],
+      ["Tủ an toàn sinh học",  ["Tủ an toàn cấp 1",
+                                "Tủ an toàn cấp 2",
+                                "Tủ an toàn cấp 3"]],
+      ["Tủ lạnh - Tủ âm sâu",  ["Tủ mát",
+                                "Tủ bảo quản Vaccine",
+                                "Tủ lạnh âm sâu"]],
+      ["Các loại bể",  ["Bể rửa siêu âm",
+                        "Bể cách thuỷ",
+                        "Bể điều nhiệt lạnh"]],
+      ["Bơm chân không", ["Bơm dầu"]],
+      ["Máy lắc - Máy khuấy",  ["Máy lắc ngang",
+                                "Máy lắc tròn",
+                                "Tủ ấm lắc",
+                                "Máy khuấy từ",
+                                "Máy khuấy đũa",
+                                "Máy đồng hoá"]],
+      ["Máy cất nước - Máy lọc nước",  ["Máy cất nước 1 lần",
+                                        "Máy cất nước 2 lần",
+                                        "Máy lọc nước siêu sạch"]],
+      ["Cân điện tử",  ["Cân kỹ thuật",
+                        "Cân phân tích",
+                        "Cân sấy ẩm",
+                        "Cân tỷ trọng"]]
+    ]
+  ],
+
+  ["Thiết bị đo lường",
+    [
+      ["Thiết bị đo cầm tay",[]],
+      ["Máy đo đa chỉ tiêu nước",[]],
+      ["Khúc xạ kế",[]],
+      ["Máy đo độ nhớt",[]],
+      ["Máy đo lực bóp tay",[]],
+      ["Máy đo độ ẩm",[]],
+      ["Máy đếm khuẩn lạc",[]],
+      ["Máy đo chỉ tiêu dược",[]],
+      ["Máy đo độ cứng thép",[]],
+      ["Tủ so màu",[]],
+      ["Quang kế ngọn lửa",[]],
+      ["Thiết bị phân tích nhiệt lượng",[]]
+    ]
+  ],
+
+  ["Thiết bị y tế",
+    [
+      ["Nồi hấp",[]],
+      ["Máy ly tâm",[]],
+      ["Kính hiển vi",[]],
+      ["Máy cất nước",[]],
+      ["Tủ cấy",[]],
+      ["Tủ an toàn sinh học",[]],
+      ["Tủ bảo quản vaccine",[]],
+      ["Tủ trữ máu",[]],
+      ["Tủ lạnh âm sâu",[]],
+      ["Tủ ấm",[]],
+      ["Tủ sấy",[]],
+      ["Bể ổn nhiệt",[]]
+    ]
+  ],
+
+  ["Thiết bị công nghiệp",
+    [
+      ["Kính hiển vi công nghiệp",[]],
+      ["Kính lúp công nghiệp",[]],
+      ["Kính hiển vi điện tử",[]],
+      ["Thiết bị đo lường công nghiệp",[]],
+      ["Thiết bị phòng sạch",[]],
+      ["Lò nung ủ thép",[]],
+      ["Lò tôi Cacbon",[]]
+    ]
+  ],
+
+  ["Dụng cụ, vật tư",
+    [
+      ["Chén Platin",[]],
+      ["Dụng cụ thuỷ tinh",[]],
+      ["Micropipet",[]],
+      ["Kẹp - chén nung",[]]
+    ]
+  ],
+
+  ["Phụ kiện thay thế",
+    [
+      ["Phụ kiện lò nung",[]],
+      ["Phụ kiện nồi hấp",[]],
+      ["Phụ kiện máy cất nước",[]],
+      ["Phụ kiện máy ly tâm",[]],
+      ["Vật tư - Linh kiện",[]],
+      ["Dịch vụ sửa chữa",[]],
+    ]
+  ]
+]
+
+category_array.each_with_index do |c1, i1|
+  cate1 = Category.create! name: c1.first, level: Settings.category.highest_level, category_order: i1.next
+  c1.second.each_with_index do |c2, i2|
+    cate2 = Category.create! name: c2.first, level: Settings.category.middle_level, category_order: i2.next
+    CategoryRelation.create! parent_id: cate1.id, children_id: cate2.id
+    unless c2.second.blank?
+      c2.second.each_with_index do |c3, i3|
+        cate3 = Category.create! name: c3, level: Settings.category.lowest_level, category_order: i3.next
+        CategoryRelation.create! parent_id: cate2.id, children_id: cate3.id
+        rand_p = rand(13) + 1
+        rand_p.times do |r|
+          product = Product.create! name: "#{c3} #{r+1}", model: Faker::Lorem.sentence, location: Faker::Lorem.sentence,
+            price: rand(10000), discount_price: rand(9000), description: Faker::Lorem.paragraph, label_order: r + 1, category_order: r + 1,
+            short_description: Faker::Lorem.sentence, label_id: i3%5 + 1, brand_id: i3%50 + 1
+          ProductCategory.create product_id: product.id, category_id: cate3.id
+        end
+      end
+    else
+      rand_p = rand(13) + 1
+      rand_p.times do |r|
+        product = Product.create! name: "#{c2.first} #{r+1}", model: Faker::Lorem.sentence, location: Faker::Lorem.sentence,
+          price: rand(10000), discount_price: rand(9000), description: Faker::Lorem.paragraph, label_order: r + 1, category_order: r + 1,
+          short_description: Faker::Lorem.sentence, label_id: i2%5 + 1, brand_id: i2%50 + 1
+        ProductCategory.create product_id: product.id, category_id: cate2.id
+      end
+    end
+  end
+end
+puts "Create Category and Relation 1,2 OK"
 
 puts "Create template category"
 5.times do |i|
@@ -87,27 +257,6 @@ catalog_imgs = Dir.glob "public/catalog/*"
 end
 puts "catalog images OK"
 
-puts "create label"
-[{sale: "Sản phẩm khuyến mại"}, {hot: "Sản phẩm HOT"}, {weekly: "Sản phẩm nổi bật tuần"}, {trend: "Sản phẩm trending"}, {feature: "Sản phẩm nổi bật"}].each_with_index do |c, i|
-  Label.create! title: c.values.first, block_order: i + 1, short_title: c.keys.first.to_s
-end
-puts "create label OK"
-
-puts "create Brand"
-50.times do |i|
-  Brand.create! name: Faker::Lorem.sentence[0..10], location: Faker::Lorem.sentence[0..10]
-end
-puts "Brand OK"
-
-puts "create product"
-300.times do |i|
-  a = 97 + i%25
-  Product.create! name: "#{a.chr}#{Faker::Lorem.sentence}", model: Faker::Lorem.sentence, location: Faker::Lorem.sentence,
-    price: rand(10000), discount_price: rand(9000), description: Faker::Lorem.paragraph, label_order: i, category_order: i + 2,
-    short_description: Faker::Lorem.sentence, label_id: i%5 + 1, brand_id: i%50 + 1
-end
-puts "product OK"
-
 puts "create images for products"
 p_imgs = Dir.glob "public/product/*"
 Product.all.each_with_index do |b, i|
@@ -122,21 +271,6 @@ Product.all.each_with_index do |b, i|
   end
 end
 puts "product images OK"
-
-puts "create Category relation 1,2"
-Category.where(level: Settings.category.highest_level).each do |category_level_1|
-  rand_level_2 = rand(15) + 1
-  rand_level_2.times do |r|
-    category_level_2 = Category.create! name: Faker::Company.buzzword, level: Settings.category.middle_level
-    CategoryRelation.create! parent_id: category_level_1.id, children_id: category_level_2.id
-    rand_level_3 = rand(5) + 1
-    rand_level_3.times do |r|
-      category_level_3 = Category.create! name: Faker::Company.buzzword, level: Settings.category.lowest_level
-      CategoryRelation.create! parent_id: category_level_2.id, children_id: category_level_3.id
-    end
-  end
-end
-puts "Category relation 1,2 OK"
 
 puts "create Field"
 10.times do |i|

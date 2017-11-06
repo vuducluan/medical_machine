@@ -6943,3 +6943,15 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 .product-images {
     text-align: center;
 }
+
+.block-footer {
+    padding-top: 10px;
+    padding-right: 30px;
+    .btn-secondary {
+        float: right;
+    }
+}
+
+.products .product .add_to_cart_button.product_type_variable {
+    padding: 16px 30px !important;
+}

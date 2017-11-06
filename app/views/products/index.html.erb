@@ -9,15 +9,23 @@
           <div id="woo-main" class="site-main" role="main">
             <h1 class="page-title"><%= @title %></h1>
             <div class="tm-wc-ajax-products-wrapper">
-              <%= render "sort_form"%>
+              <% unless @childs %>
+                <%= render "sort_form"%>
+              <% end %>
 
               <div class="products row">
-                <% @products_from_menu.each do |product| %>
-                  <%= render "product_field", product: product %>
+                <% if @childs %>
+                  <% @childs.each do |child| %>
+                    <%= render "product_block", block: child%>
+                  <% end %>
+                <% else %>
+                  <% @products_from_menu.each do |product| %>
+                    <%= render "product_field", product: product %>
+                  <% end %>
                 <% end %>
               </div>
 
-              <% unless @products_from_menu.blank? %>
+              <% unless @products_from_menu.blank? || @childs %>
                 <nav class="woocommerce-pagination">
                   <%= paginate @products_from_menu %>
                 </nav>

@@ -14,9 +14,15 @@ $(document).on('turbolinks:load', function(){
     if (categoryId) {
       var parentId = $("#parent-" + categoryId).val();
       var grandParentId = $("#parent-" + parentId).val();
-
-      $("#group-" + grandParentId).prop('checked', true);
-      $("#sub-group-" + parentId).prop('checked', true);
+      if (_.isUndefined(parentId)) {
+        $("#group-" + categoryId).prop('checked', true);
+      } else if (_.isUndefined(grandParentId)) {
+        $("#group-" + parentId).prop('checked', true);
+        $("#sub-group-" + categoryId).prop('checked', true);
+      } else {
+        $("#group-" + grandParentId).prop('checked', true);
+        $("#sub-group-" + parentId).prop('checked', true);
+      }
     }
   }
 

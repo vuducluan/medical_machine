@@ -11,6 +11,13 @@ $(document).on('turbolinks:load', function(){
 
   function showCategoryMenu() {
     var categoryId = getParameterByName("category_id");
+    if (!categoryId) {
+      if ($(".item-active")[0]) {
+        categoryId = $(".item-active")[0].id.replace("category-id-", "");
+      }
+
+    }
+    $(".item-active")
     if (categoryId) {
       var parentId = $("#parent-" + categoryId).val();
       var grandParentId = $("#parent-" + parentId).val();

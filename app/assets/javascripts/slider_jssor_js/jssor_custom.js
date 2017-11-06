@@ -2,10 +2,8 @@ $(document).on('turbolinks:load', function(){
   jssor_1_slider_init = function() {
     var jssor_1_options = {
       $AutoPlay: 1,
-      $SlideWidth: 720,
       $SlideHeight: 240,
       $Cols: 2,
-      $Align: 130,
       $ArrowNavigatorOptions: {
         $Class: $JssorArrowNavigator$
       },

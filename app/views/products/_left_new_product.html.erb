@@ -21,9 +21,22 @@
             <%= link_to product.name, product_path(product), title: product.name, class: "product-title-custom" %>
           </span>
           <span class="woocs_price_code" data-product-id="274">
-            <span class="woocommerce-Price-amount amount"><%= product.price %>
-              <span class="woocommerce-Price-currencySymbol">$</span>
-            </span>
+            <% if product.discount_price_currency.present? %>
+              <del>
+                <span class="woocommerce-Price-amount amount"><%= product.price_currency %>
+                  <span class="woocommerce-Price-currencySymbol">₫</span>
+                </span>
+              </del>
+              <ins>
+                <span class="woocommerce-Price-amount amount"><%= product.discount_price_currency %>
+                  <span class="woocommerce-Price-currencySymbol">₫</span>
+                </span>
+              </ins>
+            <% else %>
+              <span class="woocommerce-Price-amount amount"><%= product.price_currency %>
+                <span class="woocommerce-Price-currencySymbol">₫</span>
+              </span>
+            <% end %>
           </span>
           <div class="add_to_cart_button-wrap">
             <%= link_to "MUA", order_product_path(product), remote: true, rel: "nofollow",

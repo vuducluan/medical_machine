@@ -75,10 +75,14 @@ class ProductsController < ApplicationController
   def load_brand_exist
     return unless @category
     @brands = Brand.where(id: list_products(@category).pluck(:brand_id).uniq)
+      .order(:name)
   end
 
   def load_left_menu_by_category
     @category = Category.find_by id: params[:category_id]
+    if product = Product.find_by(id: params[:id])
+      @category = product.categories.first
+    end
     return load_left_menu_data unless @category
     if @category.level == Settings.category.middle_level
       @category_lv_1 = @category.parents.first
@@ -101,6 +105,7 @@ class ProductsController < ApplicationController
           @breads << {title: grand_parent.name, link: products_path(category_id: grand_parent.id)}
         end
       end
+      @breads << {title: "Tất cả sản phẩm", link: products_path}
       @breads = @breads.reverse
     elsif params[:id]
       @breads = [{title: @product.name, link: ""}]

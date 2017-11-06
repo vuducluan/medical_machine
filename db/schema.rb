@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101124141) do
+ActiveRecord::Schema.define(version: 20171107092437) do
 
   create_table "blog_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20171101124141) do
     t.datetime "updated_at", null: false
     t.integer "relation_blog_id_1"
     t.integer "relation_blog_id_2"
+    t.boolean "is_service"
     t.index ["blog_category_id"], name: "index_blogs_on_blog_category_id"
     t.index ["template_id"], name: "index_blogs_on_template_id"
   end
@@ -76,6 +77,8 @@ ActiveRecord::Schema.define(version: 20171101124141) do
     t.integer "category_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "home_block_id"
+    t.integer "home_order_id"
   end
 
   create_table "category_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -170,6 +173,9 @@ ActiveRecord::Schema.define(version: 20171101124141) do
     t.integer "category_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "home_order"
+    t.text "parameter"
+    t.boolean "is_parameter_table"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["label_id"], name: "index_products_on_label_id"
   end
@@ -183,6 +189,7 @@ ActiveRecord::Schema.define(version: 20171101124141) do
     t.string "image_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "link"
   end
 
   create_table "subcribers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

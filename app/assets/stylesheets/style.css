@@ -10863,7 +10863,7 @@ h6 a {
 
 .site-header .social-list .menu-item {
     padding-left: 2px;
-    padding-right: 2px
+    margin-right: 20px;
 }
 
 .site-footer.centered .social-list .menu-item {
@@ -11114,7 +11114,7 @@ h6 a {
 
 .site-header .social-list .menu-item>a::before {
     font-size: 16px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 34px
 }
 
@@ -12882,7 +12882,8 @@ body:not(.position-fullwidth).single-timeline_post .post-author-bio {
 }
 
 .site-header.default .header-container {
-    padding-bottom: 0
+  padding-bottom: 0;
+  margin-top: 60px;
 }
 
 .site-header.default .header-container__flex {
@@ -18557,7 +18558,7 @@ header .page-title {
 .follow-block .follow-block-content,
 .subscribe-block,
 .widget.widget-subscribe .not-api-key {
-    padding: 32px 40px 40px
+    padding: 10px 40px 10px
 }
 
 .footer-area .follow-block .follow-block-content,

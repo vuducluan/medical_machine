@@ -3,7 +3,11 @@ class PagesController < ApplicationController
     @top_categories = Category.top_categories
     @blogs = Blog.new_articles_for_home
     @sliders = SliderCatalog.where(image_type: "slider")
-    @catalogs = SliderCatalog.where(image_type: "catalog").limit 2
+    @catalogs = SliderCatalog.where(image_type: "catalog").limit Settings.limit.catalog
+    @product_labels = Label.all.order(:block_order)
+      .includes(products: [:product_images, :categories]).limit Settings.limit.label_block
+    @brand_logos = Brand.where("image IS NOT NULL AND home_order IS NOT NULL")
+      .order(:home_order).limit(Settings.limit.brand_logo)
     get_home_category
   end
 

@@ -2,13 +2,13 @@
   <div class="footer-area-wrap second-footer-area-wrap invert">
     <div class="container">
       <section id="second-footer-area" class="second-footer-area widget-area footer-area--4-cols row">
-        <aside id="text-4" class="col-xs-12 col-sm-12 col-md-6 col-lg-4  widget widget_text">
+        <aside id="text-4" class="col-xs-12 col-sm-12 col-md-6 col-lg-3  widget">
           <h5 class="widget-title">Giới thiệu</h5>
           <div class="textwidget"><%= Company.first.about %></div>
         </aside>
 
         <!-- Column tag -->        
-        <aside id="woocommerce_product_tag_cloud-4" class="col-xs-12 col-sm-12 col-md-6 col-lg-4  widget woocommerce widget_product_tag_cloud">
+        <aside id="woocommerce_product_tag_cloud-4" class="col-xs-12 col-sm-12 col-md-6 col-lg-3  widget woocommerce widget_product_tag_cloud">
           <h5 class="widget-title">Tags</h5>
           <div class="tagcloud">
             <% Tag.all.each_with_index do |t, index| %>
@@ -20,12 +20,12 @@
         </aside>
 
         <!-- Contact info -->
-        <aside id="tm_willard_contact_information_widget-1" class="col-xs-12 col-sm-12 col-md-6 col-lg-4  widget contact-information-widget">
+        <aside id="tm_willard_contact_information_widget-1" class="col-xs-12 col-sm-12 col-md-6 col-lg-3  widget contact-information-widget">
           <h5 class="widget-title">Liên hệ</h5>
           <ul class="contact-information-widget__inner">
             <li class="contact-information__item contact-information__item--icon">
               <span class="icon linearicon linearicon-telephone"></span>
-              <%= Company.first.phone %>
+              <%= Company.first.phone %>-Mr Tú
             </li>
             <li class="contact-information__item contact-information__item--icon">
               <span class="icon linearicon linearicon-clock3"></span>
@@ -37,6 +37,27 @@
             </li>
           </ul>
         </aside>
+
+        <aside id="text-4" class="col-xs-12 col-sm-12 col-md-6 col-lg-3  widget">
+          <h5 class="widget-title">Chỉ đường</h5>
+            <div id="map" style="height: 300px; width: 400px"></div>
+            <script>
+              function initMap() {
+                var uluru = {lat: 21.006571, lng: 105.777818};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 15,
+                  center: uluru
+                });
+                var marker = new google.maps.Marker({
+                  position: uluru,
+                  map: map
+                });
+              }
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbEWIklaDSw8BsgQhkabXXYnM3DcKFNyQ&callback=initMap">
+            </script>
+        </aside>        
       </section>
     </div>
   </div>

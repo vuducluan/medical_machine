@@ -2767,7 +2767,7 @@ mark {
 }
 
 .site-header .contact-block__label {
-    color: #222222
+    color: #000000
 }
 
 @media (min-width: 1200px) {
@@ -6949,15 +6949,37 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 }
 
 .block-footer {
-    padding-top: 10px;
-    padding-right: 30px;
-    .btn-secondary {
-        float: right;
-    }
+  padding-top: 10px;
+  padding-right: 30px;
+  .btn-secondary {
+      float: right;
+  }
 }
 
 .products .product .add_to_cart_button.product_type_variable {
-    padding: 16px 30px !important;
+  padding: 16px 30px !important;
+}
+
+.telephone-header {
+  font-size: 1.3rem !important;
+  color: #000000;
+}
+
+.top-panel {
+  position: fixed !important;
+  top: 0px;
+  width: 100%;
+}
+
+#home-brand-logo {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  .brand-logo {
+    max-height: 70px !important;
+    width: auto !important;
+  }
 }
 
 .jssora051 .a {

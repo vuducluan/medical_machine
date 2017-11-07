@@ -7,10 +7,11 @@ blog_category:
 limit:
   blog_home_page: 4
   product_field: 10
+  product_block: 4
   related_products: 4
   new_products: 3
   paginate:
-    products: 12
+    products: 16
     blogs: 5
     documents: 10
     videos: 10

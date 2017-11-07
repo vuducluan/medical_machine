@@ -38,6 +38,21 @@ $(document).on('turbolinks:load', function(){
     location.href = $(this).val();
   });
 
+  $(".select-category").on("click", function() {
+    var categoryId = $(this).attr("name").replace("category-", "");
+    var url = removeParam("category_id", location.href);
+    var id = parseInt(url.substring(url.lastIndexOf('/') + 1)) || 0;
+    if (id > 0) {
+      url = url.replace("/" + id, "");
+    }
+    if (getParameterByName("brand_id", url)) {
+      url = removeParam("brand_id", url);
+    }
+    var sym = url.indexOf("?") != -1 ? "&" : "?";
+    url += sym + "category_id=" + categoryId;
+    location.href = url;
+  });
+
   function sortByPrice() {
     var sym = location.href.indexOf("?") != -1 ? "&" : "?";
     var url = removeParam("min_price", removeParam("max_price", location.href));

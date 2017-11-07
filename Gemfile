@@ -22,6 +22,7 @@ gem "coffee-rails"
 # Frontend
 gem "font-awesome-rails"
 gem "simple_calendar", "~> 2.0"
+gem "lodash-rails"
 
 # Upload file
 gem "mini_magick"

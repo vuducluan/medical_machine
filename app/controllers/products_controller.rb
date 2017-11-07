@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :load_data_show, only: :show
   before_action :load_data_index, only: :index
-  before_action :load_left_menu_data, only: [:show, :index]
+  before_action :load_left_menu_by_category, only: [:show, :index]
 
   ORDER_ATTRS = %i(username phone email received_address pay_address)
 
@@ -32,9 +32,12 @@ class ProductsController < ApplicationController
   end
 
   private
-  def load_left_menu_data
+  def load_left_menu_data is_current_category = false
     mang_ong = []
     ongs = Category.where(level: Settings.category.highest_level)
+    if is_current_category
+      ongs = Category.where(id: @category_lv_1.id)
+    end
     ongs.each do |ong|
       bos = ong.childrens
       mang_bo = []
@@ -47,6 +50,45 @@ class ProductsController < ApplicationController
     @categories = mang_ong
     get_new_product
     load_breadcrum
+    load_products_block
+    load_brand_exist
+  end
+
+  def load_products_block
+    if category = Category.find_by(id: params[:category_id])
+      if category.level == Settings.category.middle_level
+        if category.childrens
+          @childs = []
+          category.childrens.each do |child|
+            products = params[:brand_id] ? child.products
+              .where(brand_id: params[:brand_id]) : child.products
+            if products.size > 0
+              @childs << {name: child.name, id: child.id, products: products
+                .order(category_order: :asc).limit(Settings.limit.product_block)}
+            end
+          end
+        end
+      end
+    end
+  end
+
+  def load_brand_exist
+    return unless @category
+    @brands = Brand.where(id: list_products(@category).pluck(:brand_id).uniq)
+  end
+
+  def load_left_menu_by_category
+    @category = Category.find_by id: params[:category_id]
+    return load_left_menu_data unless @category
+    if @category.level == Settings.category.middle_level
+      @category_lv_1 = @category.parents.first
+    elsif @category.level == Settings.category.lowest_level
+      @category_lv_1 = @category.parents.first.parents.first
+    elsif @category.level == Settings.category.highest_level
+      @category_lv_1 = @category
+    end
+    return load_left_menu_data unless @category_lv_1
+    load_left_menu_data true
   end
 
   def load_breadcrum
@@ -152,6 +194,14 @@ class ProductsController < ApplicationController
   def get_products_for_menu_item menu_item
     return menu_item.products unless menu_item.class.name == Category.name
     category = menu_item
+    if params[:brand_id]
+      list_products(category).where(brand_id: params[:brand_id])
+    else
+      list_products category
+    end
+  end
+
+  def list_products category
     list_categories = [category.id]
     if c = category.childrens
       list_categories << c.pluck(:id)

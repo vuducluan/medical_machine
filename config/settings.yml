@@ -7,6 +7,8 @@ category:
 blog_category:
   news: 1
 limit:
+  catalog: 2
+  brand_logo: 10
   blog_home_page: 4
   product_field: 10
   product_block: 4

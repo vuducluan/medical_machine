@@ -33,4 +33,11 @@
     </div>
   </div>
 </div>
+<div id="home-brand-logo">
+  <% @brand_logos.each do |brand| %>
+    <a href="<%= products_path(brand_id: brand.id) %>">
+      <%= image_tag brand.image, alt: brand.name, title: brand.name, class: "brand-logo" %>
+    </a>      
+  <% end %>
+</div>
 <%= render "subcribe" %>

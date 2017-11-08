@@ -11,4 +11,12 @@ Rails.application.routes.draw do
   resources :medias, only: [:show, :index]
   resources :contacts, only: [:index, :create]
   get "/products" => "products#index", as: :search_product
+
+  namespace :admin do
+    root "home#show"
+    resources :home, only: [:show]
+    devise_for :admins, :controllers => {:sessions => 'admin/sessions',
+      :passwords => 'admin/passwords' }, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
+  end
+
 end

@@ -8,13 +8,16 @@
         <div id="woo-primary" class="content-area willard">
           <div id="woo-main" class="site-main" role="main">
             <h1 class="page-title"><%= @title %></h1>
+            <% if brand = Brand.find_by(id: params[:brand_id]) %>
+              <h2>Hãng: <%= brand.name %></h2>
+            <% end %>
             <div class="tm-wc-ajax-products-wrapper">
-              <% unless @childs %>
+              <% unless @childs.present? %>
                 <%= render "sort_form"%>
               <% end %>
 
-              <div class="products row">
-                <% if @childs %>
+              <div class="products row <%= 'product-row-block' if @childs.present? %>">
+                <% if @childs.present? %>
                   <% @childs.each do |child| %>
                     <%= render "product_block", block: child%>
                   <% end %>

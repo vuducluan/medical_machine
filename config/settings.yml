@@ -2,6 +2,8 @@ category:
   highest_level: 1
   middle_level: 2
   lowest_level: 3
+  home_block_1: 1
+  home_block_2: 2
 blog_category:
   news: 1
 limit:
@@ -19,6 +21,8 @@ limit:
     a_to_z: 3.0
     brand: 4.0
   label_block: 10
+  category_home_block: 6
+  home_block_element: 2
 format:
   created_at: "%d/%m/%Y"
 media_type:

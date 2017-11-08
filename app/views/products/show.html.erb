@@ -32,31 +32,51 @@
                       </h1>
 
                       <div class="product_meta">
-                        <span class="sku_wrapper">Mã sản phẩm:      <span class="sku" itemprop="sku"><%= @product.model %></span></span>
-                        <span class="tagged_as">Tags:
-                          <% ["cutter", "hammer", "household", "power", "power tools", "sprayer", "tools" ].each do |field| %>
-                            <%= link_to field, "" %>,
-                          <% end %>
-                        </span>
+                        <span class="sku_wrapper">Tình trạng: <span class="product-status" itemprop="sku">Còn hàng</span></span>
+                        <span class="sku_wrapper">Mã sản phẩm: <span class="sku" itemprop="sku"><%= @product.model %></span></span>
                       </div>
 
                       <p class="price">
                         <span class="woocs_price_code" data-product-id="215">
-                          <span class="woocommerce-Price-amount amount"><%= @product.price %>
-                            <span class="woocommerce-Price-currencySymbol">$</span>
-                          </span>
+                          <% if @product.discount_price_currency.present? %>
+                            <del>
+                              <span class="woocommerce-Price-amount amount"><%= @product.price_currency %>
+                                <span class="woocommerce-Price-currencySymbol">₫</span>
+                              </span>
+                            </del>
+                            <ins>
+                              <span class="woocommerce-Price-amount amount"><%= @product.discount_price_currency %>
+                                <span class="woocommerce-Price-currencySymbol">₫</span>
+                              </span>
+                            </ins>
+                          <% else %>
+                            <span class="woocommerce-Price-amount amount"><%= @product.price_currency %>
+                              <span class="woocommerce-Price-currencySymbol">₫</span>
+                            </span>
+                          <% end %>
                         </span>
                       </p>
 
+                      <div class="message">
+                          <p>Để nhận được giá tốt nhất Quý khách vui lòng
+                            <strong>"LIÊN HỆ"</strong> với số điện thoại phía trên hoặc click vào
+                            <strong>"MUA"</strong> phía dưới.
+                          </p>
+                      </div>
+
                       <div class="woocommerce-product-details__short-description">
-                        <p>Mô tả ngắn: <%= @product.short_description %></p>
+                        <p>Hãng sản xuất: <%= @product.brand.name %></p>
+                      </div>
+
+                      <div class="woocommerce-product-details__short-description">
+                        <p><%= @product.short_description %></p>
                       </div>
 
                       <form class="cart" method="post" enctype="multipart/form-data" data-product_id="215" data-product_variations="[hash_array]" current-image="">
                         <div class="custom-cart-button">
                           <div class="">
                             <%= link_to "MUA", order_product_path(@product), remote: true, rel: "nofollow",
-                              "data-product-id": @product.id, class: "single_add_to_cart_button button alt" %>
+                              "data-product-id": @product.id, class: "single_add_to_cart_button button alt custom-button" %>
                           </div>
                         </div>
                       </form>

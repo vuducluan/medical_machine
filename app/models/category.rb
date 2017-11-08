@@ -28,4 +28,14 @@ class Category < ApplicationRecord
     where("LEFT(name, 1) = ? AND level = ?", character.upcase,
       Settings.category.lowest_level)
   end
+
+  def list_home_products
+    return unless level == Settings.category.middle_level
+    list_categories = [id]
+    if c = childrens
+      list_categories << c.pluck(:id)
+    end
+    Product.by_categories(list_categories.flatten).order(:home_order)
+      .limit(Settings.limit.category_home_block)
+  end
 end

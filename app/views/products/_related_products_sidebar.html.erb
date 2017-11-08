@@ -37,16 +37,22 @@
                 <div class="price-add-to-cart-wrap">
                   <span class="price">
                     <span class="woocs_price_code" data-product-id="264">
-                      <del>
-                        <span class="woocommerce-Price-amount amount"><%= product.price %>
-                          <span class="woocommerce-Price-currencySymbol">$</span>
+                      <% if product.discount_price_currency.present? %>
+                        <del>
+                          <span class="woocommerce-Price-amount amount"><%= product.price_currency %>
+                            <span class="woocommerce-Price-currencySymbol">₫</span>
+                          </span>
+                        </del>
+                        <ins>
+                          <span class="woocommerce-Price-amount amount"><%= product.discount_price_currency %>
+                            <span class="woocommerce-Price-currencySymbol">₫</span>
+                          </span>
+                        </ins>
+                      <% else %>
+                        <span class="woocommerce-Price-amount amount"><%= product.price_currency %>
+                          <span class="woocommerce-Price-currencySymbol">₫</span>
                         </span>
-                      </del>
-                      <ins>
-                        <span class="woocommerce-Price-amount amount"><%= product.discount_price %>
-                          <span class="woocommerce-Price-currencySymbol">$</span>
-                        </span>
-                      </ins>
+                      <% end %>
                     </span>
                   </span>
                   <%= link_to "MUA", order_product_path(product), remote: true, rel: "nofollow",

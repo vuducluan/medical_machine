@@ -61,4 +61,29 @@ class Product < ApplicationRecord
     price: "price",
     price_desc: "price_desc"
   }
+
+  def price_currency
+    helper.number_to_currency(price*1000, unit: "", delimiter: ".", precision: 0)
+  end
+
+  def discount_price_currency
+    return unless (discount_price && discount_price < price)
+    helper.number_to_currency(discount_price*1000, unit: "", delimiter: ".", precision: 0)
+  end
+
+  def param_table
+    return parameter unless is_parameter_table
+    table = []
+    parameter.split(",").each do |p|
+      table << {title: p.split(":")[0], value: p.split(":")[1]}
+    end
+    table
+  end
+
+  private
+  def helper
+    @helper ||= Class.new do
+      include ActionView::Helpers::NumberHelper
+    end.new
+  end
 end

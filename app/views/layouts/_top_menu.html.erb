@@ -94,7 +94,7 @@
         </li>
 
         <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-232 tm-mega-menu-top-item item-submenu-position-fullwidth">
-          <%= link_to "Dịch vụ sửa chữa", blog_path(@service) %>
+          <%= link_to "Dịch vụ sửa chữa", @service ? blog_path(@service) : blog_path(Blog.first) %>
         </li>
 
         <li id="menu-item-230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-230 tm-mega-menu-top-item item-submenu-position-fullwidth">

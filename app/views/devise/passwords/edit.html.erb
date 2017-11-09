@@ -1,0 +1,29 @@
+<div class="vertical-center">
+  <div class="container col-md-2">
+    <h2 class="form-signin-heading text-center">Đổi mật khẩu</h2>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put,class: "form-signin" }) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="field">
+        <%= f.label :password, "Mật khẩu mới", class: 'sr-only' %><br />
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control', placeholder: 'Mật khẩu mới' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "Xác nhận mật khẩu", class: 'sr-only' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Xác nhận mật khẩu' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Đổi mật khẩu", class: 'btn btn-lg btn-primary btn-block' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

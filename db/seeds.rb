@@ -175,6 +175,17 @@ category_array.each_with_index do |c1, i1|
 end
 puts "Create Category and Relation 1,2 OK"
 
+puts "update home_block category"
+arr = Category.where(level: Settings.category.middle_level).limit(20)
+arr[0..9].each_with_index do |cat, index|
+  cat.update_attributes(home_block_id: 1, home_order_id: index + 1)
+end
+
+arr[10..19].each_with_index do |cat, index|
+  cat.update_attributes(home_block_id: 2, home_order_id: index + 1)
+end
+puts "update home_block category OK"
+
 puts "Create template category"
 5.times do |i|
   Template.create! name: Faker::Lorem.sentence[0..8], content: Faker::Lorem.paragraph
@@ -333,3 +344,7 @@ puts "Create Brand's Logo..."
   Brand.all[9].update_attributes home_order: 10, image: "/brand/logo-amg.jpg"
   Brand.all[10].update_attributes home_order: 11, image: "/brand/nexus-audio-logo.png"
 puts "Logo is Okay!"
+
+puts "Create admin"
+Admin.create! email: "admin@admin.com", password: "Aa@123456", password_confirmation: "Aa@123456"
+puts "Create admin OK"

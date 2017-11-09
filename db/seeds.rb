@@ -285,7 +285,7 @@ puts "product images OK"
 
 puts "create Field"
 10.times do |i|
-  Field.create! name: Faker::Lorem.sentence
+  Field.create! name: Faker::Lorem.sentence, menu_order: rand(100)
 end
 puts "Field OK"
 

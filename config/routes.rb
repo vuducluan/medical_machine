@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "home#show"
     resources :home, only: [:show]
+    resources :fields
     devise_for :admins, :controllers => {:sessions => 'admin/sessions',
       :passwords => 'admin/passwords' }, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
   end

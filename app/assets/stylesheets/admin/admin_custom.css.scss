@@ -7,7 +7,7 @@
   padding-bottom: 15px;
 }
 
-#field-table {
+#field-table, #brand-table {
   .panel-body {
     padding: 0;
   }
@@ -17,5 +17,14 @@
 
   .table>thead>tr>th {
     border-bottom: 2px solid #ddd !important;
+  }
+}
+
+#update-logo-brand {
+  .modal-body {
+    text-align: center !important;
+  }
+  .change-brand-logo {
+    padding-top: 30px;
   }
 }

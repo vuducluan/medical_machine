@@ -14,6 +14,9 @@
 
 <body>
   <div id="wrapper">
+    <% if admin_admin_signed_in? %>
+      <%= render "layouts/admin/top_layout" %>
+    <% end %>
     <%= yield %>
   </div>
 </body>

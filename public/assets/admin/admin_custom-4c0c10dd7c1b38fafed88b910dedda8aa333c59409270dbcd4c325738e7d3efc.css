@@ -1,0 +1,23 @@
+/* line 1, /home/likewise-open/FRAMGIA/lai.huu.toan/workspace/medical_machine/app/assets/stylesheets/admin/admin_custom.css.scss */
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+/* line 6, /home/likewise-open/FRAMGIA/lai.huu.toan/workspace/medical_machine/app/assets/stylesheets/admin/admin_custom.css.scss */
+.field-padding-bottom {
+  padding-bottom: 15px;
+}
+
+/* line 11, /home/likewise-open/FRAMGIA/lai.huu.toan/workspace/medical_machine/app/assets/stylesheets/admin/admin_custom.css.scss */
+#field-table .panel-body {
+  padding: 0;
+}
+/* line 14, /home/likewise-open/FRAMGIA/lai.huu.toan/workspace/medical_machine/app/assets/stylesheets/admin/admin_custom.css.scss */
+#field-table .create-div {
+  padding-bottom: 20px;
+}
+/* line 18, /home/likewise-open/FRAMGIA/lai.huu.toan/workspace/medical_machine/app/assets/stylesheets/admin/admin_custom.css.scss */
+#field-table .table > thead > tr > th {
+  border-bottom: 2px solid #ddd !important;
+}

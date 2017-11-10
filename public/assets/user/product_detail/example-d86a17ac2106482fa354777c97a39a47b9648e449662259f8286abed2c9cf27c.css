@@ -1,0 +1,27 @@
+/* line 1, /home/likewise-open/FRAMGIA/lai.huu.toan/workspace/medical_machine/app/assets/stylesheets/user/product_detail/example.scss */
+.thumbnails {
+  overflow: hidden;
+  margin: 1em 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* line 8, /home/likewise-open/FRAMGIA/lai.huu.toan/workspace/medical_machine/app/assets/stylesheets/user/product_detail/example.scss */
+.thumbnails li {
+  display: inline-block;
+  width: 150px;
+  margin: 0 5px;
+}
+
+/* line 14, /home/likewise-open/FRAMGIA/lai.huu.toan/workspace/medical_machine/app/assets/stylesheets/user/product_detail/example.scss */
+.thumbnails img {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+/* line 20, /home/likewise-open/FRAMGIA/lai.huu.toan/workspace/medical_machine/app/assets/stylesheets/user/product_detail/example.scss */
+.toggle {
+  display: block;
+  margin: 10px auto 1.5em;
+}

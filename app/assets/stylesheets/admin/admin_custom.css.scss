@@ -7,7 +7,7 @@
   padding-bottom: 15px;
 }
 
-#field-table, #brand-table {
+#field-table, #brand-table, #slider-table, #catalog-table {
   .panel-body {
     padding: 0;
   }
@@ -29,7 +29,7 @@
   }
 }
 
-#company-show {
+#company-show, #slider-new, #catalog-new {
   .panel-body {
     padding: 0;
     width: 640px; /*can be in percentage also.*/
@@ -40,5 +40,19 @@
   }
   .btn-align-center {
     text-align: center;
+  }
+}
+
+#slider-new {
+  .preview-slider-image-div {
+    padding-bottom: 10px;
+  }
+  // .preview-slider-image {
+  //   width:100%; 980x240
+  // }
+}
+#catalog-new {
+  .preview-catalog-image-div {
+    padding-bottom: 10px;
   }
 }

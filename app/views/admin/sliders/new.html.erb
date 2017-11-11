@@ -1,0 +1,56 @@
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Tạo mới slider</h1>
+    </div>
+  </div>
+  <div class="row" id="slider-new">
+    <div class="col-lg-12">
+      <div class="panel-body">
+        <div class="form-company">
+          <div class="form-group">
+            <%= render "shared/flash" %>
+          </div>
+          <%= form_for([:admin, @slider], url: admin_sliders_path(), html: {multipart: true}) do |f| %>
+            <div class="form-group">
+              <strong>Ảnh</strong> </br>
+              <div class="preview-slider-image-div">
+                <img src="/preview_no_image.jpg" height="150" class="preview-slider-image">
+              </div>
+              <label for="upload-slider-image" class="btn btn-success">Chọn ảnh</label>
+              <%= f.file_field :url, id: "upload-slider-image", class: "hidden" %>
+            </div>
+            <div class="form-group">
+              <strong>Tiêu đề</strong> </br>
+              <%= f.text_area :title, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <strong>Thứ tự</strong> </br>
+              <%= f.number_field :home_order, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <strong>Desc</strong> </br>
+              <%= f.text_area :desc, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <strong>Caption</strong> </br>
+              <%= f.text_area :caption, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <strong>Alt</strong> </br>
+              <%= f.text_area :alt, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <strong>Link</strong> </br>
+              <%= f.text_area :link, class: "form-control" %>
+            </div>
+
+            <div class="form-group btn-align-center">
+              <%= f.submit "Tạo", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

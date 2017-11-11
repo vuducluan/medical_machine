@@ -96,10 +96,18 @@
         </li>
 
         <li>
-          <%= link_to admin_root_url() do %>
-            <i class="fa fa-sitemap fa-fw"></i>
-            Slider + Catalog
-          <% end %>
+          <a href="#">
+            <i class="fa fa-sitemap fa-fw"></i> Slider + Catalog
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level">
+            <li>
+              <%= link_to "Slider", admin_sliders_path() %>
+            </li>
+            <li>
+              <%= link_to "Catalog", admin_catalogs_path() %>
+            </li>
+          </ul>
         </li>
 
         <li>
@@ -110,17 +118,18 @@
         </li>
 
         <li>
-          <%= link_to admin_root_url() do %>
-            <i class="fa fa-files-o fa-fw"></i>
-            Tài liệu
-          <% end %>
-        </li>
-
-        <li>
-          <%= link_to admin_root_url() do %>
-            <i class="fa fa-files-o fa-fw"></i>
-            Video
-          <% end %>
+          <a href="#">
+            <i class="fa fa-files-o fa-fw"></i> Tài liệu + Video
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level">
+            <li>
+              <%= link_to "Tài liệu", admin_sliders_path() %>
+            </li>
+            <li>
+              <%= link_to "Video", admin_catalogs_path() %>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>

@@ -169,6 +169,8 @@ ActiveRecord::Schema.define(version: 20171114020609) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "home_order"
+    t.integer "list_order"
     t.index ["category_id"], name: "index_product_categories_on_category_id"
     t.index ["product_id"], name: "index_product_categories_on_product_id"
   end
@@ -263,6 +265,6 @@ ActiveRecord::Schema.define(version: 20171114020609) do
   add_foreign_key "product_fields", "fields"
   add_foreign_key "product_fields", "products"
   add_foreign_key "product_images", "products"
-  add_foreign_key "products", "brands"
+  add_foreign_key "products", "brands", on_delete: :cascade
   add_foreign_key "products", "labels"
 end

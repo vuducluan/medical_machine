@@ -1,0 +1,45 @@
+<div class="category-border col-xs-6">
+  <div class="category-field">
+    <div class="form-group">
+      <input type="checkbox" name="checkbox<%= category.id %>" id="checkbox<%= category.id %>" autocomplete="off" onchange="categorySelect('<%= category.id %>');" />
+      <div class="btn-group">
+        <label for="checkbox<%= category.id %>" class="btn btn-link active">
+          <strong><%= category.name %></strong>
+        </label>
+      </div>
+    </div>
+    <div class="row show-grid order-field">
+      <div class="form-group form-group-part col-xs-6">
+        <%= ff.select :category_id, options_for_select(category.childrens.map{|c| [c.name, c.id]}), {:include_blank => "Chọn danh mục"}, {:class => 'form-control sub-category-select', id: ("select"+category.id.to_s), disabled: true} %>
+      </div>
+      <div class="form-group form-group-part col-xs-6 sub-category<%= category.id %>">
+        <% category.childrens.each do |child| %>
+          <% if child.childrens.size > 0 %>
+            <%= f.fields_for(:product_categories) do |fff| %>
+              <%= fff.select :category_id, options_for_select(child.childrens.map{|c| [c.name, c.id]}), {:include_blank => "Tất cả danh mục"}, {:class => "form-control sub-sub-category-select hidden", id: ("select"+child.id.to_s)} %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row show-grid order-field">
+      <div class="form-group form-group-part col-xs-3">
+        <strong>Thứ tự</strong>
+        <%= ff.number_field :list_order, class: "form-control", id: "number-field#{category.id}", disabled: true %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function categorySelect(categoryId){
+    var checkValue = $("#checkbox"+categoryId).is(':checked');
+    $("#select"+categoryId)[0].disabled = !checkValue;
+    $("#number-field"+categoryId)[0].disabled = !checkValue;
+    var childrens = $(".sub-category"+categoryId)[0].children;
+    for (var i = 0; i < childrens.length; ++i) {
+      var item = childrens[i];
+      item.disabled = !checkValue;
+    }
+  }
+</script>

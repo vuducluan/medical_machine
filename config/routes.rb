@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resource :company, only: [:show, :update, :edit]
     resources :sliders
     resources :catalogs
+    resources :products
     get "/edit_company" => "companies#edit", as: :edit_company
     resources :fields
     resources :medias

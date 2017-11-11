@@ -118,18 +118,17 @@
         </li>
 
         <li>
-          <a href="#">
-            <i class="fa fa-files-o fa-fw"></i> Tài liệu + Video
-            <span class="fa arrow"></span>
-          </a>
-          <ul class="nav nav-second-level">
-            <li>
-              <%= link_to "Tài liệu", admin_sliders_path() %>
-            </li>
-            <li>
-              <%= link_to "Video", admin_catalogs_path() %>
-            </li>
-          </ul>
+          <%= link_to admin_root_url() do %>
+            <i class="fa fa-files-o fa-fw"></i>
+            Tài liệu
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to admin_medias_url(media_type: "1") do %>
+            <i class="fa fa-files-o fa-fw"></i>
+            Video
+          <% end %>
         </li>
       </ul>
     </div>

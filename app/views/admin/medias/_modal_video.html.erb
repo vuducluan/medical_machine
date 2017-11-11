@@ -1,0 +1,33 @@
+<div class="modal fade" id="create-video" tabindex="-1" role="dialog" aria-labelledby="create" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title custom_align" id="Heading">Tạo Video mới</h4>
+      </div>
+      <%= form_for @video, url: admin_medias_url do |f| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.text_field :title, class: "form-control video-name-create", placeholder: "Tên Video", required: true, oninvalid: "Please Enter valid email" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :description, class: "form-control video-des-create", row: "2", placeholder: "Mô tả", required: true %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :url, class: "form-control video-link-create", placeholder: "Youtube Link", required: true %>
+          </div>
+          <div class="form-group">
+            <%= f.select :field_id, options_for_select(Field.all.map{|field| [field.name, field.id]}), {},
+              {class: "video-field-create form-control"} %>
+          </div>
+          <%= f.hidden_field :media_type, value: "1" %>
+        </div>
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Bỏ qua</button>
+          <%= f.submit "Tạo", class: "btn btn-success btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -9,37 +9,53 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.new
     @product.product_categories.build
     @product.product_images.build
+    @product.product_images.build
   end
 
   def create
-    format_params
     @product = Product.new(product_params)
     if @product.save
       flash[:success] = "Tạo mới sản phẩm #{@product.name} thành công!"
       redirect_to admin_products_path
     else
+      @category_attrs = category_params
+      @field_attrs = field_params
       flash[:danger] = @product.errors.full_messages
       render :new
     end
   end
 
   def edit
-
+    @category_attrs = category_params
+    @field_attrs = field_params
   end
 
   def update
-
+    if @product.update_attributes(product_params)
+      flash[:success] = "Sửa sản phẩm #{@product.name} thành công!"
+      redirect_to admin_products_path
+    else
+      @category_attrs = category_params
+      @field_attrs = field_params
+      flash[:danger] = @product.errors.full_messages
+      render :new
+    end
   end
 
   def destroy
-
+    if @product.destroy
+      flash[:success] = "Xóa sản phẩm #{@product.name} thành công!"
+    else
+      flash[:danger] = "Lỗi! Xóa sản phẩm không thành công."
+    end
+    redirect_to admin_products_path()
   end
-
   private
   def product_params
     params.require(:product).permit(Product::PRODUCT_ATTRIBUTES,
       product_images_attributes: Product::PRODUCT_IMAGE_ATTRIBUTES,
-      product_categories_attributes: Product::PRODUCT_CATEGORY_ATTRIBUTES)
+      product_categories_attributes: Product::PRODUCT_CATEGORY_ATTRIBUTES,
+      product_fields_attributes: Product::PRODUCT_FIELD_ATTRIBUTES)
   end
 
   def load_products
@@ -49,26 +65,50 @@ class Admin::ProductsController < Admin::BaseController
 
   def load_product
     @product = Product.find_by id: params[:id]
-    @g_categories = Category.where(level: Settings.category.highest_level)
+    get_categories
+    get_fields
   end
 
-  def format_params
-    categories = params[:product][:product_categories_attributes]
-    list = []
-    categories.each do |key, value|
-      list << value[:category_id].to_i
-      unless value.keys.include?("list_order")
-        params[:product][:product_categories_attributes].delete key
+  def field_params
+    arr = {}
+    if @product.product_fields
+      @product.product_fields.each do |field|
+        arr[field.field_id.to_s] = field.list_order
+      end
+    else
+      params[:product][:product_fields_attributes].each do |key, value|
+        arr[value[:field_id]] = value[:list_order]
       end
     end
-    params[:product][:product_categories_attributes].each do |key, value|
-      childs = Category.find_by(id: value[:category_id]).childrens.pluck(:id)
-      list.each do |l|
-        if childs.include?(l)
-          params[:product][:product_categories_attributes][key][:category_id] = l.to_s
+    arr
+  end
+
+  def category_params
+    arr = {}
+    if @product.product_categories
+      @g_categories.each_with_index do |c, index|
+        @product.product_categories.each do |pc|
+          if c.all_children_ids.include? pc.category_id
+            arr[index] = {category_id: pc.category_id, list_order: pc.list_order}
+            break
+          end
+        end
+      end
+    else
+      @g_categories.each_with_index do |c, index|
+        params[:product][:product_categories_attributes].each do |key, value|
+          if c.all_children_ids.include? value[:category_id].to_i
+            arr[index] = {category_id: value[:category_id].to_i, list_order: value[:list_order]}
+            break
+          end
         end
       end
     end
+    arr
+  end
+
+  def get_fields
+    @fields = Field.all.order(menu_order: :asc)
   end
 
   def get_categories

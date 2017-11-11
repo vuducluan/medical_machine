@@ -11,18 +11,6 @@ puts "create Brand"
 end
 puts "Brand OK"
 
-puts "create label"
-["Sale", "Hot", "Weekly", "Trend", "Feature"].each_with_index do |c, i|
-  Label.create! title: c, block_order: i + 1, short_title: c
-end
-puts "create label OK"
-
-puts "create Brand"
-50.times do |i|
-  Brand.create! name: Faker::Lorem.sentence[0..10], location: Faker::Lorem.sentence[0..10]
-end
-puts "Brand OK"
-
 puts "Create Category and Relation 1,2 real"
 category_array =
 [
@@ -159,7 +147,7 @@ category_array.each_with_index do |c1, i1|
         rand_p.times do |r|
           product = Product.create! name: "#{c3} #{r+1}", model: Faker::Lorem.sentence, location: Faker::Lorem.sentence,
             price: rand(10000), discount_price: rand(9000), description: Faker::Lorem.paragraph, label_order: r + 1, category_order: r + 1,
-            short_description: Faker::Lorem.sentence, label_id: i3%5 + 1, brand_id: i3%50 + 1
+            short_description: Faker::Lorem.sentence, label_id: i3%5 + 1, brand_id: i3%50 + 1, parameter: Faker::Lorem.sentence
           ProductCategory.create product_id: product.id, category_id: cate3.id
         end
       end
@@ -168,7 +156,7 @@ category_array.each_with_index do |c1, i1|
       rand_p.times do |r|
         product = Product.create! name: "#{c2.first} #{r+1}", model: Faker::Lorem.sentence, location: Faker::Lorem.sentence,
           price: rand(10000), discount_price: rand(9000), description: Faker::Lorem.paragraph, label_order: r + 1, category_order: r + 1,
-          short_description: Faker::Lorem.sentence, label_id: i2%5 + 1, brand_id: i2%50 + 1
+          short_description: Faker::Lorem.sentence, label_id: i2%5 + 1, brand_id: i2%50 + 1, parameter: Faker::Lorem.sentence
         ProductCategory.create product_id: product.id, category_id: cate2.id
       end
     end
@@ -231,7 +219,7 @@ Blog.all.each_with_index do |b, i|
 end
 puts "blog images OK"
 
-Company.create! about: Faker::Lorem.paragraph,
+Company.create! about: Faker::Lorem.paragraph, name: Faker::Lorem.sentence,
   phone: "0987.657.234", work_time:"7AM-9PM", email:"vattuthinghiem@gmail.com",
   facebook: "http://facebook.com", instagram:"http://instagram.com",
   contact_info:"Nguyen Thanh Tu", address:"Nhà N02F, KĐT Mễ Trì Thượng, Phường Mễ Trì, Quận Nam Từ Liêm - Hà Nội",
@@ -272,7 +260,7 @@ puts "catalog images OK"
 puts "create images for products"
 p_imgs = Dir.glob "public/product/*"
 Product.all.each_with_index do |b, i|
-  5.times do |j|
+  2.times do |j|
     new_img = b.product_images.build title: Faker::Lorem.sentence, url: Faker::Lorem.sentence,
       desc: Faker::Lorem.paragraph, caption: Faker::Lorem.sentence,
       alt: Faker::Lorem.sentence

@@ -1,0 +1,18 @@
+<div class="row show-grid category-block">
+  <div class="funkyradio">
+    <% @fields.each_with_index do |field, index| %>
+      <% field_id = @field_attrs && @field_attrs.keys.include?(field.id.to_s) ? field.id : 0 %>
+      <% list_order = @field_attrs ? @field_attrs[field.id.to_s] : "" %>
+
+      <div class="funkyradio-success col-xs-9">
+        <input type="checkbox" name="product-field" id="product-field<%= index %>" value="<%= field.id %>"
+          data-name="<%= field.name %>" class="product-field" <%= 'checked' if field.id == field_id %> />
+        <label for="product-field<%= index %>" title="<%= field.name %>" class="field-label"><%= field.name %></label>
+      </div>
+      <div class="col-xs-3">
+        <input type="number" class="form-control field-order" id="field-order<%= index %>" placeholder="Thứ tự"
+          value="<%= list_order %>">
+      </div>
+    <% end %>
+  </div>
+</div>

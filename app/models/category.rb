@@ -38,4 +38,17 @@ class Category < ApplicationRecord
     Product.by_categories(list_categories.flatten).order(:home_order)
       .limit(Settings.limit.category_home_block)
   end
+
+  def all_children_ids
+    cat = [id]
+    if childrens
+      cat << childrens.pluck(:id)
+      childrens.each do |c|
+        if c.childrens
+          cat << c.childrens.pluck(:id)
+        end
+      end
+    end
+    cat.flatten
+  end
 end

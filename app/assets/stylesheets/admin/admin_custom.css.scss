@@ -28,3 +28,17 @@
     padding-top: 30px;
   }
 }
+
+#company-show {
+  .panel-body {
+    padding: 0;
+    width: 640px; /*can be in percentage also.*/
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+  }
+  .btn-align-center {
+    text-align: center;
+  }
+}

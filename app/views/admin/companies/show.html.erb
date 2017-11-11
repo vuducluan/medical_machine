@@ -1,0 +1,63 @@
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Công ty</h1>
+    </div>
+  </div>
+  <div class="row" id="company-show">
+    <div class="col-lg-12">
+      <div class="create-div">
+        <%= link_to "Sửa thông tin", edit_admin_company_path(), class: "btn btn-success" %>
+      </div>
+      <div class="panel-body">
+        <div class="form-company">
+          <div class="form-group">
+            <%= render "shared/flash" %>
+          </div>
+          <%= form_for([:admin, @company], html: {multipart: true}) do |f| %>
+            <div class="form-group">
+              Tên công ty </br>
+              <%= f.text_field :name, class: "form-control", readonly: true %>
+            </div>
+            <div class="form-group">
+              Mô tả </br>
+              <%= f.text_area :about, class: "form-control", readonly: true %>
+            </div>
+            <div class="form-group">
+              Địa chỉ </br>
+              <%= f.text_area :address, class: "form-control", readonly: true %>
+            </div>
+            <div class="form-group">
+              Số điện thoại </br>
+              <%= f.text_field :phone, class: "form-control", readonly: true %>
+            </div>
+            <div class="form-group">
+              Người đại diện </br>
+              <%= f.text_field :contact_info, class: "form-control", readonly: true %>
+            </div>
+            <div class="form-group">
+              Giờ làm việc </br>
+              <%= f.text_field :work_time, class: "form-control", readonly: true %>
+            </div>
+            <div class="form-group">
+              Email </br>
+              <%= f.text_field :email, class: "form-control", readonly: true %>
+            </div>
+            <div class="form-group">
+              Facebook </br>
+              <%= f.text_field :facebook, class: "form-control", readonly: true %>
+            </div>
+            <div class="form-group">
+              Instagram </br>
+              <%= f.text_field :instagram, class: "form-control", readonly: true %>
+            </div>
+            <div class="form-group">
+              Website </br>
+              <%= f.text_field :website, class: "form-control", readonly: true %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

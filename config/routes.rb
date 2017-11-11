@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :home, only: [:show]
     resources :fields, only: [:index, :create, :update, :destroy]
     resources :brands, only: [:index, :create, :update, :destroy]
+    resource :company, only: [:show, :update, :edit]
+    get "/edit_company" => "companies#edit", as: :edit_company
     devise_for :admins, :controllers => {:sessions => 'admin/sessions',
       :passwords => 'admin/passwords' }, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
   end

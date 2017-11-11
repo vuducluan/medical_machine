@@ -6,7 +6,8 @@ puts "create label OK"
 
 puts "create Brand"
 50.times do |i|
-  Brand.create! name: Faker::Lorem.sentence[0..10], location: Faker::Lorem.sentence[0..10]
+  Brand.create! name: Faker::Lorem.sentence[0..10], location: Faker::Lorem.sentence[0..10],
+    home_order: rand(100), description: Faker::Lorem.sentence[0..20]
 end
 puts "Brand OK"
 
@@ -328,21 +329,16 @@ end
   Medium.find(i+1).update_attribute(:product_id, 2)
   Medium.find(i+11).update_attribute(:product_id, 2)
 end
-
 puts "Create media: doc & pdf OK"
 
 puts "Create Brand's Logo..."
-  Brand.first.update_attributes home_order: 9, image: "/brand/1544666_orig.jpg"
-  Brand.second.update_attributes home_order: 2, image: "/brand/AFFR-FinalFiles-04.jpg"
-  Brand.third.update_attributes home_order: 5, image: "/brand/HAC_NEW_LOGO.jpg"
-  Brand.fourth.update_attributes home_order: 4, image: "/brand/jibimed.jpg"
-  Brand.fifth.update_attributes home_order: 3, image: "/brand/logo_daihan.jpg"
-  Brand.all[5].update_attributes home_order: 8, image: "/brand/logo_dep.jpg"
-  Brand.all[6].update_attributes home_order: 7, image: "/brand/logo SGES 2016.jpg"
-  Brand.all[7].update_attributes home_order: 6, image: "/brand/logo_donut.png"
-  Brand.all[8].update_attributes home_order: 1, image: "/brand/logo-800x188.png"
-  Brand.all[9].update_attributes home_order: 10, image: "/brand/logo-amg.jpg"
-  Brand.all[10].update_attributes home_order: 11, image: "/brand/nexus-audio-logo.png"
+  brand_imgs = Dir.glob "public/brand/*"
+  Brand.all.each_with_index do |brand, index|
+    File.open(brand_imgs[index%11]) do |f|
+      brand.image = f
+    end
+    brand.save!
+  end
 puts "Logo is Okay!"
 
 puts "Create admin"

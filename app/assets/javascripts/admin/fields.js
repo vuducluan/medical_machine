@@ -84,4 +84,8 @@ $(document).on('turbolinks:load', function(){
       $("#field-table .alert-success-create").addClass("hidden");
     });
   });
+
+  $('#dataTables-example').DataTable({
+    responsive: true
+  });
 });

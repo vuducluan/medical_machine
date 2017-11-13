@@ -1,0 +1,5 @@
+<% if params[:media_type] == "0" %>
+  <%= render partial: "doccument", object: @medias %>
+<% else %>
+  <%= render partial: "video", object: @medias %>
+<% end %>

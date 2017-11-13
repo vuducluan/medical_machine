@@ -10,7 +10,6 @@ class BlogImage < ApplicationRecord
       .symbolize_keys
   end
 
-  private
   def thumb_url
     url_url :blog_thumb
   end

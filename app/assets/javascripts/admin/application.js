@@ -14,4 +14,6 @@
 //= require turbolinks
 //= require lodash
 //= require jquery
+//= require cocoon
+//= require ckeditor/init
 //= require_tree .

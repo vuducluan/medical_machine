@@ -44,6 +44,12 @@ gem "searchkick", "~> 2.3", ">= 2.3.2"
 # Setting evironment variables
 gem "dotenv", "~> 2.2", ">= 2.2.1"
 
+# nested attribute
+gem "cocoon"
+
+# Ckeditor: format article content with html form
+gem "ckeditor"
+
 group :development, :test do
   gem "pry-rails"
   gem "faker", git: "git://github.com/stympy/faker.git", branch: "master"

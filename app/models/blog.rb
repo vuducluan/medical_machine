@@ -1,14 +1,20 @@
 class Blog < ApplicationRecord
   include BlogDecorator
 
+  paginates_per Settings.limit.paginate.admin_blog
+
   belongs_to :template
   has_many :blog_images, dependent: :destroy
+  has_many :feature_images, ->{where(is_feature: true)}, 
+    class_name: BlogImage.name
 
   has_many :blog_category_relations, dependent: :destroy
   has_many :blog_categories, through: :blog_category_relations
 
   has_many :blog_tag_relations, dependent: :destroy
   has_many :tags, through: :blog_tag_relations
+
+  accepts_nested_attributes_for :blog_images, allow_destroy: true
 
   scope :new_articles_for_home, -> do
     where(is_important: true)

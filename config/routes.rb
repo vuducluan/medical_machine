@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   root "pages#home"
   resource :subcribers
   resources :products, only: [:show, :index] do
@@ -25,5 +26,6 @@ Rails.application.routes.draw do
     resources :medias
     devise_for :admins, :controllers => {:sessions => 'admin/sessions',
       :passwords => 'admin/passwords' }, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
+    resources :blogs  
   end
 end

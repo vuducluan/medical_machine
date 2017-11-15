@@ -7,7 +7,7 @@
   padding-bottom: 15px;
 }
 
-#field-table, #brand-table, #slider-table, #catalog-table {
+#field-table, #brand-table, #slider-table, #catalog-table, #product-table {
   .panel-body {
     padding: 0;
   }
@@ -68,26 +68,102 @@
   }
   .btn-success {
     width: 100px;
-    height: 43px;  
-  }  
+    height: 43px;
+  }
 }
 
 #field-table, #video-table, #create, #brand-table {
   .btn-success {
     width: 100px;
-    height: 43px;  
-  } 
+    height: 43px;
+  }
 }
 
 #create-video, #delete, #field-table, #create, #create-brand {
   .modal-footer {
-    text-align: center; 
+    text-align: center;
   }
 }
 
-#video-table {
+#product-table {
+  .category-group {
+    .col-md-3 {
+      padding-left: 0;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+#product-new, #video-table {
+  .form-group-part {
+    padding-left: 0;
+  }
   .panel-body {
-    padding-left:0;
+    padding: 0;
+  }
+  .block-image {
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+
+  .form-group-sub-part {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .show-grid-image {
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 1px solid #31708f;
+  }
+  .btn-align-center {
+    text-align: center;
+  }
+  .parameter-form {
+    padding-left: 0;
+  }
+}
+
+#product-new, #company-show, #slider-new, #catalog-new {
+  .btn-primary {
+    width: 20%;
+  }
+  .preview-product-image-div {
+    padding-bottom: 10px;
+  }
+  .price-form {
+    padding-right: 0;
+  }
+
+  .show-grid [class^=col-] {
+    border: 0;
+    background-color: transparent !important;
+    padding-top: 0;
+  }
+  .category-border {
+    border: 1px solid #31708f;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+  .category-field {
+    padding: 10px;
+    padding-bottom: 0;
+  }
+  #product-category{
+    .modal-content {
+      width: 150%;
+      margin-left: -25%;
+    }
+  }
+
+  .btn-group {
+    margin-top: -7px;
+  }
+
+  .multi-line {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    clear: both;
   }
 }
 .admin-blog-detail {

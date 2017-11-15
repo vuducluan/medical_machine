@@ -26,13 +26,27 @@ class Product < ApplicationRecord
     }
   end
 
+  PRODUCT_ATTRIBUTES = [:name, :model, :price, :discount_price, :description,
+    :short_description, :parameter, :brand_id, :is_parameter_table]
+
+  PRODUCT_IMAGE_ATTRIBUTES = [:id, :title, :url, :desc, :caption, :alt, :_destroy]
+  PRODUCT_CATEGORY_ATTRIBUTES = [:id, :category_id, :home_order, :list_order, :_destroy]
+
+  validates :name, presence: true
+  validates :model, presence: true
+  validates :price, presence: true
+  validates :description, presence: true
+  validates :short_description, presence: true
+  validates :parameter, presence: true
+
   belongs_to :brand
-  belongs_to :label
 
   has_many :product_images
+  accepts_nested_attributes_for :product_images
 
   has_many :product_categories, dependent: :destroy
   has_many :categories, through: :product_categories
+  accepts_nested_attributes_for :product_categories
 
   has_many :product_fields, dependent: :destroy
   has_many :fields, through: :product_fields
@@ -63,6 +77,7 @@ class Product < ApplicationRecord
   }
 
   def price_currency
+    return unless price
     helper.number_to_currency(price*1000, unit: "", delimiter: ".", precision: 0)
   end
 
@@ -78,6 +93,14 @@ class Product < ApplicationRecord
       table << {title: p.split(":")[0], value: p.split(":")[1]}
     end
     table
+  end
+
+  def category_name
+    category_name = []
+    categories.each do |category|
+      category_name << category.name
+    end
+    category_name.join(", ")
   end
 
   private

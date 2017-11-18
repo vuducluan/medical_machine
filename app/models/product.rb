@@ -40,6 +40,7 @@ class Product < ApplicationRecord
   validates :parameter, presence: true
 
   belongs_to :brand
+  belongs_to :label
 
   has_many :product_images
   accepts_nested_attributes_for :product_images

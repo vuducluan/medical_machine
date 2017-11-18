@@ -8,9 +8,9 @@ $(document).on('turbolinks:load', function(){
       $.ajax({
         url: '/admin/blogs/' + $(this).data('blog-id'),
         method: 'delete',
-        success(result,status,xhr) {
+        success: function(result,status,xhr) {
         },
-        error(xhr,status,error) {
+        error: function(xhr,status,error) {
         }
       });
     });

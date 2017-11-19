@@ -9,9 +9,6 @@ gem "rails", "~> 5.1.4"
 # Database
 gem "mysql2", ">= 0.3.18", "< 0.5"
 
-# Rails server
-gem "puma", "~> 3.7"
-
 # Common
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
@@ -23,6 +20,9 @@ gem "coffee-rails"
 gem "font-awesome-rails"
 gem "simple_calendar", "~> 2.0"
 gem "lodash-rails"
+# pagination
+gem "kaminari"
+gem "bootstrap-kaminari-views"
 
 # Admin
 gem "devise"
@@ -33,16 +33,12 @@ gem "carrierwave", "~> 1.0"
 
 # Setting
 gem "config"
-gem "kaminari"
-gem "bootstrap-kaminari-views"
-gem "pry-rails"
-gem "pry-byebug"
 
 # Elasticsearch
 gem "searchkick", "~> 2.3", ">= 2.3.2"
 
 # Setting evironment variables
-gem "dotenv", "~> 2.2", ">= 2.2.1"
+gem "dotenv-rails"
 
 # nested attribute
 gem "cocoon"
@@ -50,18 +46,36 @@ gem "cocoon"
 # Ckeditor: format article content with html form
 gem "ckeditor"
 
+# Rails server
+gem "unicorn", "~> 4.8.3"
+
 group :development, :test do
+  # Debug
   gem "pry-rails"
+  gem "pry-byebug"
+  # Fake data
   gem "faker", git: "git://github.com/stympy/faker.git", branch: "master"
 end
 
 group :development do
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.0.5", "< 3.2"
-  # gem "spring"
-  # gem "spring-watcher-listen", "~> 2.0.0"
+
+  # speech up rails server and rails console in development env
+  gem "spring"
+  gem "spring-watcher-listen", "~> 2.0.0"
+
+  # capistrano for deploying
+  gem "capistrano", "3.4.0"
+  # rails specific capistrano functions
+  gem "capistrano-rails", "~> 1.1.0"
+  # integrate bundler with capistrano
+  gem "capistrano-bundler"
+  # if you are using Rbenv
+  gem "capistrano-rbenv", "~> 2.0"
+  # include helper tasks
+  gem "capistrano-cookbook", require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-

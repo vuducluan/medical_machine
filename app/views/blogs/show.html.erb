@@ -26,7 +26,7 @@
           <div class="entry-content">
             <h3><%= @blog.title %></h3>
             <p>
-              <%= @blog.content %>
+              <%= @blog.content.html_safe.html_safe %>
             </p>
             <p>
               <%= image_tag @blog.blog_images.second.url, alt: @blog.feature_image_alt, title: @blog.feature_image_title, class: "post-thumbnail__img" %>
@@ -47,17 +47,20 @@
               </article>
             <% end %>
             <p>
-              <%= @blog.content %>
+              <%= @blog.content.html_safe %>
             </p>
             <blockquote>
               <p><strong>“<%= @blog.title %>”</strong></p>
             </blockquote>
 
             <p>
-              <%= @blog.content %>
+              <%= @blog.content.html_safe %>
             </p>
             <p>
-              <%= image_tag @blog.blog_images.third.url, alt: @blog.feature_image_alt, title: @blog.feature_image_title, class: "post-thumbnail__img" %>
+              <% if @blog.blog_images.third %>
+                <%= image_tag @blog.blog_images.third.try(:url), alt: @blog.feature_image_alt, 
+                  title: @blog.feature_image_title, class: "post-thumbnail__img" %>
+              <% end %>
             </p>
             <% if @blog_relate_2 %>
               <article class="inner-article hzol-clear story">
@@ -75,7 +78,7 @@
               </article>
             <% end %>
             <p>
-              <%= @blog.content %>
+              <%= @blog.content.html_safe %>
             </p>
           </div>
           <!-- .entry-content -->

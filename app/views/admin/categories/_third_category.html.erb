@@ -1,0 +1,10 @@
+<% second_category.childrens.order(:category_order).each do |third| %>
+  <p>
+    <a class="btn btn-warning btn-circle"><span class="fa category-order<%= third.id %>"><%= third.category_order %></span></a>
+    <a class="btn btn-default btn-name btn-sm" data-toggle="collapse" title="<%= third.name %>"><span class="fa category-name<%= third.id %>"><%= third.name %></span></a>
+    <a class="btn btn-primary btn-sm btn-update-category" title="Sửa" data-id="<%= third.id %>" data-name="<%= third.name %>" data-des="<%= third.description %>"
+        data-category-order="<%= third.category_order %>" data-home-block-id="<%= third.home_block_id%>"
+        data-home-order-id="<%= third.home_order_id %>" data-toggle="modal" data-target="#update-category"><span class="fa fa-edit"></span></a>
+    <a class="btn btn-danger btn-sm btn-delete-category" title="Xóa" data-id="<%= third.id %>" data-name="<%= third.name %>" data-toggle="modal" data-target="#delete-category"><span class="fa fa-trash-o"></span></a>
+  </p>
+<% end %>

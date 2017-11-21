@@ -15,12 +15,19 @@
             <%= render "image_field", f: f %>
             <%= render "detail_field", f: f %>
             <%= render "category_modal", f: f %>
+            <%= render "field_modal", f: f %>
             <div class="row show-grid">
               <div class="form-group form-group-part col-xs-2">
                 <%= link_to "Chọn danh mục", "#product-category", :class => "btn btn-success", "data-toggle" => "modal" %>
               </div>
-              <div class="form-group form-group-part col-xs-10">
+              <div class="form-group form-group-part col-xs-4">
                 <p class="selected-category-product multi-line"></p>
+              </div>
+              <div class="form-group form-group-part col-xs-2">
+                <%= link_to "Chọn lĩnh vực", "#product-field", :class => "btn btn-success", "data-toggle" => "modal" %>
+              </div>
+              <div class="form-group form-group-part col-xs-4">
+                <p class="selected-field-product multi-line"></p>
               </div>
             </div>
 

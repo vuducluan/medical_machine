@@ -44,13 +44,11 @@
               <th>Ảnh</th>
               <th>Tên</th>
               <th>Mã sản phẩm</th>
-              <th>Thông số</th>
               <th>Giá</th>
-              <th>Giá khuyến mại</th>
-              <th>Mô tả</th>
               <th>Mô tả ngắn</th>
-              <th>Lĩnh vực</th>
+              <th>Hãng</th>
               <th>Danh mục</th>
+              <th>Lĩnh vực</th>
               <th class="center"></th>
               <th class="center"></th>
             </tr>
@@ -64,21 +62,11 @@
                 <td>
                   <p><%= product.name %></p>
                 </td>
-
                 <td>
                   <p><%= product.model %></p>
                 </td>
                 <td>
-                  <p><%= product.parameter %></p>
-                </td>
-                <td>
                   <p><%= product.price_currency %></p>
-                </td>
-                <td>
-                  <p><%= product.discount_price_currency %></p>
-                </td>
-                <td>
-                  <p><%= product.description %></p>
                 </td>
                 <td>
                   <p><%= product.short_description %></p>
@@ -89,12 +77,20 @@
                 <td>
                   <p><%= product.category_name %></p>
                 </td>
+                <td>
+                  <p><%= product.field_name %></p>
+                </td>
                 <td class="center">
                   <%= link_to "Sửa", edit_admin_product_path(product), class: "btn btn-primary" %>
                 </td>
                 <td class="center">
                   <p data-placement="top" data-toggle="tooltip" title="Xóa">
-                    <button class="btn btn-danger button-delete-product" data-title="Xóa" data-toggle="modal" data-target="#delete-product" id="delete-product<%= product.id %>" >
+                    <button class="btn btn-danger button-delete-product"
+                      data-title="Xóa"
+                      data-toggle="modal"
+                      data-target="#delete-product"
+                      data-product-id="<%= product.id %>"
+                      data-product-name="<%= product.name %>">
                       Xóa
                     </button>
                   </p>
@@ -107,7 +103,6 @@
     </div>
   </div>
   <div class="modal fade" id="delete-product" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
-    <input type="hidden" class="delete-product-id" value="Norway">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -119,7 +114,7 @@
           <div class="alert alert-danger">Bạn có chắc chắn xóa sản phẩm <strong class="delete-product-name"></strong> không?</div>
         </div>
         <div class="modal-footer ">
-          <button type="button" class="btn btn-success" id="button-delete-product-confirm" >Có</button>
+          <button type="button" class="btn btn-success" id="button-delete-product-confirm" data-id="">Có</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
         </div>
       </div>

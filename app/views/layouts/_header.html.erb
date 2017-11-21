@@ -34,17 +34,40 @@
   <div class="top-panel ">
     <div class="top-panel__container container">
       <div class="top-panel__top">
-        <div class="top-panel__left">
-          <div class="social-list social-list--footer social-list--icon">
-            <ul id="social-list-1" class="social-list__items inline-list">
-              <li id="menu-item-44" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44"><a href="http://facebook.com/"><span class="screen-reader-text">Facebook</span></a></li>
-              <li id="menu-item-45" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45"><a href="http://twitter.com/"><span class="screen-reader-text">Twitter</span></a></li>
-              <li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-46"><a href="http://linkedin.com/"><span class="screen-reader-text">Linkedin</span></a></li>
-              <li id="menu-item-47" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47"><a href="http://instagram.com/"><span class="screen-reader-text">Instagram</span></a></li>
-            </ul>
+        <!-- 4 block left -->
+        <div class="top-panel__left" id="support-block">
+          <div class="row-fluid">
+            <div class="span16 privacy">
+              <div class="row-fluid ">
+                <div class="span4 chinhsach">
+                  <div class="support">
+                    <h3>Hỗ trợ 24/7</h3>
+                    <p>Hỗ trợ, tư vấn miễn phí qua ĐT hoặc Chat</p>
+                  </div>
+                </div>
+                <div class="span4 chinhsach">
+                  <div class="instock">
+                    <h3>Hàng có sẵn</h3>
+                    <p>Hàng luôn có sẵn với số lượng lớn, giá tốt nhất</p>
+                  </div>
+                </div>
+                <div class="span4 chinhsach">
+                  <div class="shipping">
+                    <h3>Vận chuyển</h3>
+                    <p>Miễn phí giao hàng tại Hà Nội và Tp. HCM</p>
+                  </div>
+                </div>
+                <div class="span4 chinhsach">
+                  <div class="warranty">
+                    <h3>Bảo hành chính hãng</h3>
+                    <p>Phân phối và bảo hành sản phẩm chính hãng</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        
+        <!-- contact -->
         <div class="top-panel__right">
           <div class="contact-block contact-block--header">
             <div class="contact-block__inner">
@@ -52,13 +75,11 @@
                 <i class="contact-block__icon linearicon linearicon-telephone telephone-header"></i>
                 <div class="contact-block__value-wrap">
                   <span class="contact-block__label telephone-header"><%= Company.first.phone %>-Mr Tú </span>
-                  <span class="contact-block__text telephone-header"><%= Company.first.work_time %></span>
                   </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>

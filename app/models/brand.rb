@@ -6,5 +6,5 @@ class Brand < ApplicationRecord
 
   validates :name, presence: true
   validates :location, presence: true
-  validates :image, presence: true
+  # validates :image, presence: true
 end

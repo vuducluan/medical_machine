@@ -1,45 +1,34 @@
-<div class="category-border col-xs-6">
-  <div class="category-field">
+<% @g_categories.each_with_index do |g_category, index| %>
+  <div class="row show-grid category-block col-xs-2">
     <div class="form-group">
-      <input type="checkbox" name="checkbox<%= category.id %>" id="checkbox<%= category.id %>" autocomplete="off" onchange="categorySelect('<%= category.id %>');" />
-      <div class="btn-group">
-        <label for="checkbox<%= category.id %>" class="btn btn-link active">
-          <strong><%= category.name %></strong>
-        </label>
-      </div>
+      <p class="g-category"><%= g_category.name %></p>
     </div>
-    <div class="row show-grid order-field">
-      <div class="form-group form-group-part col-xs-6">
-        <%= ff.select :category_id, options_for_select(category.childrens.map{|c| [c.name, c.id]}), {:include_blank => "Chọn danh mục"}, {:class => 'form-control sub-category-select', id: ("select"+category.id.to_s), disabled: true} %>
-      </div>
-      <div class="form-group form-group-part col-xs-6 sub-category<%= category.id %>">
-        <% category.childrens.each do |child| %>
-          <% if child.childrens.size > 0 %>
-            <%= f.fields_for(:product_categories) do |fff| %>
-              <%= fff.select :category_id, options_for_select(child.childrens.map{|c| [c.name, c.id]}), {:include_blank => "Tất cả danh mục"}, {:class => "form-control sub-sub-category-select hidden", id: ("select"+child.id.to_s)} %>
-            <% end %>
+    <div class="form-group">
+      <button type="button" class="btn btn-xs btn-danger remove-selected-category" data-id="<%= index %>">Bỏ chọn</button>
+    </div>
+    <div class="form-group">
+      <% list_order = @category_attrs && @category_attrs[index] ? @category_attrs[index][:list_order] : "" %>
+      <% category_id = @category_attrs && @category_attrs[index] ? @category_attrs[index][:category_id] : 0 %>
+      <input type="number" class="form-control category-order" id="category-order<%= index %>" placeholder="Thứ tự"
+        value="<%= list_order %>">
+    </div>
+    <div class="funkyradio">
+      <% g_category.childrens.each do |p_category| %>
+        <div class="funkyradio-success">
+          <input type="radio" name="category<%= index %>" id="parent-category<%= p_category.id %>" value="<%= p_category.id %>"
+            data-name="<%= p_category.name %>" <%= 'checked' if p_category.id == category_id %> />
+          <label for="parent-category<%= p_category.id %>" title="<%= p_category.name %>" class="category-label"><%= p_category.name %></label>
+        </div>
+        <div class="form-group category-group">
+          <% p_category.childrens.each do |category| %>
+            <div class="funkyradio-primary">
+              <input type="radio" name="category<%= index %>" id="category<%= category.id %>" value="<%= category.id %>"
+                data-name="<%= category.name %>" <%= 'checked' if category.id == category_id %> />
+              <label for="category<%= category.id %>" title="<%= category.name %>" class="category-label"><%= category.name %></label>
+            </div>
           <% end %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row show-grid order-field">
-      <div class="form-group form-group-part col-xs-3">
-        <strong>Thứ tự</strong>
-        <%= ff.number_field :list_order, class: "form-control", id: "number-field#{category.id}", disabled: true %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
-</div>
-
-<script>
-  function categorySelect(categoryId){
-    var checkValue = $("#checkbox"+categoryId).is(':checked');
-    $("#select"+categoryId)[0].disabled = !checkValue;
-    $("#number-field"+categoryId)[0].disabled = !checkValue;
-    var childrens = $(".sub-category"+categoryId)[0].children;
-    for (var i = 0; i < childrens.length; ++i) {
-      var item = childrens[i];
-      item.disabled = !checkValue;
-    }
-  }
-</script>
+<% end %>

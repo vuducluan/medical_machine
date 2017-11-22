@@ -1,0 +1,132 @@
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Danh mục</h1>
+    </div>
+  </div>
+  <div class="row" id="category-table">
+    <div class="col-lg-12">
+      <div class="create-div">
+        <%= link_to "Tạo mới", new_admin_category_path(), class: "btn btn-success" %>
+      </div>
+      <%= render "shared/flash" %>
+      <div class="alert alert-success hidden fade in flash-notice" id="flash-category">
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+        <p class="text-center flash-message">Thành công!!!</p>
+      </div>
+      <div class="panel-body">
+        <ul class="nav nav-tabs">
+          <% @categories.each_with_index do |category, index| %>
+            <li class="<%= 'active' if index == 0 %>">
+              <a  href="#category<%= category.id %>" data-toggle="tab"><%= category.name %></a>
+            </li>
+          <% end %>
+        </ul>
+        <div class="tab-content">
+          <% @categories.each_with_index do |category, index| %>
+            <div class="tab-pane <%= 'active' if index == 0 %>" id="category<%= category.id %>">
+              <%= render "second_category", category: category %>
+            </div>
+          <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="delete-category" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+    <input type="hidden" class="delete-category-id" value="Norway">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+          <h4 class="modal-title custom_align" id="Heading">Xóa danh mục</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger">Bạn có chắc chắn xóa danh mục <strong class="delete-category-name"></strong> không?</div>
+          <%= hidden_field(:delete_category, :id) %>
+        </div>
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-success" id="button-delete-category-confirm" data-dismiss="modal">Có</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="create-category" tabindex="-1" role="dialog" aria-labelledby="create" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title custom_align" id="Heading">Thêm danh mục con cho <strong class="parent-category-name"></strong> </h4>
+          </div>
+          <%= form_for([:admin, @category], html: {multipart: true}) do |f| %>
+            <div class="modal-body">
+                <div class="form-group">
+                  <%= f.text_field :name, class: "form-control category-name-create", placeholder: "Tên danh mục", required: true%>
+                </div>
+                <div class="form-group">
+                  <%= f.text_area :description, class: "form-control category-des-create", placeholder: "Mô tả", required: true%>
+                </div>
+                <div class="form-group">
+                  <%= f.number_field :category_order, class: "form-control category-order-create", placeholder: "Thứ tự hiển thị trong danh mục cha", required: true%>
+                </div>
+                <div class="form-group">
+                  <%= f.number_field :home_block_id, class: "form-control category-order-create", placeholder: "Hiển thị trên trang chủ (1: trên hoặc 2: dưới)"%>
+                </div>
+                <div class="form-group">
+                  <%= f.number_field :home_order_id, class: "form-control category-order-create", placeholder: "Thứ tự hiển thị trên trang chủ"%>
+                </div>
+                <%= hidden_field(:parent_category, :id) %>
+            </div>
+            <div class="modal-footer ">
+              <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Bỏ qua</button>
+              <%= f.submit "Tạo", class: "btn btn-success btn-lg" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="update-category" tabindex="-1" role="dialog" aria-labelledby="update" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+          <h4 class="modal-title custom_align" id="Heading">Sửa danh mục <strong class="category-title-update"></strong></h4>
+        </div>
+        <form>
+          <div class="modal-body">
+            <div class="form-group">
+              <strong>Tên danh mục</strong></br>
+              <input class="form-control category-name-update" type="text" placeholder="Tên danh mục" required>
+            </div>
+            <div class="form-group">
+              <strong>Mô tả</strong></br>
+              <textarea rows="2" class="form-control category-des-update" placeholder="Mô tả" required></textarea>
+            </div>
+            <div class="form-group">
+              <strong>Thứ tự hiển thị trong danh mục cha</strong></br>
+              <input class="form-control category-order-update" type="number" placeholder="Thứ tự hiển thị trong danh mục cha" required>
+            </div>
+            <div class="form-group">
+              <strong>Hiển thị trên trang chủ (1: trên hoặc 2: dưới)</strong></br>
+              <input class="form-control category-block-update" type="number" placeholder="Hiển thị trên trang chủ">
+            </div>
+            <div class="form-group">
+              <strong>Thứ tự hiển thị trên trang chủ</strong></br>
+              <input class="form-control category-order-block-update" type="number" placeholder="Thứ tự hiển thị trên trang chủ">
+            </div>
+            <%= hidden_field(:category, :id) %>
+          </div>
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Bỏ qua</button>
+            <button type="submit" class="btn btn-success btn-lg" data-dismiss="modal" id="button-update-category-confirm">Sửa</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

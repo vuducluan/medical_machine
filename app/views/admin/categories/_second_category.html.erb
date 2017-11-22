@@ -1,0 +1,30 @@
+<div class="col-md-2"></div>
+<div class="category-div col-md-8">
+  <a class="btn btn-success btn-add-category btn-sm" data-name="<%= category.name %>" data-id="<%= category.id %>" title="Thêm danh mục con"><span class="fa fa-plus" data-toggle="modal" data-target="#create-category"> Thêm danh mục con</span></a>
+  <% category.childrens.order(:category_order).each do |second| %>
+    <p>
+      <a class="btn btn-warning btn-circle"><span class="fa category-order<%= second.id %>"><%= second.category_order %></span></a>
+      <a class="btn btn-default btn-name btn-sm" data-toggle="collapse" href="#category<%= second.id %>" aria-expanded="false" aria-controls="category<%= second.id %>" <%= 'disabled' unless second.childrens.size > 0%> title="<%= second.name %>"><span class="category-name category-name<%= second.id %>"><%= second.name %></span></a>
+      <a class="btn btn-success btn-add-category-sm btn-sm" title="Thêm danh mục" data-toggle="modal" data-target="#create-category"
+        data-name="<%= second.name %>" data-id="<%= second.id %>"><span class="fa fa-plus"></span></a>
+      <a class="btn btn-primary btn-sm btn-update-category" title="Sửa" data-id="<%= second.id %>" data-name="<%= second.name %>" data-des="<%= second.description %>"
+        data-category-order="<%= second.category_order %>" data-home-block-id="<%= second.home_block_id%>"
+        data-home-order-id="<%= second.home_order_id %>" data-toggle="modal" data-target="#update-category">
+        <span class="fa fa-edit" data-id="<%= second.id %>"></span>
+      </a>
+      <a class="btn btn-danger btn-sm btn-delete-category" data-id="<%= second.id %>" data-name="<%= second.name %>" data-toggle="modal" data-target="#delete-category" title="Xóa"><span class="fa fa-trash-o"></span></a>
+    </p>
+    <% if second.childrens.size > 0 %>
+      <div class="row child-div">
+        <div class="col">
+          <div class="collapse multi-collapse" id="category<%= second.id %>">
+            <div class="card card-body">
+              <%= render "third_category", second_category: second %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="col-md-2"></div>

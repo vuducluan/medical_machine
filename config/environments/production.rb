@@ -62,6 +62,8 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "medical_machine_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+  config.asset_host = "http://hocrubyonrails.xyz"
+
   config.action_mailer.default_url_options = {host: "hocrubyonrails.xyz"}
 
   # Gmail SMTP server setup

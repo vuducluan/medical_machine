@@ -8,11 +8,26 @@ class MediasController < ApplicationController
       per_page_medias = Settings.limit.paginate.videos
     end
 
-    if params[:field_id]
-      @medias = Medium.where("media_type = ? AND field_id = ?", params[:media_type], params[:field_id])
+    if params[:query].present?
+      @media_ids = Medium.search(body: {query: {bool: {must: [{match: {_all: params[:query]}}, {match: {media_type: params[:media_type].to_i}}]}}})
+        .map(&:id)
+      unless @media_ids.present?
+        @medias = []
+        return
+      end
+    end
+
+    @medias = if @media_ids.present?
+      Medium.where id: @media_ids
+    else
+      Medium.all
+    end
+
+    @medias = if params[:field_id]
+      @medias.where("media_type = ? AND field_id = ?", params[:media_type], params[:field_id])
         .page(params[:page]).per(per_page_medias)
     else
-      @medias = Medium.where("media_type = ?", params[:media_type])
+      @medias.where("media_type = ?", params[:media_type])
         .page(params[:page]).per(per_page_medias)
     end
   end

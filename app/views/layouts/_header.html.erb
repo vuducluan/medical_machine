@@ -11,17 +11,19 @@
         <span class="search-form__toggle"></span>
 
         <!-- Search form -->
-        <%= form_tag search_product_path, method: "get", class: "search-form woocommerce-product-search" do %>
+        <%= form_tag (controller_name != "medias" ? search_product_path : medias_path), method: "get", class: "search-form woocommerce-product-search" do %>
           <div class="search-form__input-wrap">
             <label class="screen-reader-text" for="woocommerce-product-search-field">Search for:</label>
             <i class="linearicon linearicon-magnifier"></i>
             <%= search_field_tag :query, params[:query],
               id: "woocommerce-product-search-field",
-              class: "search-form__field", placeholder: "Tìm kiếm sản phẩm…",
+              class: "search-form__field", placeholder: "Tìm kiếm sản phẩm, Tài liệu…",
               title: "Search for:" %>
           </div>
+          <%= hidden_field_tag :post_type, "product" unless controller_name == "medias" %>
+          <%= hidden_field_tag :media_type, params[:media_type] if controller_name == "medias" %>
+          <%= hidden_field_tag :field_id, params[:field_id] if controller_name == "medias" %>
           <button type="submit" class="search-form__submit btn-secondary">Tìm kiếm</button>
-          <input type="hidden" name="post_type" value="product">
         <% end %>
         <span class="search-form__close"></span>
       </div>
@@ -90,24 +92,27 @@
       <div class="header-container__flex">
         <div class="site-branding">
           <div class="site-logo">
-            <a class="site-logo__link" href="" rel="home">
-            <img src="https://ld-wp.template-help.com/woocommerce_58679/wp-content/themes/tm-willard/assets/images/logo.png" alt="Vật tư thí nghiệm" class="site-link__img"></a>
+            <%= link_to root_path, class: "site-logo__link", rel: "home" do %>
+              <img src="https://ld-wp.template-help.com/woocommerce_58679/wp-content/themes/tm-willard/assets/images/logo.png" alt="Vật tư thí nghiệm" class="site-link__img">
+            <% end %>
           </div>
         </div>
 
         <!-- Search form -->
         <div class="header-search">
-         <%= form_tag search_product_path, method: "get", class: "search-form woocommerce-product-search" do %>
+         <%= form_tag (controller_name != "medias" ? search_product_path : medias_path), method: "get", class: "search-form woocommerce-product-search" do %>
             <div class="search-form__input-wrap">
               <label class="screen-reader-text" for="woocommerce-product-search-field">Search for:</label>
               <i class="linearicon linearicon-magnifier"></i>
               <%= search_field_tag :query, params[:query],
                 id: "woocommerce-product-search-field",
-                class: "search-form__field", placeholder: "Tìm kiếm sản phẩm…",
+                class: "search-form__field", placeholder: "Tìm kiếm sản phẩm, Tài liệu…",
                 title: "Search for:" %>
             </div>
             <button type="submit" class="search-form__submit btn-secondary">Tìm kiếm</button>
-            <input type="hidden" name="post_type" value="product">
+            <%= hidden_field_tag :post_type, "product" unless controller_name == "medias" %>
+            <%= hidden_field_tag :media_type, params[:media_type] if controller_name == "medias" %>
+            <%= hidden_field_tag :field_id, params[:field_id] if controller_name == "medias" %>
           <% end %>
         </div>
         <!-- End Search form -->

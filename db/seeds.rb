@@ -1,15 +1,16 @@
+puts "#=== Clear all data before seed ===#"
+
+Rake::Task["db:migrate:reset"].invoke
+
+Rake::Task["master_data:recreate"].invoke
+
+FileUtils.rm_rf("public/uploads")
+
 puts "create label"
 [{sale: "Sản phẩm khuyến mại"}, {hot: "Sản phẩm HOT"}, {weekly: "Sản phẩm nổi bật tuần"}, {trend: "Sản phẩm trending"}, {feature: "Sản phẩm nổi bật"}].each_with_index do |c, i|
   Label.create! title: c.values.first, block_order: i + 1, short_title: c.keys.first.to_s
 end
 puts "create label OK"
-
-puts "create Brand"
-50.times do |i|
-  Brand.create! name: Faker::Lorem.sentence[0..10], location: Faker::Lorem.sentence[0..10],
-    home_order: rand(100), description: Faker::Lorem.sentence[0..20]
-end
-puts "Brand OK"
 
 puts "Create Category and Relation 1,2 real"
 category_array =
@@ -143,21 +144,25 @@ category_array.each_with_index do |c1, i1|
       c2.second.each_with_index do |c3, i3|
         cate3 = Category.create! name: c3, level: Settings.category.lowest_level, category_order: i3.next
         CategoryRelation.create! parent_id: cate2.id, children_id: cate3.id
-        rand_p = rand(13) + 1
-        rand_p.times do |r|
-          product = Product.create! name: "#{c3} #{r+1}", model: Faker::Lorem.sentence, location: Faker::Lorem.sentence,
-            price: rand(10000), discount_price: rand(9000), description: Faker::Lorem.paragraph, label_order: r + 1, category_order: r + 1,
-            short_description: Faker::Lorem.sentence, label_id: i3%5 + 1, brand_id: i3%50 + 1, parameter: Faker::Lorem.sentence
-          ProductCategory.create product_id: product.id, category_id: cate3.id
+        if Product.count <= 100
+          rand_p = rand(5) + 1
+          rand_p.times do |r|
+            product = Product.create! name: "#{c3} #{r+1}", model: Faker::Lorem.sentence, location: Faker::Lorem.sentence,
+              price: rand(10000), discount_price: rand(9000), description: Faker::Lorem.paragraph, label_order: r + 1, category_order: r + 1,
+              short_description: Faker::Lorem.sentence, label_id: i3%5 + 1, brand: Brand.all.sample, parameter: Faker::Lorem.sentence
+            ProductCategory.create product_id: product.id, category_id: cate3.id
+          end
         end
       end
     else
-      rand_p = rand(13) + 1
-      rand_p.times do |r|
-        product = Product.create! name: "#{c2.first} #{r+1}", model: Faker::Lorem.sentence, location: Faker::Lorem.sentence,
-          price: rand(10000), discount_price: rand(9000), description: Faker::Lorem.paragraph, label_order: r + 1, category_order: r + 1,
-          short_description: Faker::Lorem.sentence, label_id: i2%5 + 1, brand_id: i2%50 + 1, parameter: Faker::Lorem.sentence
-        ProductCategory.create product_id: product.id, category_id: cate2.id
+      if Product.count <= 100
+        rand_p = rand(5) + 1
+        rand_p.times do |r|
+          product = Product.create! name: "#{c2.first} #{r+1}", model: Faker::Lorem.sentence, location: Faker::Lorem.sentence,
+            price: rand(10000), discount_price: rand(9000), description: Faker::Lorem.paragraph, label_order: r + 1, category_order: r + 1,
+            short_description: Faker::Lorem.sentence, label_id: i2%5 + 1, brand_id: i2%50 + 1, parameter: Faker::Lorem.sentence
+          ProductCategory.create product_id: product.id, category_id: cate2.id
+        end
       end
     end
   end
@@ -181,7 +186,7 @@ puts "Create template category"
 end
 
 puts "Create 10 news articles"
-20.times do |i|
+15.times do |i|
   Blog.create! title: Faker::Lorem.sentence, template: Template.find(5 - rand(4)),
     content: Faker::Lorem.paragraph(30, true), is_important: [true, false].sample,
     relation_blog_id_1: rand(20) + 1, relation_blog_id_2: rand(20) + 1
@@ -192,7 +197,7 @@ puts "Create news blog category and relation"
 5.times do |i|
   bc = BlogCategory.create! id: i + 1, name: Faker::Lorem.sentence[0..8]
   10.times do |j|
-    BlogCategoryRelation.create! blog_id: rand(20) + 1, blog_category_id: bc.id
+    BlogCategoryRelation.create! blog: Blog.all.sample, blog_category_id: bc.id
   end
 end
 
@@ -200,14 +205,14 @@ puts "Create blog tag and relation"
 10.times do |i|
   bc = Tag.create! id: i + 1, name: Faker::Lorem.sentence[0..8]
   10.times do |j|
-    BlogTagRelation.create! blog_id: rand(20) + 1, tag_id: bc.id
+    BlogTagRelation.create! blog: Blog.all.sample, tag_id: bc.id
   end
 end
 
 puts "create images for news blogs"
 img_files = Dir.glob "public/blog/*"
 Blog.all.each_with_index do |b, i|
-  3.times do |j|
+  2.times do |j|
     new_img = b.blog_images.build title: Faker::Lorem.sentence,
       description: Faker::Lorem.paragraph, caption: Faker::Lorem.sentence,
       alt: Faker::Lorem.sentence, is_feature: true
@@ -272,26 +277,20 @@ Product.all.each_with_index do |b, i|
 end
 puts "product images OK"
 
-puts "create Field"
-10.times do |i|
-  Field.create! name: Faker::Lorem.sentence, menu_order: rand(100)
-end
-puts "Field OK"
-
-puts "create product_categoies"
+puts "create product_categories"
 Category.where(level: Settings.category.lowest_level).each do |category|
-  rand_p = rand(10)
+  rand_p = rand(8)
   rand_p.times do |r|
-    ProductCategory.create product_id: rand(Product.count), category_id: category.id
+    ProductCategory.create product: Product.all.sample, category_id: category.id
   end
 end
 puts "product_categoies OK"
 
 puts "create product_fields"
 Field.all.each do |field|
-  rand_p = rand(30)
+  rand_p = rand(10)
   rand_p.times do |r|
-    ProductField.create product_id: rand(Product.count), field_id: field.id
+    ProductField.create product: Product.all.sample, field_id: field.id
   end
 end
 puts "product_fields OK"
@@ -322,10 +321,10 @@ puts "Create media: doc & pdf OK"
 puts "Create Brand's Logo..."
   brand_imgs = Dir.glob "public/brand/*"
   Brand.all.each_with_index do |brand, index|
-    File.open(brand_imgs[index%11]) do |f|
+    File.open(brand_imgs.sample) do |f|
       brand.image = f
     end
-    brand.save!
+    brand.save validate: false
   end
 puts "Logo is Okay!"
 

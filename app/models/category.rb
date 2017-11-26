@@ -20,6 +20,9 @@ class Category < ApplicationRecord
     through: :children_relations,
     class_name: Category.name
 
+  CATEGORY_ATTRS = [:name, :description, :category_order, :home_block_id,
+    :home_order_id]
+
   scope :top_categories,-> do
     where("level = ?", Settings.category.highest_level).order "category_order"
   end

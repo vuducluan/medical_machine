@@ -65,13 +65,7 @@ Rails.application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  # Gmail SMTP server setup
-  ActionMailer::Base.smtp_settings = {
-  :address => "smtp.gmail.com",
-  :enable_starttls_auto => true,
-  :port => 587,
-  :authentication => :plain,
-  :user_name => ENV["EMAIL_USERNAME"],
-  :password => ENV["EMAIL_PASSWORD"]
-  }
+  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
+
+  config.action_mailer.delivery_method = :letter_opener_web
 end

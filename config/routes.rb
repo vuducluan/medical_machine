@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
   root "pages#home"
   resource :subcribers
   resources :products, only: [:show, :index] do
@@ -22,11 +25,12 @@ Rails.application.routes.draw do
     resources :sliders
     resources :catalogs
     resources :products
+    resources :categories
     get "/edit_company" => "companies#edit", as: :edit_company
     resources :fields
     resources :medias
     devise_for :admins, :controllers => {:sessions => 'admin/sessions',
       :passwords => 'admin/passwords' }, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
-    resources :blogs  
+    resources :blogs
   end
 end

@@ -84,7 +84,7 @@
                 <ul class="tm-mega-menu-sub sub-menu level-1 effect-slide-top simple-sub">
                   <% brands.each do |brand| %>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom tm-mega-menu-sub-item item-nested-sub item-nested-sub-1">
-                      <%= link_to brand.name, products_path(brand_id: brand.id) %>
+                      <%= link_to [brand.name, brand.location].join(" - "), products_path(brand_id: brand.id) %>
                     </li>
                   <% end %>
                 </ul>

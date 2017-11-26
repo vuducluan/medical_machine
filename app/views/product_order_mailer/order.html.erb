@@ -6,6 +6,14 @@
 <p><strong>Địa chỉ thanh toán: </strong><%= @user_info[:pay_address] %></p>
 
 <h2>Thông tin sản phẩm:</h2>
+<h3>Ảnh sản phẩm</h3>:
+<% @product.product_images.each do |img| %>
+  <span>
+    <%= link_to product_url(@product) do %>
+      <%= image_tag img.url_url(:product_thumb) %>
+    <% end %>
+  </span> &nbsp;&nbsp;
+<% end %>
 <p><strong>Tên sản phẩm: </strong><%= @product.name %></p>
 <p><strong>Giá bán: </strong><%= @product.price_currency %> ₫</p>
 <p><strong>Giá khuyến mãi: </strong><%= @product.discount_price_currency %> ₫</p>

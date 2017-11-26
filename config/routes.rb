@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
   root "pages#home"
   resource :subcribers
   resources :products, only: [:show, :index] do

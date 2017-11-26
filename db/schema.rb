@@ -266,6 +266,6 @@ ActiveRecord::Schema.define(version: 20171120084236) do
   add_foreign_key "product_fields", "fields"
   add_foreign_key "product_fields", "products"
   add_foreign_key "product_images", "products"
-  add_foreign_key "products", "brands"
+  add_foreign_key "products", "brands", on_delete: :cascade
   add_foreign_key "products", "labels"
 end

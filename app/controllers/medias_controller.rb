@@ -23,7 +23,7 @@ class MediasController < ApplicationController
       Medium.all
     end
 
-    @medias = if params[:field_id]
+    @medias = if params[:field_id].present?
       @medias.where("media_type = ? AND field_id = ?", params[:media_type], params[:field_id])
         .page(params[:page]).per(per_page_medias)
     else

@@ -24,8 +24,9 @@ limit:
     a_to_z: 3.0
     brand: 4.0
   label_block: 10
-  category_home_block: 6
+  category_home_block: 12
   home_block_element: 2
+  home_block_category: 4
 format:
   created_at: "%d/%m/%Y"
 media_type:

@@ -20,12 +20,13 @@ class PagesController < ApplicationController
     define_method"home_block_#{i}" do
       categories = Category.where(level: Settings.category.middle_level)
         .where(home_block_id: i).order(:home_order_id)
+        .limit(Settings.limit.home_block_category)
       home_block_arr = []
       categories.each do |category|
         products = category.list_home_products
         if products.size > 0
           home_block_arr << {title: category.name, id: category.id,
-            products: products.in_groups_of(Settings.limit.home_block_element)}
+            products: products}
         end
       end
       home_block_arr

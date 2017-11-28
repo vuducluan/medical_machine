@@ -1,0 +1,44 @@
+<div class="post-215 type-product status-publish has-post-thumbnail hentry product_shipping_class-class-2 has-thumb col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-2 col-xxl-2 product">
+  <div class="block_product_inner">
+    <div class="block_product_thumbnail">
+      <a href="">
+        <div class="tm-thumbs-wrap effect-fade">
+          <div class="tm-thumbs-wrap__inner">
+            <%= link_to product_path(product), title: product.name do %>
+              <%= image_tag product.product_images.first.url, size: '340' if product.product_images.first.url%>
+              <%= image_tag product.product_images.second.url, size: '340' if product.product_images.second.url%>
+            <% end %>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="block_product_content">
+      <!-- <ul class="product-categories">
+        <li><a href="" rel="tag">Broaching machine</a></li>
+        <li><a href="" rel="tag">Chisels</a></li>
+        <li><a href="" rel="tag">Cutters</a></li>
+        <li><a href="" rel="tag">Drill press</a></li>
+      </ul> -->
+
+      <h3>
+        <%= link_to product.name, product_path(product), class: "woocommerce-LoopProduct-link", title: product.name %>
+      </h3>
+
+      <div class="price-add-to-cart-wrap">
+        <span class="price">
+          <span class="woocs_price_code" data-product-id="215">
+            <span class="woocommerce-Price-amount amount"><%= product.price_currency %>
+              <span class="woocommerce-Price-currencySymbol">₫</span>
+            </span>
+             <!-- –
+            <span class="woocommerce-Price-amount amount">198.00
+              <span class="woocommerce-Price-currencySymbol">$</span>
+            </span> -->
+          </span>
+        </span>
+        <%= link_to "MUA", order_product_path(product), remote: true, rel: "nofollow",
+          "data-product-id": product.id, class: "button product_type_variable add_to_cart_button" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -28323,10 +28323,9 @@ body.wcvendors.wcvendors_vendor .entry-content>h2:nth-child(2):before {
 }
 
 @media (min-width:1500px) {
-    .woocommerce .product .block_product_inner,
     .woocommerce .tm-woowishlist-item .block_product_inner,
     .woocommerce.tm-woocompare-list .block_product_inner {
-        padding: 40px
+        padding: 40px;
     }
 }
 

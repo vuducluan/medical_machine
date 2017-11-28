@@ -7079,7 +7079,7 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
-  
+
   .jssorl-009-spin {
     position: absolute;
     top: 0px;
@@ -7153,7 +7153,7 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
       font-style: normal;
       font-weight: normal;
     }
-    
+
     .row-fluid {
       display: flex;
     }
@@ -7212,5 +7212,12 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 
 .top-panel__right {
   width: 19%;
-  float: left; 
+  float: left;
+}
+
+.home-nav {
+  float: none;
+  margin: 0 auto;
+  display: table;
+  table-layout: fixed;
 }

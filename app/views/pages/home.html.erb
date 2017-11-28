@@ -13,10 +13,10 @@
               <div class="tm_builder_inner_content tm_pb_gutters3">
                 <div class="tm_pb_section  tm_pb_section_0 tm_section_regular tm_section_transparent">
                   <%= render "slider_and_categories" %>
-                  <%= render "weekly_products_and_catalog" %>
                   <% @home_blocks.each do |block| %>
                     <%= render "products", block: block %>
                   <% end %>
+                  <%= render "weekly_products_and_catalog" %>
                   <%= render "blog" %>
                 </div>
                 <!-- .tm_pb_section -->

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :catalogs
     resources :products
     resources :categories
+    resources :imports
     get "/edit_company" => "companies#edit", as: :edit_company
     resources :fields
     resources :medias

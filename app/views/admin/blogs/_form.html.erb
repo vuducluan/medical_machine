@@ -43,6 +43,18 @@
                   <% end %>
                 </td>
               </tr>
+              <tr>
+                <td><strong>Bài viết liên quan 1</strong></td>
+                <td>
+                  <%= f.collection_select :relation_blog_id_1, @blogs, :id, :title %>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Bài viết liên quan 2</strong></td>
+                <td>
+                  <%= f.collection_select :relation_blog_id_2, @blogs, :id, :title %>
+                </td>
+              </tr>
             </table>
             <div class="form-group" id="blog_images">
               <h3 class="label-inline-form">Ảnh bài viết</h3>

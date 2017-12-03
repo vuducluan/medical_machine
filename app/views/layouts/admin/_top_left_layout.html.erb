@@ -118,6 +118,21 @@
         </li>
 
         <li>
+          <a href="#">
+            <i class="fa fa-bar-chart-o fa-fw"></i> Bài viết
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level">
+            <li>
+              <%= link_to "Quản lý bài viết", admin_blogs_path %>
+            </li>
+            <li>
+              <%= link_to "Quản lý template bài viết", admin_templates_path %>
+            </li>
+          </ul>
+        </li>
+
+        <li>
           <%= link_to admin_root_url() do %>
             <i class="fa fa-files-o fa-fw"></i>
             Tài liệu

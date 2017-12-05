@@ -1,0 +1,21 @@
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Upload</h1>
+    </div>
+  </div>
+  <div class="row">
+    <%= render "shared/flash" %>
+    <%= link_to "Download mẫu excel sản phẩm", admin_imports_path(format: "xlsx"), class: "btn btn-primary" %>
+  </div>
+
+  <div class="row upload-product">
+    <%= form_for @excel_product, {url: admin_imports_path, method: :post} do |f| %>
+      <%= f.file_field :file, as: :file, label: false %>
+      <%= f.submit "Upload", class: "btn btn-primary upload-product-button" %>
+    <% end %>
+  </div>
+
+  <div class="row" id="import-table">
+  </div>
+</div>

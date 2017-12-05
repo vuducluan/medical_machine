@@ -28,6 +28,10 @@ class Admin::ProductsController < Admin::BaseController
   def edit
     @category_attrs = category_params
     @field_attrs = field_params
+    unless @product.product_images.present?
+      @product.product_images.build
+      @product.product_images.build
+    end
   end
 
   def update
@@ -38,7 +42,7 @@ class Admin::ProductsController < Admin::BaseController
       @category_attrs = category_params
       @field_attrs = field_params
       flash[:danger] = @product.errors.full_messages
-      render :new
+      render :edit
     end
   end
 

@@ -41,7 +41,6 @@ class Product < ApplicationRecord
   validates :parameter, presence: true
 
   belongs_to :brand
-  belongs_to :label
 
   has_many :product_images, dependent: :destroy
   accepts_nested_attributes_for :product_images
@@ -112,6 +111,28 @@ class Product < ApplicationRecord
       field_name << field.name
     end
     field_name.join(", ")
+  end
+
+  def self.import(file)
+    spreadsheet = open_spreadsheet(file)
+    header = accessible_attributes
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      product = find_by_id(row["id"]) || new
+      product.attributes = row.to_hash.slice(*accessible_attributes)
+      product.save!(validate: false)
+    end
+  end
+
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+    when '.xlsx' then Roo::Excelx.new(file.path)
+    else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+
+  def self.accessible_attributes
+   [:name, :model, :price, :discount_price, :description, :short_description, :parameter]
   end
 
   private

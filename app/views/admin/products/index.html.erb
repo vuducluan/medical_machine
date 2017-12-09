@@ -57,28 +57,28 @@
             <% @products.each_with_index do |product, index| %>
               <tr class="odd gradeX" id="product<%= product.id %>">
                 <td>
-                  <%= image_tag product.product_images.first.url, size: 100 %>
+                  <%= image_tag(product.product_images.first.try(:url), size: 100) if product.product_images.first.try(:url) %>
                 </td>
                 <td>
-                  <p><%= product.name %></p>
+                  <p><%= product.try(:name) %></p>
                 </td>
                 <td>
-                  <p><%= product.model %></p>
+                  <p><%= product.try(:model) %></p>
                 </td>
                 <td>
-                  <p><%= product.price_currency %></p>
+                  <p><%= product.try(:price_currency) %></p>
                 </td>
                 <td>
-                  <p><%= product.short_description %></p>
+                  <p><%= product.try(:short_description) %></p>
                 </td>
                 <td>
-                  <p><%= product.brand.name %></p>
+                  <p><%= product.try(:brand).try(:name) %></p>
                 </td>
                 <td>
-                  <p><%= product.category_name %></p>
+                  <p><%= product.try(:category_name) %></p>
                 </td>
                 <td>
-                  <p><%= product.field_name %></p>
+                  <p><%= product.try(:field_name) %></p>
                 </td>
                 <td class="center">
                   <%= link_to "Sửa", edit_admin_product_path(product), class: "btn btn-primary" %>

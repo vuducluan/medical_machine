@@ -56,7 +56,8 @@ class Admin::BlogsController < Admin::BaseController
   private
   def blog_params
     params.require(:blog).permit(:title, :template_id, :content, 
-      :is_important, :is_service, blog_category_ids: [], 
+      :is_important, :is_service, :relation_blog_id_1, 
+      :relation_blog_id_2, blog_category_ids: [], 
       blog_images_attributes: [:id, :url, :is_feature, :_destroy])
   end
 
@@ -67,5 +68,6 @@ class Admin::BlogsController < Admin::BaseController
   def load_blog_source
     @template_options = Template.all.pluck :name, :id
     @blog_categories = BlogCategory.all
+    @blogs = Blog.all.order :title
   end
 end

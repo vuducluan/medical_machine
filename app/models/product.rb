@@ -116,11 +116,16 @@ class Product < ApplicationRecord
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = accessible_attributes
+    if spreadsheet.row(1)[0] == "Id"
+      header = ([:id] + accessible_attributes).flatten
+    end
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      product = find_by_id(row["id"]) || new
-      product.attributes = row.to_hash.slice(*accessible_attributes)
-      product.save!(validate: false)
+      product = find_by_id(row[:id]) || new
+      if !row[:id] || (row[:id] && product)
+        product.attributes = row.to_hash.slice(*accessible_attributes)
+        product.save!(validate: false)
+      end
     end
   end
 

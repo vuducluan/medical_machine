@@ -17,10 +17,19 @@ class Admin::ImportsController < Admin::BaseController
   end
 
   def index
-    @products = Product.order(:id).limit(1)
-    respond_to do |format|
-      format.html
-      format.xlsx {render xlsx: 'index',filename: "new_products.xlsx"}
+    if params[:ids]
+      ids = params[:ids].split(",")
+      @products = Product.where(id: ids)
+      respond_to do |format|
+        format.html
+        format.xlsx {render xlsx: 'export',filename: "export_products.xlsx"}
+      end
+    else
+      @products = Product.order(:id).limit(1)
+      respond_to do |format|
+        format.html
+        format.xlsx {render xlsx: 'index',filename: "new_products.xlsx"}
+      end
     end
   end
 

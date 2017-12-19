@@ -1,5 +1,5 @@
 <div class="container">
-  <ul class="nav nav-tabs mema-tabs home-nav" role="tablist">
+  <ul class="nav nav-tabs mema-tabs home-nav block-tab" role="tablist">
     <% block.each_with_index do |category, index| %>
       <li role="presentation" class="<%= 'active' if index == 0 %>">
         <%= link_to category[:title], "#home-#{category[:id]}",

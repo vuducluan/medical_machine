@@ -54,4 +54,27 @@ class Category < ApplicationRecord
     end
     cat.flatten
   end
+
+  def product_for_block_list brand_id = nil
+    return [] unless level == Settings.category.middle_level
+    self_products = products
+    child_products = []
+    child_block = []
+    max = 0
+    childrens.each do |child|
+      ps_temp = child.products
+      ps_temp = child.products.where(brand_id: brand_id) if brand_id
+      ps = ps_temp.order("category_order IS NULL, category_order ASC")
+      child_block << ps
+      max = ps.count if ps.count > max
+    end
+    max.times do |i|
+      child_block.each do |b|
+        unless child_products.count >= Settings.limit.product_block
+          child_products << b[i] if b[i]
+        end
+      end
+    end
+    child_products
+  end
 end

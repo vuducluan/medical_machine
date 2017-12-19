@@ -1,0 +1,24 @@
+<div class="modal fade" id="product-document" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href="#" class="close" id="auto-comfirm-document-product" data-dismiss="modal" aria-label="close">&times;</a>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title custom_align" id="Heading">Chọn tài liệu</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row show-grid">
+          <div id="document-fields-for">
+            <%= f.fields_for(:product_media_relations) do |ff| %>
+              <%= ff.number_field :medium_id, class: "form-control hidden" %>
+            <% end %>
+          </div>
+          <%= render "document_field", f: f %>
+        </div>
+      </div>
+      <div class="modal-footer ">
+        <button type="button" class="btn btn-success" id="confirm-document-product" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

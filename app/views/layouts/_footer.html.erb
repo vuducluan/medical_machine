@@ -7,7 +7,7 @@
           <div class="textwidget"><%= Company.first.about %></div>
         </aside>
 
-        <!-- Column tag -->        
+        <!-- Column tag -->
         <aside id="woocommerce_product_tag_cloud-4" class="col-xs-12 col-sm-12 col-md-6 col-lg-3  widget woocommerce widget_product_tag_cloud">
           <h5 class="widget-title">Tags</h5>
           <div class="tagcloud">
@@ -25,7 +25,7 @@
           <ul class="contact-information-widget__inner">
             <li class="contact-information__item contact-information__item--icon">
               <span class="icon linearicon linearicon-telephone"></span>
-              <%= Company.first.phone %>-Mr Tú
+              <%= Company.first.phone %>-<%= Company.first.contact_info %>
             </li>
             <li class="contact-information__item contact-information__item--icon">
               <span class="icon linearicon linearicon-clock3"></span>
@@ -38,9 +38,9 @@
           </ul>
         </aside>
 
-        <aside id="text-4" class="col-xs-12 col-sm-12 col-md-6 col-lg-3  widget">
+        <aside id="text-4" class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget">
           <h5 class="widget-title">Chỉ đường</h5>
-            <div id="map" style="height: 300px; width: 400px"></div>
+            <div id="map" style="height: 300px;"></div>
             <script>
               function initMap() {
                 var uluru = {lat: 21.006571, lng: 105.777818};
@@ -57,7 +57,7 @@
             <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbEWIklaDSw8BsgQhkabXXYnM3DcKFNyQ&callback=initMap">
             </script>
-        </aside>        
+        </aside>
       </section>
     </div>
   </div>

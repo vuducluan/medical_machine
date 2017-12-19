@@ -3630,7 +3630,7 @@ a[data-popup="magnificPopup"]:before,
 #tm_builder_outer_content .tm_pb_module.tm_pb_posts .tm-posts_item .tm-posts_item_title {
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 14px;
     line-height: 1.5;
     font-family: 'Hind Siliguri', sans-serif;
     letter-spacing: 0.08em;
@@ -6734,7 +6734,7 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
       	margin-bottom: 25px;
       	font-style: normal;
 	    font-weight: 600;
-	    font-size: 16px;
+	    font-size: 20px;
 	    line-height: 1.66;
 	    letter-spacing: 0.08em;
 	    color: #222222;
@@ -6743,31 +6743,16 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 	    word-wrap: break-word;
         box-sizing: border-box;
         position: relative;
-        padding-left: 20px;
+        padding-left: 15px;
         padding-right: 10px;
+        padding-bottom: 5px;
         text-transform: uppercase;
         margin: 0 5px 18px;
-      }
-      a {
-      	position: relative;
-      	&:before {
-      	  content: '';
-		  display: block!important;
-		  position: absolute;
-		  background: #ffd71a;
-		  top: 11px;
-		  left: 4px;
-		  width: 10px;
-		  height: 10px;
-      	}
       }
     }
     li.active {
       a {
       	background: #ffd71a;
-      	&:before {
-      	  background: #fff;
-      	}
       }
     }
   }
@@ -6908,6 +6893,7 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 
 .custom-cart-button {
     padding-top: 20px;
+    text-align: center;
 }
 
 .custom-button {
@@ -6944,6 +6930,12 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 .video-td {
     width: 40%;
 }
+.video-td-product {
+    width: 33.33%;
+}
+.video-td-list {
+    width: 25%;
+}
 .product-images {
     text-align: center;
 }
@@ -6965,7 +6957,7 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
   color: #000000;
 }
 
-.top-panel {
+.top-panel, .header-container {
   position: fixed !important;
   top: 0px;
   width: 100%;
@@ -6975,11 +6967,16 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
   text-align: center;
   display: flex;
   justify-content: center;
+  margin: 0 10px !important;
   margin-bottom: 10px;
   .brand-logo {
-    max-height: 70px !important;
-    width: auto !important;
+    height: 50px !important;
+    width: 100px !important;
     position: relative !important;
+  }
+  .brand-logo-border {
+    border: 1px solid !important;
+    border-radius: .25rem !important;
   }
 }
 
@@ -7017,7 +7014,7 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 
 #tm_builder_outer_content {
     .nav-tabs.mema-tabs li a {
-        font-size: 14px;
+        font-size: 18px;
     }
     .nav-tabs.mema-tabs li a:before {
         top: 7px;
@@ -7112,7 +7109,7 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
 
 @media (min-width: 1224px) and (max-width: 1700px) {
   .site-header.default .header-container {
-    margin-top: 115px !important;
+    // margin-top: 115px !important;
   }
   #masthead {
     .top-panel{
@@ -7220,4 +7217,12 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
   margin: 0 auto;
   display: table;
   table-layout: fixed;
+}
+
+.tag-link-position-1 {
+  width: 90%;
+}
+
+#content {
+  padding-top: 125px;
 }

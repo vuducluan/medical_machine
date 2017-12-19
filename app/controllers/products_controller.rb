@@ -67,6 +67,30 @@ class ProductsController < ApplicationController
                 .order(category_order: :asc).limit(Settings.limit.product_block)}
             end
           end
+
+        end
+      elsif category.level == Settings.category.highest_level
+        if category.childrens
+          @childs = []
+          category.childrens.each do |child|
+            products = child.product_for_block_list(params[:brand_id])
+            if products.size > 0
+              @childs << {name: child.name, id: child.id, products: products}
+            end
+          end
+        end
+      end
+      unless category.level == Settings.category.lowest_level
+        @products = []
+        @childs.each do |child|
+          @products += child[:products]
+        end
+        @products = Kaminari.paginate_array(@products.flatten)
+          .page(params[:page]).per(Settings.limit.paginate.products)
+        limit = Settings.limit.paginate.products/Settings.limit.product_block
+        page = params[:page] ? params[:page].to_i : 1
+        @childs = @childs.select.with_index do |c, index|
+          limit*(page-1) <= index && index <= page*limit - 1
         end
       end
     end
@@ -134,10 +158,8 @@ class ProductsController < ApplicationController
 
   def load_data_show
     @product = Product.find_by id: params[:id]
-    @documents = Medium.where(product_id: @product.id,
-      media_type: Settings.media_type.document)
-    @videos = Medium.where(product_id: @product.id,
-      media_type: Settings.media_type.video)
+    @documents = @product.mediums.where(media_type: 0)
+    @videos = @product.mediums.where(media_type: 1)
     @related_products = []
     if category = @product.categories.first
       @related_products = Product.where(id: category.products.pluck(:id).uniq)

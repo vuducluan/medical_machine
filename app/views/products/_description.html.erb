@@ -43,32 +43,25 @@
       <div id="media-table">
         <table class="table table-bordered">
           <tbody>
-            <% @documents.each do |doc| %>
+            <% @documents.each_slice(3).to_a.each do |block| %>
               <tr>
-                <td class="image-doc-type">
-                  <% if doc.url.split(//).last(3).join("") == "pdf" %>
-                    <%= image_tag "/pdf.png", title: "pdf", class: "doccument-type" %>
-                  <% elsif doc.url.split(//).last(3).join("") == "doc" || doc.url.split(//).last(3).join("") == "ocx" %>
-                    <%= image_tag "/word.png", title: "doc", class: "doccument-type" %>
-                  <% elsif doc.url.split(//).last(3).join("") == "xls" || doc.url.split(//).last(3).join("") == "lsx" %>
-                    <%= image_tag "/excell.png", title: "excel", class: "doccument-type" %>
-                  <% end %>
-                </td>
-                <td>
-                  <strong><%= doc.title %></strong><br/>
-                  <%= doc.description %><br/>
-                  <a href="<%= doc.url %>">
-                    <% if doc.url.split(//).last(3).join("") == "pdf" %>
-                      <%= image_tag "/small-pdf.png", title: "pdf" %>
-                    <% elsif doc.url.split(//).last(3).join("") == "doc" || doc.url.split(//).last(3).join("") == "ocx" %>
-                      <%= image_tag "/small-word.png", title: "doc" %>
-                    <% elsif doc.url.split(//).last(3).join("") == "xls" || doc.url.split(//).last(3).join("") == "lsx" %>
-                      <%= image_tag "/small-excell.png", title: "excel" %>
-                    <% end %>
-                    <%= doc.title %>
-                  </a><br/>
-                  <p>Ngày tạo : <%=doc.created_at %></p>
-                </td>
+                <% block.each do |doc| %>
+                  <td>
+                    <strong><%= doc.title %></strong><br/>
+                    <%= doc.description %><br/>
+                    <a href="<%= doc.url %>">
+                      <% if doc.url.split(//).last(3).join("") == "pdf" %>
+                        <%= image_tag "/small-pdf.png", title: "pdf" %>
+                      <% elsif doc.url.split(//).last(3).join("") == "doc" || doc.url.split(//).last(3).join("") == "ocx" %>
+                        <%= image_tag "/small-word.png", title: "doc" %>
+                      <% elsif doc.url.split(//).last(3).join("") == "xls" || doc.url.split(//).last(3).join("") == "lsx" %>
+                        <%= image_tag "/small-excell.png", title: "excel" %>
+                      <% end %>
+                      <%= doc.title %>
+                    </a><br/>
+                    <p>Ngày tạo : <%=doc.created_at %></p>
+                  </td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>
@@ -80,18 +73,18 @@
       <div class="media-table">
         <table class="table table-bordered">
           <tbody>
-            <% @videos.each do |video| %>
+            <% @videos.each_slice(3).to_a.each do |block| %>
               <tr>
-                <td class="video-td">
-                  <iframe width="374" height="284" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
-                </td>
-                <td>
-                  <div class="content-video">
-                    <strong><%= video.title %></strong><br/>
-                    <%= video.description %><br/>
-                    <p>Ngày tạo : <%= video.created_at %></p>
-                  </div>
-                </td>
+                <% block.each do |video| %>
+                  <td class="video-td-product">
+                    <iframe width="374" height="284" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
+                    <div class="content-video">
+                      <strong><%= video.title %></strong><br/>
+                      <%= video.description %><br/>
+                      <p>Ngày tạo : <%= video.created_at %></p>
+                    </div>
+                  </td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>

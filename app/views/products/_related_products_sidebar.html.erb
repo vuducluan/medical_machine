@@ -4,7 +4,7 @@
     <div id="swiper-carousel-59e9bc5f37e5e" class="tm-willard-carousel swiper-container swiper-container-horizontal" style="cursor: -webkit-grab;">
       <div class="swiper-wrapper">
         <% @related_products.each do |product| %>
-          <div class="post-264 product type-product status-publish has-post-thumbnail hentry product_shipping_class-class-2 has-thumb swiper-slide swiper-slide-next" style="width: 292.5px; margin-right: 50px;">
+          <div class="post-264 product type-product status-publish has-post-thumbnail hentry product_shipping_class-class-2 has-thumb swiper-slide swiper-slide-next <%= product == @related_products.last ? 'relate-last' : 'relate' %>" style="width: 23%;">
             <div class="block_product_inner">
               <div class="block_product_thumbnail">
                 <a href="" class="woocommerce-LoopProduct-link">

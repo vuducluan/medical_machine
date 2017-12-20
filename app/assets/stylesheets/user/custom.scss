@@ -49,7 +49,7 @@ img.emoji {
         background-image: url()
     }
     .footer-area-wrap {
-        background-image: url()
+        // background-image: url()
     }
     .second-footer-area-wrap {
         background-image: url()
@@ -6957,10 +6957,19 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
   color: #000000;
 }
 
-.top-panel, .header-container {
+.top-panel, .header-container_wrap {
   position: fixed !important;
   top: 0px;
   width: 100%;
+}
+
+.header-container_wrap {
+  background-color: #fff;
+  z-index: 100;
+}
+
+.header-main-menu {
+  margin-top: 59px;
 }
 
 #home-brand-logo {
@@ -7123,6 +7132,9 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
   #support-block {
     justify-content: center !important;
     margin-left: 0px !important;
+    .row-fluid {
+      padding: 0;
+    }
   }
 }
 
@@ -7223,6 +7235,30 @@ body.wcvendors.wcvendors_vendor .entry-content > h2:nth-child(2):before {
   width: 90%;
 }
 
-#content {
-  padding-top: 125px;
+// #content {
+//   padding-top: 125px;
+// }
+
+.footer-aside-index {
+  z-index: 1;
+}
+
+.header-search {
+  margin-left: 10px;
+}
+
+#gallery_01 {
+  .thumb-image-product {
+    height: 70px;
+    width: 70px;
+  }
+}
+
+#swiper-carousel-59e9bc5f37e5e {
+  .relate {
+    margin-right: 10px;
+  }
+  .relate-last {
+    margin-right: 0;
+  }
 }

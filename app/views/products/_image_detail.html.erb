@@ -9,15 +9,15 @@
     <div id="swiper-carousel-59e9bc5f03f8c" class="tm-willard-carousel swiper-container swiper-container-horizontal" style="cursor: -webkit-grab;">
       <div class="swiper-wrapper" id="gallery_01">
         <% @product.product_images.each do |image| %>
-          <a href="#" data-image="<%= image.url %>" data-zoom-image="<%= image.url %>">
-            <%= image_tag image.url %>
+          <a href="" data-image="<%= image.url %>" data-zoom-image="<%= image.url %>" class="thumb-image-product">
+            <%= image_tag image.url, size: "10" %>
           </a>
         <% end %>
       </div>
 
       <script>
         //initiate the plugin and pass the id of the div containing gallery images
-        $("#zoom").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif', scrollZoom: true, tintOpacity: 0.5});
+        $("#zoom").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, scrollZoom: true, tintOpacity: 0.5});
 
         //pass the images to Fancybox
         $("#zoom").bind("click", function(e) {

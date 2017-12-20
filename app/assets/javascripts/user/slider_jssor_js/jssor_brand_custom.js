@@ -8,6 +8,7 @@ $(document).on('turbolinks:load', function(){
       $PauseOnHover: 4,
       $SlideWidth: 100,
       $SlideHeight: 50,
+      $SlideSpacing: 10,
       $Cols: 20,
       $Align: 0
     };

@@ -25,6 +25,17 @@
               <%= f.text_area :address, class: "form-control" %>
             </div>
             <div class="form-group">
+              <div class="col-xs-6">
+                <strong>Vĩ độ (Latitude)</strong></br>
+                <%= f.number_field :map_lat, class: "form-control", step: :any %>
+              </div>
+              <div class="col-xs-6">
+                <strong>Kinh độ (Longtide)</strong></br>
+                <%= f.number_field :map_lng, class: "form-control", step: :any %>
+              </div>
+              </br>
+            </div>
+            <div class="form-group">
               <strong>Số điện thoại</strong> </br>
               <%= f.text_field :phone, class: "form-control" %>
             </div>

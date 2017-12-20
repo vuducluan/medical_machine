@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     @fields = Field.all.limit Settings.limit.product_field
     get_brands
     @service = Blog.where(is_service: true).first
+    @company = Company.first
   end
 
   def get_categories_anphabet

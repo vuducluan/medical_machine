@@ -4,7 +4,7 @@
       <section id="second-footer-area" class="second-footer-area widget-area footer-area--4-cols row">
         <aside id="text-4" class="col-xs-12 col-sm-12 col-md-6 col-lg-3  widget">
           <h5 class="widget-title">Giới thiệu</h5>
-          <div class="textwidget"><%= Company.first.about %></div>
+          <div class="textwidget"><%= @company.about %></div>
         </aside>
 
         <!-- Column tag -->
@@ -12,7 +12,7 @@
           <h5 class="widget-title">Tags</h5>
           <div class="tagcloud">
             <% Tag.all.each_with_index do |t, index| %>
-              <a href="<%= t.tag_url %>" class="tag-link-position-<%= index + 1 %>" title="" style="font-size: 19.666666666667pt;">
+              <a href="<%= t.tag_url %>" class="tag-link-position-<%= index + 2 %>" title="" style="font-size: 19.666666666667pt;">
                 <%= t.name %>
               </a>
             <% end %>
@@ -25,25 +25,29 @@
           <ul class="contact-information-widget__inner">
             <li class="contact-information__item contact-information__item--icon">
               <span class="icon linearicon linearicon-telephone"></span>
-              <%= Company.first.phone %>-<%= Company.first.contact_info %>
+              <%= @company.phone %>-<%= @company.contact_info %>
             </li>
             <li class="contact-information__item contact-information__item--icon">
               <span class="icon linearicon linearicon-clock3"></span>
-              <%= Company.first.work_time %>
+              <%= @company.work_time %>
             </li>
             <li class="contact-information__item contact-information__item--icon">
               <span class="icon linearicon linearicon-envelope-open"></span>
-              <%= Company.first.email %>
+              <%= @company.email %>
             </li>
           </ul>
         </aside>
 
-        <aside id="text-4" class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget">
+        <aside id="text-5" class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget">
           <h5 class="widget-title">Chỉ đường</h5>
             <div id="map" style="height: 300px;"></div>
+            <input type="hidden" id="map_lat" value="<%= @company.map_lat %>">
+            <input type="hidden" id="map_lng" value="<%= @company.map_lng %>">
             <script>
               function initMap() {
-                var uluru = {lat: 21.006571, lng: 105.777818};
+                var lat = parseFloat($("#map_lat").val());
+                var lng = parseFloat($("#map_lng").val());
+                var uluru = {lat: lat, lng: lng};
                 var map = new google.maps.Map(document.getElementById('map'), {
                   zoom: 15,
                   center: uluru

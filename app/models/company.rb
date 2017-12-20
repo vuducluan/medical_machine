@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
   COMPANY_ATTRIBUTES = [:name, :about, :address, :phone, :contact_info, :work_time,
-    :email, :facebook, :instagram, :website]
+    :email, :facebook, :instagram, :website, :map_lat, :map_lng]
 
   validates :name, presence: true
   validates :about, presence: true

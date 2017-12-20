@@ -28,6 +28,17 @@
               <%= f.text_area :address, class: "form-control", readonly: true %>
             </div>
             <div class="form-group">
+              <div class="col-xs-6">
+                Vĩ độ (Latitude)</br>
+                <%= f.number_field :map_lat, class: "form-control", step: :any, readonly: true %>
+              </div>
+              <div class="col-xs-6">
+                Kinh độ (Longtide)</br>
+                <%= f.number_field :map_lng, class: "form-control", step: :any, readonly: true %>
+              </div>
+              </br>
+            </div>
+            <div class="form-group">
               Số điện thoại </br>
               <%= f.text_field :phone, class: "form-control", readonly: true %>
             </div>

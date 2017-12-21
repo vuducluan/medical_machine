@@ -9,4 +9,8 @@ class Company < ApplicationRecord
   validates :contact_info, presence: true
   validates :work_time, presence: true
   validates :email, presence: true
+
+  def fanpage
+    facebook.gsub "https://www.facebook.com/", ""
+  end
 end

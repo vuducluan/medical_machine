@@ -32,6 +32,7 @@ class Product < ApplicationRecord
   PRODUCT_IMAGE_ATTRIBUTES = [:id, :title, :url, :desc, :caption, :alt, :_destroy]
   PRODUCT_CATEGORY_ATTRIBUTES = [:id, :category_id, :home_order, :list_order, :_destroy]
   PRODUCT_FIELD_ATTRIBUTES = [:id, :field_id, :menu_order, :list_order, :_destroy]
+  PRODUCT_MEDIA_ATTRIBUTES = [:id, :medium_id, :_destroy]
 
   validates :name, presence: true
   validates :model, presence: true
@@ -52,6 +53,10 @@ class Product < ApplicationRecord
   has_many :product_fields, dependent: :destroy
   has_many :fields, through: :product_fields
   accepts_nested_attributes_for :product_fields
+
+  has_many :product_media_relations, dependent: :destroy
+  has_many :mediums, through: :product_media_relations
+  accepts_nested_attributes_for :product_media_relations
 
   scope :sort_from_price, -> min_price do
     where "price >= ?", min_price
@@ -116,11 +121,16 @@ class Product < ApplicationRecord
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = accessible_attributes
+    if spreadsheet.row(1)[0] == "Id"
+      header = ([:id] + accessible_attributes).flatten
+    end
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      product = find_by_id(row["id"]) || new
-      product.attributes = row.to_hash.slice(*accessible_attributes)
-      product.save!(validate: false)
+      product = find_by_id(row[:id]) || new
+      if !row[:id] || (row[:id] && product)
+        product.attributes = row.to_hash.slice(*accessible_attributes)
+        product.save!(validate: false)
+      end
     end
   end
 

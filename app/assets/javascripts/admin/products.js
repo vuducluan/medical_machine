@@ -1,4 +1,22 @@
 $(document).on('turbolinks:load', function(){
+  function removeParam(key, sourceURL) {
+    var rtn = sourceURL.split("?")[0],
+      param,
+      params_arr = [],
+      queryString = (sourceURL.indexOf("?") !== -1) ? sourceURL.split("?")[1] : "";
+    if (queryString !== "") {
+      params_arr = queryString.split("&");
+      for (var i = params_arr.length - 1; i >= 0; i -= 1) {
+          param = params_arr[i].split("=")[0];
+          if (param === key) {
+              params_arr.splice(i, 1);
+          }
+      }
+      rtn = rtn + "?" + params_arr.join("&");
+    }
+    return rtn;
+  }
+
   $("#upload-product-image-1, #upload-product-image-2").change(function() {
     var imgId = $(this)[0].id.replace("upload-product-image-", "");
     var input = this;
@@ -246,4 +264,101 @@ $(document).on('turbolinks:load', function(){
     addFieldFieldsFor();
     showSelectedField();
   });
+
+  var exportProductIds = [];
+
+  $('#dataTables-product').on('click', '.product-cb-id', function () {
+    var index = exportProductIds.indexOf(this.value);
+    if (index != -1) {
+      exportProductIds.splice(index, 1);
+    } else {
+      exportProductIds.push(this.value);
+    }
+  });
+
+  $("#button-export-products").click(function() {
+    var url = removeParam("ids", this.href);
+    var p = url.substr(url.length - 1) == "?" ? "" : "?";
+    this.href = url + p + "ids=" + exportProductIds.join(",");
+  })
+
+  //video
+  var videoNames = [];
+  function addVideoFieldsFor() {
+    videoNames = [];
+    var checkboxs = document.getElementsByName("product-video");
+    for (var i = 0, length = checkboxs.length; i < length; i++) {
+      if (checkboxs[i].checked) {
+        var name = checkboxs[i].labels[0].title;
+        var id = checkboxs[i].value;
+        videoNames.push(name);
+        var parentDiv = $("#video-fields-for")[0];
+        if (!document.getElementById('product_product_media_relations_attributes_'+i+'_medium_id')) {
+          parentDiv.innerHTML += fieldForVideo(i, id);
+        }
+      } else {
+        removeVideo(i);
+      }
+    }
+  };
+
+  function removeVideo(i) {
+    var videoElem = document.getElementById('product_product_media_relations_attributes_'+i+'_medium_id');
+    if (videoElem && !_.isUndefined(videoElem)) {
+      videoElem.parentNode.removeChild(videoElem);
+    }
+  }
+
+  function fieldForVideo(index, id) {
+    return '<input class="form-control hidden" type="number"' +
+      'name="product[product_media_relations_attributes]['+index+'][medium_id]"' +
+      'id="product_product_media_relations_attributes_'+index+'_medium_id" value="'+id+'">';
+  };
+
+  addVideoFieldsFor();
+
+  $("#confirm-video-product").click(function(){
+    addVideoFieldsFor();
+  });
+
+  //document
+  var documentNames = [];
+  function adddocumentFieldsFor() {
+    documentNames = [];
+    var checkboxs = document.getElementsByName("product-document");
+    for (var i = 0, length = checkboxs.length; i < length; i++) {
+      if (checkboxs[i].checked) {
+        var name = checkboxs[i].labels[0].title;
+        var id = checkboxs[i].value;
+        documentNames.push(name);
+        var index = 100 + i;
+        var parentDiv = $("#document-fields-for")[0];
+        if (!document.getElementById('product_product_media_relations_attributes_'+index+'_medium_id')) {
+          parentDiv.innerHTML += fieldFordocument(index, id);
+        }
+      } else {
+        removedocument(i);
+      }
+    }
+  };
+
+  function removedocument(i) {
+    var documentElem = document.getElementById('product_product_media_relations_attributes_'+i+'_medium_id');
+    if (documentElem && !_.isUndefined(documentElem)) {
+      documentElem.parentNode.removeChild(documentElem);
+    }
+  }
+
+  function fieldFordocument(index, id) {
+    return '<input class="form-control hidden" type="number"' +
+      'name="product[product_media_relations_attributes]['+index+'][medium_id]"' +
+      'id="product_product_media_relations_attributes_'+index+'_medium_id" value="'+id+'">';
+  };
+
+  adddocumentFieldsFor();
+
+  $("#confirm-document-product").click(function(){
+    adddocumentFieldsFor();
+  });
+
 });

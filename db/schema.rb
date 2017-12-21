@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120084236) do
+ActiveRecord::Schema.define(version: 20171220012611) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(version: 20171120084236) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.float "map_lat", limit: 24
+    t.float "map_lng", limit: 24
   end
 
   create_table "fields", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -195,6 +197,15 @@ ActiveRecord::Schema.define(version: 20171120084236) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_product_images_on_product_id"
+  end
+
+  create_table "product_media_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "product_id"
+    t.bigint "medium_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medium_id"], name: "index_product_media_relations_on_medium_id"
+    t.index ["product_id"], name: "index_product_media_relations_on_product_id"
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -266,6 +277,8 @@ ActiveRecord::Schema.define(version: 20171120084236) do
   add_foreign_key "product_fields", "fields"
   add_foreign_key "product_fields", "products"
   add_foreign_key "product_images", "products"
+  add_foreign_key "product_media_relations", "media"
+  add_foreign_key "product_media_relations", "products"
   add_foreign_key "products", "brands", on_delete: :cascade
   add_foreign_key "products", "labels"
 end

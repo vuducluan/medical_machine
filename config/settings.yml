@@ -17,8 +17,8 @@ limit:
   paginate:
     products: 16
     blogs: 5
-    documents: 10
-    videos: 10
+    documents: 12
+    videos: 12
     admin_blog: 10
   menu_block:
     a_to_z: 3.0

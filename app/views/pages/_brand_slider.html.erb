@@ -1,13 +1,13 @@
 <div id="jssor_brand">
   <div data-u="loading" class="jssorl-009-spin">
   </div>
-  <div id="home-brand-logo" class="brand-slider-content" data-u="slides">
+  <div id="home-brand-logo" class="brand-slider-content" data-u="slides" style="margin: 5px;">
     <% @brand_logos.each do |brand| %>
-      <div>
+      <div class="brand-logo-border" style="margin: 5px;">
         <a href="<%= products_path(brand_id: brand.id) %>">
           <img data-u="image" src="<%= brand.image %>" alt="<%= brand.name %>", title="<%= brand.name %>", class="brand-logo" />
         </a>
-      </div>      
+      </div>
     <% end %>
   </div>
 </div>

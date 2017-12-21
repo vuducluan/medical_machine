@@ -11,36 +11,20 @@
           </div>
         </div>
       </a>
-      <!-- <div class="wishlist_compare_button_block">
-        <div class="tm-quick-view">
-          <a href="#" class="tm-quick-view-btn" data-action="quick-view-button" data-product="215">Quick View</a>
-        </div>
-      </div> -->
     </div>
     <div class="block_product_content">
-      <!-- <ul class="product-categories">
-        <li><a href="" rel="tag">Broaching machine</a></li>
-        <li><a href="" rel="tag">Chisels</a></li>
-        <li><a href="" rel="tag">Cutters</a></li>
-        <li><a href="" rel="tag">Drill press</a></li>
-      </ul> -->
-
       <h3>
         <%= link_to product.name, product_path(product), class: "woocommerce-LoopProduct-link", title: product.name %>
       </h3>
-
-      <div class="price-add-to-cart-wrap">
-        <span class="price">
-          <span class="woocs_price_code" data-product-id="215">
-            <span class="woocommerce-Price-amount amount"><%= product.price_currency %>
-              <span class="woocommerce-Price-currencySymbol">₫</span>
-            </span>
-             <!-- –
-            <span class="woocommerce-Price-amount amount">198.00
-              <span class="woocommerce-Price-currencySymbol">$</span>
-            </span> -->
+      <span class="price">
+        <span class="woocs_price_code" data-product-id="215">
+          <span class="woocommerce-Price-amount amount"><%= product.price_currency %>
+            <span class="woocommerce-Price-currencySymbol">₫</span>
           </span>
         </span>
+      </span>
+
+      <div class="price-add-to-cart-wrap">
         <%= link_to "MUA", order_product_path(product), remote: true, rel: "nofollow",
           "data-product-id": product.id, class: "button product_type_variable add_to_cart_button" %>
       </div>

@@ -20,6 +20,8 @@ class Admin::ProductsController < Admin::BaseController
     else
       @category_attrs = category_params
       @field_attrs = field_params
+      @video_attrs = media_params
+      @document_attrs = media_params
       flash[:danger] = @product.errors.full_messages
       render :new
     end
@@ -28,6 +30,8 @@ class Admin::ProductsController < Admin::BaseController
   def edit
     @category_attrs = category_params
     @field_attrs = field_params
+    @video_attrs = media_params
+    @document_attrs = media_params
     unless @product.product_images.present?
       @product.product_images.build
       @product.product_images.build
@@ -41,6 +45,8 @@ class Admin::ProductsController < Admin::BaseController
     else
       @category_attrs = category_params
       @field_attrs = field_params
+      @video_attrs = media_params
+      @document_attrs = media_params
       flash[:danger] = @product.errors.full_messages
       render :edit
     end
@@ -59,7 +65,8 @@ class Admin::ProductsController < Admin::BaseController
     params.require(:product).permit(Product::PRODUCT_ATTRIBUTES,
       product_images_attributes: Product::PRODUCT_IMAGE_ATTRIBUTES,
       product_categories_attributes: Product::PRODUCT_CATEGORY_ATTRIBUTES,
-      product_fields_attributes: Product::PRODUCT_FIELD_ATTRIBUTES)
+      product_fields_attributes: Product::PRODUCT_FIELD_ATTRIBUTES,
+      product_media_relations_attributes: Product::PRODUCT_MEDIA_ATTRIBUTES)
   end
 
   def load_products
@@ -71,6 +78,7 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.find_by id: params[:id]
     get_categories
     get_fields
+    get_medias
   end
 
   def field_params
@@ -82,6 +90,20 @@ class Admin::ProductsController < Admin::BaseController
     else
       params[:product][:product_fields_attributes].each do |key, value|
         arr[value[:field_id]] = value[:list_order]
+      end
+    end
+    arr
+  end
+
+  def media_params
+    arr = {}
+    if @product.product_media_relations
+      @product.product_media_relations.each do |medium|
+        arr[medium.medium_id.to_s] = medium.medium_id.to_s
+      end
+    else
+      params[:product][:product_media_relations_attributes].each do |key, value|
+        arr[value[:medium_id]] = value[:medium_id]
       end
     end
     arr
@@ -113,6 +135,11 @@ class Admin::ProductsController < Admin::BaseController
 
   def get_fields
     @fields = Field.all.order(menu_order: :asc)
+  end
+
+  def get_medias
+    @videos = Medium.where(media_type: 1)
+    @documents = Medium.where(media_type: 0)
   end
 
   def get_categories

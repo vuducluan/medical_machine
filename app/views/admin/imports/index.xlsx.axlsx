@@ -1,6 +1,6 @@
 wb = xlsx_package.workbook
 
-wb.add_worksheet(name: "Users") do |sheet|
+wb.add_worksheet(name: "Product") do |sheet|
   # this is the head row of your spreadsheet
   sheet.add_row ["Tên", "Mã sản phẩm", "Giá (nghìn đồng)", "Giá sale (nghìn đồng)", "Mô tả", "Mô tả ngắn", "Thông số"]
 end

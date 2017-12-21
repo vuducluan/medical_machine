@@ -1,7 +1,7 @@
 <%= render "layouts/breadcrumbs" %>
 <div class="site-content_wrap container">
   <div class="row">
-    <div id="primary" class="col-xs-12 col-lg-9 col-lg-push-3">
+    <div id="primary" class="col-xs-12 col-lg-10 col-lg-push-2">
       <main id="main" class="site-main" role="main">
         <article id="post-73" class="post-73 post type-post status-publish format-standard has-post-thumbnail hentry category-accessories category-diy-home category-tips tag-drill tag-hammer tag-hand-tools tag-power-tools has-thumb">
           <header class="entry-header">
@@ -58,7 +58,7 @@
             </p>
             <p>
               <% if @blog.blog_images.third %>
-                <%= image_tag @blog.blog_images.third.try(:url), alt: @blog.feature_image_alt, 
+                <%= image_tag @blog.blog_images.third.try(:url), alt: @blog.feature_image_alt,
                   title: @blog.feature_image_title, class: "post-thumbnail__img" %>
               <% end %>
             </p>

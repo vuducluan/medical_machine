@@ -43,7 +43,6 @@
               <th>Lĩnh vực</th>
               <th>Mô tả</th>
               <th>Thứ tự trên menu</th>
-              <th class="center">Danh sách sản phẩm</th>
               <th class="center"></th>
               <th class="center"></th>
             </tr>
@@ -63,9 +62,6 @@
                 <td class="td-field-order">
                   <p class="p-field-order" id="p-field-order<%= field.id %>"><%= field.menu_order %></p>
                   <input type='text' id="field-order<%= field.id %>" class="form-control field-order hidden" value='<%= field.menu_order %>'/>
-                </td>
-                <td class="center">
-                  <button type="button" class="btn btn-primary">Sản phẩm</button>
                 </td>
                 <td class="center">
                   <button type="button" name="update-field<%= field.id %>" class="btn btn-primary confirm-field-save">Lưu</button>

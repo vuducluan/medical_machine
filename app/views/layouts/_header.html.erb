@@ -32,60 +32,6 @@
   </div>
   <!-- End Mobile panel -->
 
-  <!-- Web Panel -->
-  <div class="top-panel ">
-    <div class="top-panel__container container">
-      <div class="top-panel__top">
-        <!-- 4 block left -->
-        <div class="top-panel__left" id="support-block">
-          <div class="row-fluid">
-            <div class="span16 privacy">
-              <div class="row-fluid ">
-                <div class="span4 chinhsach">
-                  <div class="support">
-                    <h3>Hỗ trợ 24/7</h3>
-                    <p>Hỗ trợ, tư vấn miễn phí qua ĐT hoặc Chat</p>
-                  </div>
-                </div>
-                <div class="span4 chinhsach">
-                  <div class="instock">
-                    <h3>Hàng có sẵn</h3>
-                    <p>Hàng luôn có sẵn với số lượng lớn, giá tốt nhất</p>
-                  </div>
-                </div>
-                <div class="span4 chinhsach">
-                  <div class="shipping">
-                    <h3>Vận chuyển</h3>
-                    <p>Miễn phí giao hàng tại Hà Nội và Tp. HCM</p>
-                  </div>
-                </div>
-                <div class="span4 chinhsach">
-                  <div class="warranty">
-                    <h3>Bảo hành chính hãng</h3>
-                    <p>Phân phối và bảo hành sản phẩm chính hãng</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- contact -->
-        <div class="top-panel__right">
-          <div class="contact-block contact-block--header">
-            <div class="contact-block__inner">
-              <div class="contact-block__item contact-block__item--icon">
-                <i class="contact-block__icon linearicon linearicon-telephone telephone-header"></i>
-                <div class="contact-block__value-wrap">
-                  <span class="contact-block__label telephone-header"><%= Company.first.phone %>-Mr Tú </span>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Header content -->
   <div class="header-container">
     <div class="header-container_wrap container">
@@ -116,6 +62,17 @@
           <% end %>
         </div>
         <!-- End Search form -->
+
+        <div class="site-branding">
+          <div class="site-logo">
+            <div class="contact-block__item contact-block__item--icon">
+              <i class="contact-block__icon linearicon linearicon-telephone telephone-header"></i>
+              <div class="contact-block__value-wrap">
+                <span class="contact-block__label telephone-header"><%= Company.first.phone %>-<%= Company.first.contact_info %></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

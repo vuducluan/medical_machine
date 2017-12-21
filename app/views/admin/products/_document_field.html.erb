@@ -1,0 +1,13 @@
+<div class="row show-grid category-block">
+  <div class="funkyradio">
+    <% @documents.each_with_index do |document, index| %>
+      <% document_id = @document_attrs && @document_attrs.keys.include?(document.id.to_s) ? document.id : 0 %>
+
+      <div class="funkyradio-success col-xs-12">
+        <input type="checkbox" name="product-document" id="product-document<%= index %>" value="<%= document.id %>"
+          data-name="<%= document.title %>" class="product-document" <%= 'checked' if document.id == document_id %> />
+        <label for="product-document<%= index %>" title="<%= document.title %>" class="document-label"><%= document.title %></label>
+      </div>
+    <% end %>
+  </div>
+</div>

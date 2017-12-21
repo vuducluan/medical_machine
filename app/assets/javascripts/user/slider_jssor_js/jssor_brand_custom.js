@@ -6,8 +6,10 @@ $(document).on('turbolinks:load', function(){
       $SlideDuration: 5000,
       $SlideEasing: $Jease$.$Linear,
       $PauseOnHover: 4,
-      $SlideWidth: 120,
-      $Cols: 15,
+      $SlideWidth: 100,
+      $SlideHeight: 50,
+      $SlideSpacing: 10,
+      $Cols: 20,
       $Align: 0
     };
 

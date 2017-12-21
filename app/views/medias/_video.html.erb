@@ -1,17 +1,17 @@
 <table class="table table-bordered">
   <tbody>
-    <% @medias.each do |video| %>
+    <% @medias.each_slice(3).to_a.each do |block| %>
       <tr>
-        <td class="video-td">
-          <iframe width="374" height="284" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
-        </td>
-        <td>
-          <div class="content-video">
-            <strong><%= video.title %></strong><br/>
-            <%= video.description %><br/>
-            <p>Ngày tạo : <%= video.created_at %></p>
-          </div>
-        </td>
+        <% block.each do |video| %>
+          <td class="video-td-product">
+            <iframe width="374" height="284" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
+            <div class="content-video">
+              <strong><%= video.title %></strong><br/>
+              <%= video.description %><br/>
+              <p>Ngày tạo : <%= video.created_at %></p>
+            </div>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

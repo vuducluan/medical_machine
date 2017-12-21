@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
   COMPANY_ATTRIBUTES = [:name, :about, :address, :phone, :contact_info, :work_time,
-    :email, :facebook, :instagram, :website]
+    :email, :facebook, :instagram, :website, :map_lat, :map_lng]
 
   validates :name, presence: true
   validates :about, presence: true
@@ -9,4 +9,8 @@ class Company < ApplicationRecord
   validates :contact_info, presence: true
   validates :work_time, presence: true
   validates :email, presence: true
+
+  def fanpage
+    facebook.gsub "https://www.facebook.com/", ""
+  end
 end

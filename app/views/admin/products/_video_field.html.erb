@@ -1,0 +1,13 @@
+<div class="row show-grid category-block">
+  <div class="funkyradio">
+    <% @videos.each_with_index do |video, index| %>
+      <% video_id = @video_attrs && @video_attrs.keys.include?(video.id.to_s) ? video.id : 0 %>
+
+      <div class="funkyradio-success col-xs-12">
+        <input type="checkbox" name="product-video" id="product-video<%= index %>" value="<%= video.id %>"
+          data-name="<%= video.title %>" class="product-video" <%= 'checked' if video.id == video_id %> />
+        <label for="product-video<%= index %>" title="<%= video.title %>" class="video-label"><%= video.title %></label>
+      </div>
+    <% end %>
+  </div>
+</div>
